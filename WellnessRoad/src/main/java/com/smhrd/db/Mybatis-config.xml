@@ -30,7 +30,7 @@
 	
 	<!-- sql 문장을 연결할 수 있는 mappers  -->
 	<mappers>
-
+		<mapper resource="com/smhrd/db/MembersMapper.xml"/>
 	</mappers>
 	
 </configuration>
