@@ -28,7 +28,7 @@
                     if(mem_info == null){
                     %>
                     <div onclick="location.href='Login.jsp';">로그인</div>
-                    <div>회원가입</div>
+                    <div onclick="location.href='register.jsp'">회원가입</div>
                    <%}else{ %>
                    <div>마이페이지</div>
                    <div onclick="location.href='LogoutService';">로그아웃</div>

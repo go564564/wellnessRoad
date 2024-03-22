@@ -2,11 +2,11 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.MembersDAO;
 import com.smhrd.model.MembersDTO;
@@ -20,9 +20,9 @@ public class JoinService extends HttpServlet {
 	
 	
 	String mem_id = request.getParameter("mem_id");
-	String mem_pw = request.getParameter("mem_pw");
 	String mem_nick = request.getParameter("mem_nick");
 	String mem_email = request.getParameter("mem_email");
+	String mem_pw = request.getParameter("mem_pw");
 	
 	MembersDTO dto = new MembersDTO(mem_id, mem_pw, mem_nick, mem_email);
 	MembersDAO dao = new MembersDAO();
@@ -30,12 +30,19 @@ public class JoinService extends HttpServlet {
 	int result = dao.join(dto);
 	
 	if(result>0) {
-		request.setAttribute("mem_email", mem_email);
-		RequestDispatcher rd = request.getRequestDispatcher("JoinTest.jsp");
-		rd.forward(request, response);
+//		RequestDispatcher rd = request.getRequestDispatcher("JoinTest.jsp");
+//		rd.forward(request, response);
+		HttpSession session = request.getSession();
+		MembersDTO join_result = dao.login(dto);
+		
+		
+		
+		session.setAttribute("mem_info", join_result);
+		response.sendRedirect("Main.jsp");
+		
 				
 	}else {
-		response.sendRedirect("JoinTest.jsp");
+		response.sendRedirect("Main.jsp");
 	}
 	
 	

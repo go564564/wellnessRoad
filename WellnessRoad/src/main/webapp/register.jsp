@@ -120,18 +120,35 @@
             <div><img src="./img/loginpeople.png"></div>
             <div>
                 <br><br>
-                <form action="">
+                <form action="JoinService" method="post">
                     <h1>회원가입</h1>
-                    <input type="text" placeholder="Enter ID"> <br>
-                    <input type="text" placeholder="Enter NickName"> <br>
-                    <input type="text" placeholder="Enter Email"> <br>
-                    <input type="password" placeholder="password"> <br>
-                    <input type="password" placeholder="Confirm password"> <br>
-                    <input type="submit" value="Register">
+                    <input type="text" name="mem_id" placeholder="Enter ID"> <br>
+                    <input type="text" name="mem_nick" placeholder="Enter NickName"> <br>
+                    <input type="text" name="mem_email" placeholder="Enter Email"> <br>
+                    <input type="password" name="mem_pw" id="mem_pw" placeholder="password"> <br>
+                    <input type="password" name="mem_pw_check" id="mem_pw_check"placeholder="Confirm password"> <br>
+                    <input type="submit"  class="join_submit" value="Join">
                 </form>
             </div>
         </main>
     </wrap>
+<script>
+document.querySelector('.join_submit').addEventListener(
+		"click",
+		function(e){
+			var pwValue = document.querySelector("mem_pw").value;
+			var pwValueCheck = document.qeurySelector("mem_pw_check").value;
+		
+			if(pwValue!==pwValueCheck){
+				alert("비밀번호가 일치하지않습니다.")
+				e.preventDefault();
+			}
+		
+		}
+		)
+</script>
+
+
 </body>
 
 </html>
