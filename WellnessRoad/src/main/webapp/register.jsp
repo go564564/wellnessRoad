@@ -132,10 +132,13 @@ button:hover {
 				<input type="text" name="mem_id" id="inputId" placeholder="Enter ID"> <br>
 				<button type="button" id="inputID">ID Check</button>
 				<span id="resultCheckID"></span><br> 
-				<input type="text" name="mem_nick"
+				
+				<input type="text" name="mem_nick" id="inputNickA"
 					placeholder="Enter NickName"> <br>
 				<button type="button" id="inputNick">Nick Check</button>
-				<span></span><br> <input type="text" name="mem_email"
+				<span id="resultCheckNick"></span><br> 
+				
+				<input type="text" name="mem_email"
 					placeholder="Enter Email"> <br> <input type="password"
 					name="mem_pw" id="mem_pw" placeholder="password"> <br>
 				<input type="password" name="mem_pw_check" id="mem_pw_check"
@@ -173,12 +176,28 @@ button:hover {
 	        });
 	    });
 	});
-	
-		
-	
+
 	//닉네임 중복체크
-	
-	
+		$(document).ready(function() {
+	    $('#inputNick').click(function() {
+	        var input_nick = $('#inputNickA').val();
+	        $.ajax({
+	            url: "NickCheckService",
+	            data: { "inputNick": input_nick },
+	            type: 'get',
+	            success: function(data) {
+	                if (data == 'true') {
+	                    $('#resultCheckNick').text("사용할 수 없는 아이디");
+	                } else if (data == 'false') {
+	                    $('#resultCheckNick').text("사용할 수 있는 아이디");
+	                }
+	            },
+	            error: function() {
+	                alert("통신실패");
+	            }
+	        });
+	    });
+	});
 	
 	
 	

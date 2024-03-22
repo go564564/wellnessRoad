@@ -46,6 +46,20 @@ public class MembersDAO {
 		
 	}
 	
+	public boolean nickCheck(String inputNick) {
+		boolean checkNick = false;
+		try {
+			checkNick = sqlSession.selectOne("nickCheck", inputNick);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();	
+		}
+		return checkNick;
+		
+		
+	}
 	
 	
 	

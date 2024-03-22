@@ -20,6 +20,11 @@
 		select case when count(*)>0 then 1 else 0 end result from members where mem_id=#{mem_id}
 	</select>
 	
+	<!-- 회원가입/Nickname중복확인 -->
+	<select id="nickCheck" parameterType="String" resultType="boolean">
+		select case when count(*)>0 then 1 else 0 end result from members where mem_nick=#{mem_nick}
+	</select>
+	
 
 
 
