@@ -115,7 +115,7 @@
                 <h3>회원이 아니시라면</h3>
                 <h3><b><a href="">여기를!</a></b>눌러 가입하세요!</h3>
             </div>
-            <div><img src="./img/loginpeople2.png"></div>
+            <div><img src="./img/loginpeople3.png"></div>
             <div>
                 <br><br>
                 <form action="">
