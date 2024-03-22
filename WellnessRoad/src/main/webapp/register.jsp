@@ -220,9 +220,9 @@ button:hover {
 	            type: 'get',
 	            success: function(data) {
 	                if (data == 'true') {
-	                    $('#resultCheckNick').text("사용할 수 없는 아이디");
+	                    $('#resultCheckNick').text("사용할 수 없는 닉네임");
 	                } else if (data == 'false') {
-	                    $('#resultCheckNick').text("사용할 수 있는 아이디");
+	                    $('#resultCheckNick').text("사용할 수 있는 닉네임");
 	                }
 	            },
 	            error: function() {
