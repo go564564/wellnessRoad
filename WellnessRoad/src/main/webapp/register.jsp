@@ -136,8 +136,8 @@
 document.querySelector('.join_submit').addEventListener(
 		"click",
 		function(e){
-			var pwValue = document.querySelector("mem_pw").value;
-			var pwValueCheck = document.qeurySelector("mem_pw_check").value;
+			var pwValue = document.querySelector("#mem_pw").value;
+			var pwValueCheck = document.qeurySelector("#mem_pw_check").value;
 		
 			if(pwValue!==pwValueCheck){
 				alert("비밀번호가 일치하지않습니다.")
