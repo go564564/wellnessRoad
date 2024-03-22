@@ -23,7 +23,6 @@
                     <div>회원가입</div>
                 </div>
 
-<<<<<<< HEAD
             </div>
             <div id="logo">
                 <h1>Wellness</h1>
