@@ -32,12 +32,13 @@ public class JoinService extends HttpServlet {
 	if(result>0) {
 //		RequestDispatcher rd = request.getRequestDispatcher("JoinTest.jsp");
 //		rd.forward(request, response);
-		HttpSession session = request.getSession();
-		MembersDTO join_result = dao.login(dto);
+		
+		// 회원가입성공시 자동로그인
+//		HttpSession session = request.getSession();
+//		MembersDTO join_result = dao.login(dto);
+//		session.setAttribute("mem_info", join_result);
 		
 		
-		
-		session.setAttribute("mem_info", join_result);
 		response.sendRedirect("Main.jsp");
 		
 				
