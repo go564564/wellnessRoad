@@ -131,9 +131,10 @@ button:hover {
 				<h1>회원가입</h1>
 				<input type="text" name="mem_id" id="inputId" placeholder="Enter ID"> <br>
 				<button type="button" id="inputID">ID Check</button>
-				<span id="resultCheckID"></span><br> <input type="text" name="mem_nick"
+				<span id="resultCheckID"></span><br> 
+				<input type="text" name="mem_nick"
 					placeholder="Enter NickName"> <br>
-				<button type="button">Nick Check</button>
+				<button type="button" id="inputNick">Nick Check</button>
 				<span></span><br> <input type="text" name="mem_email"
 					placeholder="Enter Email"> <br> <input type="password"
 					name="mem_pw" id="mem_pw" placeholder="password"> <br>
@@ -145,8 +146,13 @@ button:hover {
 	</main>
 	</wrap>
 	<script src="assets/js/jquery.min.js"></script>
+	
+	
+	
+	
 	<script>
 		
+	// 아이디 중복체크
 	$(document).ready(function() {
 	    $('#inputID').click(function() {
 	        var input_id = $('#inputId').val();
@@ -167,6 +173,13 @@ button:hover {
 	        });
 	    });
 	});
+	
+		
+	
+	//닉네임 중복체크
+	
+	
+	
 	
 	
 	
