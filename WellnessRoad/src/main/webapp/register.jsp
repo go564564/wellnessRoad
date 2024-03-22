@@ -56,7 +56,11 @@
 
         main>div:nth-child(3) {
             width: 500px;
-            margin-top: 150px;
+            margin-top: 50px;
+        }
+
+        main>div:nth-child(3) input,button { 
+        margin-top: 20px;
         }
 
         input {
@@ -65,8 +69,7 @@
             background-color: #EFFFF2;
             border: none;
             border-radius: 30px;
-            padding: 0 20px;
-            margin-top: 20px;
+            padding: 0 20px;            
             font-size: 18px;
             outline: none;
             /* 포커스 효과 제거 */
@@ -84,9 +87,9 @@
             /* 포커스 시 테두리 스타일 변경 */
         }
 
-        input[type="submit"] {
-            width: 400px;
-            height: 60px;
+        input[type="submit"],button {
+            width: 200px;
+            height: 40px;
             background-color: #48BB78;
             color: white;
             border: none;
@@ -97,6 +100,9 @@
         }
 
         input[type="submit"]:hover {
+            background-color: #38A169;
+        }
+        button:hover {
             background-color: #38A169;
         }
     </style>
@@ -123,7 +129,9 @@
                 <form action="JoinService" method="post">
                     <h1>회원가입</h1>
                     <input type="text" name="mem_id" placeholder="Enter ID"> <br>
+                    <button type="button">ID Check</button><span></span><br>
                     <input type="text" name="mem_nick" placeholder="Enter NickName"> <br>
+                    <button type="button">Nick Check</button><span></span><br>
                     <input type="text" name="mem_email" placeholder="Enter Email"> <br>
                     <input type="password" name="mem_pw" id="mem_pw" placeholder="password"> <br>
                     <input type="password" name="mem_pw_check" id="mem_pw_check"placeholder="Confirm password"> <br>
