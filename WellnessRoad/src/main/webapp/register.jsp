@@ -127,7 +127,7 @@ button:hover {
 		</div>
 		<div>
 			<br> <br>
-			<form action="JoinService" method="post">
+			<form action="JoinService" method="post" name="inputForm" onsubmit="return checkField();">
 				<h1>회원가입</h1>
 				<input type="text" name="mem_id" id="inputId" placeholder="Enter ID"> <br>
 				<button type="button" id="inputID">ID Check</button>
@@ -137,12 +137,13 @@ button:hover {
 					placeholder="Enter NickName"> <br>
 				<button type="button" id="inputNick">Nick Check</button>
 				<span id="resultCheckNick"></span><br> 
-				
 				<input type="text" name="mem_email"
-					placeholder="Enter Email"> <br> <input type="password"
-					name="mem_pw" id="mem_pw" placeholder="password"> <br>
-				<input type="password" name="mem_pw_check" id="mem_pw_check"
-					placeholder="Confirm password"> <br> <input
+					placeholder="Enter Email" id="mem_email"> <br> 
+				<input type="password" name="mem_pw" id="mem_pw" oninput="pwCheck()"placeholder="password"> <br>
+				<input type="password" name="mem_pw_check" id="mem_pw_check" oninput="pwCheck()" placeholder="Confirm password"> 
+				<br>
+				<span id="pwConfirm"></span>
+				<br> <input
 					type="submit" class="join_submit" value="Join">
 			</form>
 		</div>
@@ -154,6 +155,38 @@ button:hover {
 	
 	
 	<script>
+	
+	//null값 입력시 alert 출력
+	function checkField(){
+		let inputs = document.inputForm;
+		if(!inputs.inputId.value){
+			alert("아이디를 입력하세요");
+			return false;
+		}
+		if(!inputs.inputNickA.value){
+			alert("닉네임을 입력하세요")
+			return false;
+		}
+		if(!inputs.mem_email.value){
+			alert("이메일을 입력하세요")
+			return false;
+		}
+		if(!inputs.mem_pw.value){
+			alert("비밀번호를 입력하세요")
+			return false;
+		}
+		if(!inputs.mem_pw_check.value){
+			alert("비밀번호 확인란을 입력하세요")
+			return false;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
 		
 	// 아이디 중복체크
 	$(document).ready(function() {
@@ -198,27 +231,36 @@ button:hover {
 	        });
 	    });
 	});
+		
+	//비밀번호 일치 체크 - 실시간 버전
+	function pwCheck(){
+		if($('#mem_pw').val()==$('#mem_pw_check').val()){
+			$('#pwConfirm').text("비밀번호가 일치합니다").css('color','green')
+		}else{
+			$('#pwConfirm').text('비밀번호가 일치하지 않습니다.').css('color','red')			
+		}
+	}
+		
 	
 	
 	
 	
 	
-	
-		//비밀번호 일치 체크
-		document
-				.querySelector('.join_submit')
-				.addEventListener(
-						"click",
-						function(e) {
-							var pwValue = document.querySelector("#mem_pw").value;
-							var pwValueCheck = document
-									.querySelector("#mem_pw_check").value;
-
-							if (pwValue !== pwValueCheck) {
-								alert("비밀번호가 일치하지 않습니다.");
-								e.preventDefault(); // 폼 전송 중단
-							}
-						});
+		//비밀번호 일치 체크 -alert 버전
+//		document
+//				.querySelector('.join_submit')
+//				.addEventListener(
+//						"click",
+//						function(e) {
+//							var pwValue = document.querySelector("#mem_pw").value;
+//							var pwValueCheck = document
+//									.querySelector("#mem_pw_check").value;
+//
+	//						if (pwValue !== pwValueCheck) {
+		//						alert("비밀번호가 일치하지 않습니다.");
+			//					e.preventDefault(); // 폼 전송 중단
+				//			}
+					//	});
 	</script>
 
 
