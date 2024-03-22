@@ -6,6 +6,13 @@
 		insert into members values(#{mem_id}, #{mem_pw}, #{mem_nick}, #{mem_email},
 		sysdate)
 	</insert>
+	
+	<select id="login" parameterType="com.smhrd.model.MembersDTO" 
+	resultType="com.smhrd.model.MembersDTO">
+	select * from members where mem_id=#{mem_id} and mem_pw=#{mem_pw}
+	</select>
+	
+	
 
 
 

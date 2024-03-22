@@ -28,6 +28,22 @@ public class MembersDTO {
 		this.mem_email = mem_email;
 	}
 	
+	// 생성자 (login용)
+	public MembersDTO(String mem_id, String mem_pw) {
+		this.mem_id = mem_id;
+		this.mem_pw = mem_pw;
+	}
+	
+	
+	
+	
+	//default
+	MembersDTO(){
+		
+	}
+	
+	
+	
 	
 	
 

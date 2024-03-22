@@ -17,7 +17,17 @@ public class MembersDAO {
 		}
 		sqlSession.close();
 		
-		return 0;
+		return result;
+	}
+	
+	public MembersDTO login(MembersDTO dto) {
+		
+		
+	 	MembersDTO result = sqlSession.selectOne("login", dto);
+		 
+		sqlSession.close();
+		
+		return result;
 	}
 	
 	

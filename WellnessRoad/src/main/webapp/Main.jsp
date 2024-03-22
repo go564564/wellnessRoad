@@ -10,6 +10,11 @@
 </head>
 <body>
 	<div id="container">
+        
+        <%
+        MembersDTO mem_info = (MembersDTO)session.getAttribute("mem_info");
+        %>
+        
         <header>
             <div></div>
             <div id="menu">
@@ -19,8 +24,15 @@
                     <div>게시판</div>
                 </div>
                 <div id="rightMenu">
-                    <div>로그인</div>
+                    <%
+                    if(mem_info == null){
+                    %>
+                    <div onclick="location.href='Login.jsp';">로그인</div>
                     <div>회원가입</div>
+                   <%}else{ %>
+                   <div>마이페이지</div>
+                   <div onclick="location.href='LogoutService';">로그아웃</div>
+                    <%} %>
                 </div>
 
             </div>

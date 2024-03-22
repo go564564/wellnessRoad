@@ -118,10 +118,10 @@
             <div><img src="./img/loginpeople3.png"></div>
             <div>
                 <br><br>
-                <form action="">
+                <form action="LoginService" method="post">
                     <h1>로그인</h1>
-                    <input type="text" placeholder="Enter ID"> <br>                   
-                    <input type="password" placeholder="password"> <br>
+                    <input type="text" name="mem_id" placeholder="Enter ID"> <br>                   
+                    <input type="password" name="mem_pw" placeholder="password"> <br>
                     <br></br>
                     <p style="margin-left: 260px;"><a href="">Forget password?</a></p>
                     <input type="submit" value="Login">
