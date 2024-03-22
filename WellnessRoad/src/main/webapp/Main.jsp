@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MembersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,6 +23,7 @@
                     <div>회원가입</div>
                 </div>
 
+<<<<<<< HEAD
             </div>
             <div id="logo">
                 <h1>Wellness</h1>
@@ -42,6 +44,9 @@
             </div>
         </footer>
     </div>
+	
+
+
 	
 
 
