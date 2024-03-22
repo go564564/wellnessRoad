@@ -30,6 +30,21 @@ public class MembersDAO {
 		return result;
 	}
 	
+	public boolean idCheck(String inputID) {
+		boolean checkID = false;
+		try {
+			checkID = sqlSession.selectOne("idCheck", inputID);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();	
+		}
+		return checkID;
+
+		
+		
+	}
 	
 	
 	
