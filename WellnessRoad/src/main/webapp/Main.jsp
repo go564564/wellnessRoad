@@ -84,7 +84,7 @@
 			<!-- 모달창인데 테스트중 -->
 	<div class="modal" id="exampleModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" style="max-width: 1000px max-height: 1000px"role="document">
+		<div class="modal-dialog modal-dialog-centered" style="max-width: 90vw; max-height: 90vh" role="document">
 			<div class="modal-content">
 				<!-- Modal Header -->
 				<div class="modal-header">
@@ -95,8 +95,8 @@
 					</button>
 				</div>
 				<!-- Modal Body -->
-				<div class="modal-body">
-					<div class="form-group">
+				<div class="modal-body" style="max-width: 90%; overflow-y: auto;">
+					<div class="form-group" >
 						<label for="travelTitle">여행 제목:</label> <input type="text"
 							class="form-control" id="travelTitle">
 					</div>
