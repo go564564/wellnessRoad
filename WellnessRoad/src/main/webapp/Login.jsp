@@ -110,7 +110,7 @@ input[type="submit"]:hover {
 			<br>
 			<h3>회원이 아니시라면</h3>
 			<h3>
-				<b><a href="">여기를!</a></b>눌러 가입하세요!
+				<b><a href="register.jsp">여기를!</a></b>눌러 가입하세요!
 			</h3>
 		</div>
 		<div>

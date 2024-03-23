@@ -119,7 +119,7 @@ button:hover {
 			<br>
 			<h3>이미 등록된 아이디가 있다면</h3>
 			<h3>
-				<b><a href="login.html">여기를!</a></b> 누르세요!
+				<b><a href="Login.jsp">여기를!</a></b> 누르세요!
 			</h3>
 		</div>
 		<div>
