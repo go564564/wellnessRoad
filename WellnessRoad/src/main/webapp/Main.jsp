@@ -104,10 +104,7 @@
 						<label for="travelPeriod">여행 기간:</label> <input type="text"
 							class="form-control" id="travelPeriod">
 					</div>
-					<div class="form-group">
-						<label for="description">설명:</label>
-						<textarea class="form-control" id="description"></textarea>
-					</div>
+					
 				</div>
 				<!-- Modal Footer -->
 				<div class="modal-footer">
