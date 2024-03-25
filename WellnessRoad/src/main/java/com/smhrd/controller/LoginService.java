@@ -34,7 +34,9 @@ public class LoginService extends HttpServlet {
 			response.sendRedirect("Main.jsp");
 		}else {
 			System.out.println("로그인 실패 . .");
-			response.sendRedirect("Login.jsp");
+			response.sendRedirect("Login.jsp?error=invalid_credentials");
+			
+			
 		}
 		
 		

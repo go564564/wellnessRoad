@@ -124,6 +124,9 @@ input[type="submit"]:hover {
 				<input type="text" name="mem_id" id="mem_id" placeholder="Enter ID">
 				<br> <input type="password" name="mem_pw" id="mem_pw"
 					placeholder="password"> <br> <br></br>
+				
+				<p id="error-msg" style="color: red;"></p>
+				
 				<p style="margin-left: 260px;">
 					<a href="">Forget password?</a>
 				</p>
@@ -150,6 +153,19 @@ input[type="submit"]:hover {
 						e.preventDefault(); // 폼 제출 막기
 					}
 				});
+		
+		 // URL에서 쿼리 문자열 가져오기
+		  const urlParams = new URLSearchParams(window.location.search);
+		  // 오류 메시지가 있는지 확인
+		  const error = urlParams.get('error');
+		  // 오류 메시지를 표시할 요소 가져오기
+		  const errorMsgElement = document.getElementById('error-msg');
+
+		  // 오류 메시지에 따라 적절한 메시지 표시
+		  if (error === 'invalid_credentials') {
+		    errorMsgElement.textContent = '아이디 또는 비밀번호가 잘못되었습니다.';
+		  }
+		
 	</script>
 	
 	
