@@ -13,10 +13,13 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- Data ra -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
 
 </head>
@@ -38,8 +41,8 @@
 					<!-- 테스트중 -->
 					<div class="btn btn-primary" data-toggle="modal"
 						data-target="#exampleModal">여행 계획하기</div>
-					
-					
+
+
 					<div>게시판</div>
 				</div>
 				<div id="rightMenu">
@@ -66,8 +69,8 @@
 		</header>
 		<main>
 			<div>
-				<img src="./img/main_sample2.jpg">
-				<img src="./img/고흥 이미지/거금생태숲_1_공공3유형.jpg">
+				<img src="./img/main_sample2.jpg"> <img
+					src="./img/고흥 이미지/거금생태숲_1_공공3유형.jpg">
 			</div>
 		</main>
 		<footer>
@@ -87,41 +90,78 @@
 
 
 
-			<!-- 모달창인데 테스트중 -->
-	<div class="modal" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" style="max-width: 90vw; max-height: 90vh" role="document">
-			<div class="modal-content">
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h5 class="modal-title">새로운 일정 만들기</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<!-- Modal Body -->
-				<div class="modal-body" style="max-width: 90%; overflow-y: auto;">
-					<div class="form-group" >
-						<label for="travelTitle">여행 제목:</label> <input type="text"
-							class="form-control" id="travelTitle">
-					</div>
-					<div class="form-group">
-						<label for="travelPeriod">여행 기간:</label> <input type="text"
-							class="form-control" id="travelPeriod">
-							
-					</div>
-					
-				</div>
-				<!-- Modal Footer -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">취소</button>
-					<button type="button" class="btn btn-primary">저장</button>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- 모달창인데 테스트중 -->
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 800px">
+    
+    
+        <div class="modal-content" style="width: 800px">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">새로운 일정 만들기</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            
+            
+            <!-- Modal Body -->
+            <div class="modal-body" ; style="width: 800px" overflow-y: auto;">
+                <div class="form-group">
+                    <label for="travelTitle">여행 제목:</label>
+                    <input type="text" class="form-control" id="travelTitle">
+                </div>
+                <div class="form-group">
+                    <label for="travelPeriod">여행 기간:</label>
+                    <input type="text" class="form-control" id="travelPeriod">
+                </div>
+            </div>
+            
+            
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary">저장</button>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Date Range Picker를 travelPeriod 입력란에 적용합니다.
+        $('#travelPeriod').daterangepicker({
+            opens: 'left', // 달력이 왼쪽에서 열립니다.
+            locale: {
+            	 format: 'YYYY-MM-DD',
+                 daysOfWeek: [
+                     "일", "월", "화", "수", "목", "금", "토"
+                 ],
+                 monthNames: [
+                     "1월", "2월", "3월", "4월", "5월", "6월",
+                     "7월", "8월", "9월", "10월", "11월", "12월"
+                 ],
+                
+                
+                cancelLabel: 'Clear' // 선택을 취소하는 레이블을 지정합니다.
+            }
+        });
+
+        // 모달이 열릴 때 큰 달력을 표시합니다.
+        $('#exampleModal').on('shown.bs.modal', function() {
+            $('#travelPeriod').click(); // 입력란 클릭 이벤트를 트리거합니다.
+        });
+        
+        
+    });
+    
+    $('.daterangepicker.ltr.show-calendar.opensleft').style.width = "800px";
+</script>
 
 
 
@@ -131,8 +171,6 @@
 
 
 
-
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<!-- Bootstrap JavaScript -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>

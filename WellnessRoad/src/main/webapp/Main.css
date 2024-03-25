@@ -1,141 +1,159 @@
 @charset "UTF-8";
- * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            box-sizing: border-box;
-            background-repeat: no-repeat;
-            /* 이미지 반복 없음 */
-            background-size: cover;
-            /* 이미지를 컨테이너에 맞추기 위해 추가 */
 
-        }
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	/* 이미지 반복 없음 */
+	background-size: cover;
+	/* 이미지를 컨테이너에 맞추기 위해 추가 */
 
-        #menu {
-            grid-area: menu;
-            background-color: white;
-            /* z-index: 100; */
-            line-height: 70px;
-            display: flex;
-            justify-content: space-between;
-            text-align: center;
-        }
+}
 
-
-        #logoImg{
-            width: 200px;
-            height: 70px;
-        }
-
-        #menu>div>div {
-            width: 200px;
-        }
-
-        #menu>div>div {
-            font-size: 23px; /* 글자 크기를 20px로 변경 */
-            color: #222;
-            font-family: inherit;
-            font-weight: 800;
-            cursor: pointer;
-            position: relative;
-            border: none;
-            background: none;
-            text-transform: uppercase;
-            transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-            transition-duration: 400ms;
-            transition-property: color;
-        }
-
-        #menu>div>div:focus,
-        #menu>div>div:hover {
-            color: #222;
-        }
-
-        #menu>div>div:focus:after,
-        #menu>div>div:hover:after {
-            width: 100%;
-            left: 0%;
-        }
-
-        #menu>div>div:after {
-            content: "";
-            pointer-events: none;
-            bottom: 5px;
-            left: 50%;
-            position: absolute;
-            width: 0%;
-            height: 4px;
-            background-color: #96E9C6;
-            transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-            transition-duration: 400ms;
-            transition-property: width, left;
-        }
+#menu {
+	grid-area: menu;
+	background-color: white;
+	/* z-index: 100; */
+	line-height: 70px;
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
 
 
+#logoImg {
+	width: 200px;
+	height: 70px;
+}
 
-        #leftMenu {
-            display: flex;
-        }
+#menu>div>div {
+	width: 200px;
+}
 
-        #leftMenu div {
-            margin-left: 100px;
-        }
+#menu>div>div {
+	font-size: 23px;
+	/* 글자 크기를 20px로 변경 */
+	color: #222;
+	font-family: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+}
 
-        #rightMenu {
-            display: flex;
-        }
+#menu>div>div:focus,
+#menu>div>div:hover {
+	color: #222;
+}
 
-        #container {
-            display: grid;
-            grid-template-rows: 470px auto 150px;
-        }
+#menu>div>div:focus:after,
+#menu>div>div:hover:after {
+	width: 100%;
+	left: 0%;
+}
 
-        header {
-            display: grid;
-            grid-template-columns: 100px auto 100px;
-            grid-template-rows: 20px 70px 380px;
-            grid-template-areas:
-                ". . ."
-                ". menu ."
-                ". logo .";
-            background-image: url("./img/bamboo2.jpg");
-        }
+#menu>div>div:after {
+	content: "";
+	pointer-events: none;
+	bottom: 5px;
+	left: 50%;
+	position: absolute;
+	width: 0%;
+	height: 4px;
+	background-color: #96E9C6;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: width, left;
+}
 
-        #logo {
-            font-family: "Inknut Antiqua", serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 30px;
-            text-align: right;
-            grid-area: logo;
-            color: white;
-        }
 
-        #logo h1,
-        h2,
-        h3 {
-            margin-right: 60px;
-        }
 
-        main img {
-            width: 1000px;
-            height: 500px;
-            display: block;
-        }
+#leftMenu {
+	display: flex;
+}
 
-        main {
-            margin: auto;
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
+#leftMenu div {
+	margin-left: 100px;
+}
 
-        footer{
-            background-color: #3a3a3a;
-        }
+#rightMenu {
+	display: flex;
+}
 
-        footer div{ 
-            color:white;          
-            text-align: right; /* 텍스트를 오른쪽 정렬합니다. */
-            margin-top: 40px; /* 위쪽 여백을 추가합니다. */
-            margin-right: 60px; /* 오른쪽 여백을 추가합니다. */
-        }
+#container {
+	display: grid;
+	grid-template-rows: 470px auto 150px;
+}
+
+header {
+	display: grid;
+	grid-template-columns: 100px auto 100px;
+	grid-template-rows: 20px 70px 380px;
+	grid-template-areas:
+		". . ."
+		". menu ."
+		". logo .";
+	background-image: url("./img/bamboo2.jpg");
+}
+
+#logo {
+	font-family: "Inknut Antiqua", serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 30px;
+	text-align: right;
+	grid-area: logo;
+	color: white;
+}
+
+#logo h1,
+h2,
+h3 {
+	margin-right: 60px;
+}
+
+main img {
+	width: 1000px;
+	height: 500px;
+	display: block;
+}
+
+main {
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+footer {
+	background-color: #3a3a3a;
+}
+
+footer div {
+	color: white;
+	text-align: right;
+	/* 텍스트를 오른쪽 정렬합니다. */
+	margin-top: 40px;
+	/* 위쪽 여백을 추가합니다. */
+	margin-right: 60px;
+	/* 오른쪽 여백을 추가합니다. */
+}
+
+
+#exampleModal>.modal-dialog {
+    max-width: 800px !important;
+    margin: auto;
+}
+
+#menu>div>div{
+	padding : 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
