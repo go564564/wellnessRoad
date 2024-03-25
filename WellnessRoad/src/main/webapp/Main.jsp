@@ -62,7 +62,7 @@
 		<main>
 			<div>
 				<img src="./img/main_sample2.jpg">
-				<img src="./img/geogum.jpg">
+				<img src="./img/고흥 이미지/거금생태숲_1_공공3유형.jpg">
 			</div>
 		</main>
 		<footer>
