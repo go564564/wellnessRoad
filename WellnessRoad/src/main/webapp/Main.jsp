@@ -104,6 +104,7 @@
 					<div class="form-group">
 						<label for="travelPeriod">여행 기간:</label> <input type="text"
 							class="form-control" id="travelPeriod">
+							
 					</div>
 					
 				</div>
