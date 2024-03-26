@@ -17,7 +17,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
@@ -108,10 +107,10 @@
             
             
             <!-- Modal Body -->
-            <div class="modal-body" ; style="width: 800px" overflow-y: auto;">
+            <div class="modal-body" ; style="width: 800px; overflow-y: auto;">
                 <div class="form-group">
                     <label for="travelTitle">여행 제목:</label>
-                    <input type="text" class="form-control" id="travelTitle">
+                    <input type="text" name="trip_name" class="form-control" id="travelTitle">
                 </div>
                 <div class="form-group">
                     <label for="travelPeriod">여행 기간:</label>
@@ -123,7 +122,7 @@
             <!-- Modal Footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                <button type="button" class="btn btn-primary">저장</button>
+                <button type="button" class="btn btn-primary" onclick="saveTrip()">저장</button>
             </div>
         </div>
         
@@ -131,12 +130,20 @@
         
     </div>
 </div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" defer></script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        // Date Range Picker를 travelPeriod 입력란에 적용합니다.
+  
+    
+    
+    
+    
+    $(document).ready(function(){
+
         $('#travelPeriod').daterangepicker({
-            opens: 'left', // 달력이 왼쪽에서 열립니다.
+            
+        	
+        	opens: 'left', // 달력이 왼쪽에서 열립니다.
             locale: {
             	 format: 'YYYY-MM-DD',
                  daysOfWeek: [
@@ -146,21 +153,81 @@
                      "1월", "2월", "3월", "4월", "5월", "6월",
                      "7월", "8월", "9월", "10월", "11월", "12월"
                  ],
-                
-                
-                cancelLabel: 'Clear' // 선택을 취소하는 레이블을 지정합니다.
+                applyLabel: "저장",
+                cancelLabel: '취소' // 선택을 취소하는 레이블을 지정합니다.
             }
         });
-
-        // 모달이 열릴 때 큰 달력을 표시합니다.
-        $('#exampleModal').on('shown.bs.modal', function() {
-            $('#travelPeriod').click(); // 입력란 클릭 이벤트를 트리거합니다.
-        });
-        
-        
-    });
+    })
     
-    $('.daterangepicker.ltr.show-calendar.opensleft').style.width = "800px";
+    /*
+    $('#travelPeriod').click(function(){
+ 
+        $('#travelPeriod').daterangepicker({
+            
+        	
+        	opens: 'left', // 달력이 왼쪽에서 열립니다.
+            locale: {
+            	 format: 'YYYY-MM-DD',
+                 daysOfWeek: [
+                     "일", "월", "화", "수", "목", "금", "토"
+                 ],
+                 monthNames: [
+                     "1월", "2월", "3월", "4월", "5월", "6월",
+                     "7월", "8월", "9월", "10월", "11월", "12월"
+                 ],
+                applyLabel: "저장",
+                cancelLabel: '취소' // 선택을 취소하는 레이블을 지정합니다.
+            }
+        });
+    	
+       // $('.daterangepicker.ltr.show-calendar.opensleft').css('width', '800px');
+
+    });
+   */
+        
+        
+        
+    
+    
+    
+    
+    //날짜값저장/쪼개기/
+    function saveTrip(){
+    	//Date Range Picker에서 선택한 날짜값 가져와서
+    	//쪼개기 split?
+    	var travelTitle = $('#travelTitle').val();
+    	var selectedDates = $('#travelPeriod').val().split(" - ");
+    	var startDate = selectedDates[0];
+    	var endDate = selectedDates[1];
+    	
+    	console.log("시작 날짜 : " + startDate);
+    	console.log("끝 날짜 : " + endDate);
+     	
+    	
+    	$.ajax({
+    		 type: "get",
+             url: "CreateTripService",
+    		 data: {
+    			travelTitle: travelTitle,
+    			startDate: startDate,
+    			endDate: endDate
+    		},
+    	success : function(response){
+    		 console.log("여행일정 저장완료");
+    	},
+    	error : function(xhr, status, error){
+    		console.error("오류 발생: " + error);
+    	}
+    		
+    		
+    	})
+    	
+    	
+    	
+    	
+    	
+    }
+    
 </script>
 
 
