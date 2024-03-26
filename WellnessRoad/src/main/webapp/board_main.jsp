@@ -15,7 +15,6 @@
 <%
 	// mem_info 불러오기 (로그인정보-사용자)
 	MembersDTO mem_info = (MembersDTO)session.getAttribute("mem_info");
-	
 %>
 <div class="board_wrap">
         <div class="board_title">

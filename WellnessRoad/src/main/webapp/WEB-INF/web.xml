@@ -40,6 +40,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.CreateTripService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BoardWriteService</servlet-name>
+  	<display-name>BoardWriteService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.BoardWriteService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -63,5 +69,9 @@
   <servlet-mapping>
   	<servlet-name>CreateTripService</servlet-name>
   	<url-pattern>/CreateTripService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BoardWriteService</servlet-name>
+  	<url-pattern>/BoardWriteService</url-pattern>
   </servlet-mapping>
 </web-app>

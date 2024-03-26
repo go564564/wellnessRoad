@@ -2,4 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.db.BoardsMapper">
 
+	<insert id="upload" parameterType="com.smhrd.model.BoardsDTO">
+ 		insert into boards (b_title, b_content, created_at, b_views, b_likes, mem_id) values(#{b_title},#{b_content},sysdate,0,0,#{mem_id})
+	</insert>
+
 </mapper>
