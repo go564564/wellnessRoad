@@ -27,7 +27,7 @@ public class BoardsDTO {
 
 	
 	//default DTO
-	BoardsDTO(){
+	public BoardsDTO(){
 		
 	}
 
