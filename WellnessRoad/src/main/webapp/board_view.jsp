@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.BoardsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +13,9 @@
 	
 </head>
 <body>
+<%
+	BoardsDTO dto = new BoardsDTO();
+%>
    <div class="board_wrap">
         <div class="board_title">
             <strong>게시판</strong>
@@ -19,7 +23,9 @@
         <div class="board_view_wrap">
             <div class="board_view">
                 <div class="title">
-                    글 제목이 들어갑니다.
+                   <%
+                   dto.getB_content();
+                   %>
                 </div>
                 <div class="info">
                     <dl>

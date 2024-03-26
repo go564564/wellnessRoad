@@ -40,6 +40,20 @@ public class BoardWriteService extends HttpServlet {
 		}else {
 			System.out.println("등록 실패");
 		}
+	
+		
+		
+		
+		response.sendRedirect("board_view.jsp");
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
