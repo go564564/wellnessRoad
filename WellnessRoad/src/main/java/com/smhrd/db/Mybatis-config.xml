@@ -11,6 +11,7 @@
 
 <typeAliases>
 	<typeAlias type="com.smhrd.model.MembersDTO" alias="Members"/>
+	<typeAlias type="com.smhrd.model.TripsDTO" alias="Trips"/>
 </typeAliases>
 	
 	

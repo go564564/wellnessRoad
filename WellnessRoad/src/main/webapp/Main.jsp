@@ -194,10 +194,12 @@
     	console.log("끝 날짜 : " + endDate);
      	
     	
+    	<% if(mem_info != null) { %>
     	$.ajax({
     		 type: "get",
              url: "CreateTripService",
     		 data: {
+    			mem_id: '<%= mem_info.getMem_id() %>',
     			travelTitle: travelTitle,
     			startDate: startDate,
     			endDate: endDate
@@ -210,7 +212,8 @@
     	}
     		
     		
-    	})
+    	});
+    	<%}%>
     	
     	
     	

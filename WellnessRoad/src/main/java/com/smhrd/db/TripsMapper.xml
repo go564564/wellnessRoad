@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.smhrd.db.TripsMapper"></mapper>
+<mapper namespace="com.smhrd.db.TripsMapper">
+
+<insert id="makeTrip" parameterType="com.smhrd.model.TripsDTO">
+	
+	insert into trips (trip_name, mem_id, st_dt, ed_dt) values(#{trip_name}, #{mem_id}, #{st_dt}, #{ed_dt})
+</insert>
+
+</mapper>

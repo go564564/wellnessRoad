@@ -20,6 +20,17 @@ public class TripsDTO {
 		this.st_dt = st_dt;
 		this.ed_dt = ed_dt;
 	}
+	
+	public TripsDTO(String trip_name, String mem_id, String st_dt, String ed_dt) {
+	    this.trip_name = trip_name;
+		this.mem_id = mem_id;
+		this.st_dt = st_dt;
+		this.ed_dt = ed_dt;
+	}
+	
+	
+	
+	
 
 	public int getTrip_idx() {
 		return trip_idx;
