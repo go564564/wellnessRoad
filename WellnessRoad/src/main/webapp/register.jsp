@@ -198,9 +198,9 @@ button:hover {
 	            type: 'get',
 	            success: function(data) {
 	                if (data == 'true') {
-	                    $('#resultCheckID').text("사용할 수 없는 아이디");
+	                    $('#resultCheckID').text("사용할 수 없는 아이디").css('color','red');
 	                } else if (data == 'false') {
-	                    $('#resultCheckID').text("사용할 수 있는 아이디");
+	                    $('#resultCheckID').text("사용할 수 있는 아이디").css('color','green');
 	                }
 	            },
 	            error: function() {
@@ -220,9 +220,9 @@ button:hover {
 	            type: 'get',
 	            success: function(data) {
 	                if (data == 'true') {
-	                    $('#resultCheckNick').text("사용할 수 없는 닉네임");
+	                    $('#resultCheckNick').text("사용할 수 없는 닉네임").css('color','red');
 	                } else if (data == 'false') {
-	                    $('#resultCheckNick').text("사용할 수 있는 닉네임");
+	                    $('#resultCheckNick').text("사용할 수 있는 닉네임").css('color','green');
 	                }
 	            },
 	            error: function() {

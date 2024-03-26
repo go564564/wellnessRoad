@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,9 +38,11 @@ public class JoinService extends HttpServlet {
 //		HttpSession session = request.getSession();
 //		MembersDTO join_result = dao.login(dto);
 //		session.setAttribute("mem_info", join_result);
-		
-		
-		response.sendRedirect("Main.jsp");
+//		response.sendRedirect("Main.jsp");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('회원가입을 성공했습니다.'); location.href='Main.jsp';</script>");
+		out.close();
 		
 				
 	}else {
