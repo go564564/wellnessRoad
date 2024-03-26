@@ -42,14 +42,15 @@
 						data-target="#exampleModal">여행 계획하기</div>
 
 
-					<div>게시판</div>
+					<div onclick="location.href='board_main.jsp'">게시판</div>
 				</div>
+				
 				<div id="rightMenu">
 					<%
 					if (mem_info == null) {
 					%>
 					<div onclick="location.href='Login.jsp';">로그인</div>
-					<div onclick="location.href='register.jsp'">회원가입</div>
+					<div onclick="location.href='register.jsp';">회원가입</div>
 					<%
 					} else {
 					%>

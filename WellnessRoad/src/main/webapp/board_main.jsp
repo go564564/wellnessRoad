@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MembersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,12 +13,9 @@
 </head>
 <body>
 <%
-    String userID = null; // 로그인이 된 사람들은 로그인정보를 담을 수 있도록한다
-    if (session.getAttribute("userID") != null)
-    {
-        userID = (String)session.getAttribute("userID");
-    }
- 
+	// mem_info 불러오기 (로그인정보-사용자)
+	MembersDTO mem_info = (MembersDTO)session.getAttribute("mem_info");
+	
 %>
 <div class="board_wrap">
         <div class="board_title">
@@ -80,10 +78,21 @@
                 <a href="#" class="bt last">>></a>
             </div>
             <div class="bt_wrap">
-                <a href="board_write.jsp" class="on">등록</a>
+                <a href="board_write.jsp" class="on" id="writePost">등록</a>
                 <!--<a href="#">수정</a>-->
             </div>
         </div>
     </div>
 </body>
+
+
+<script>
+
+
+
+
+
+</script>
+
+
 </html>
