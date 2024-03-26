@@ -38,7 +38,7 @@
 
 
 					<!-- 테스트중 -->
-					<div class="btn btn-primary" data-toggle="modal"
+					<div class="btn btn-primary" id="makeTrips" data-toggle="modal"
 						data-target="#exampleModal">여행 계획하기</div>
 
 
@@ -133,15 +133,29 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" defer></script>
 
 <script type="text/javascript">
-  
+  	
+ 	
+ 	
+ 	
+ 	//근데 이거 넣으면 mem_info 가 있을떄 (로그인 됐을때) 달력이 안뜸
+ 	// show.bs.modal은 Bootstrap 모달이 열리기직전에 발생하는 이벤트
+ 	 
+ 	
+ 	$('#exampleModal').on('show.bs.modal', function(e){
+ 		
+ 		// 여기서 mem_info는 객체로 불러와져서 문자열로 캐스팅해줘야함 - 조건문 비교도 똑같이 'null'로
+ 		var mem_info = '<%= mem_info %>';
+ 		if(mem_info=='null'){
+ 			alert("로그인을 해주세요.");
+ 			e.preventDefault(); //모달열기 막기
+ 		}
+ 	})
+ 	
     
     
-    
-    
-    $(document).ready(function(){
-
+ 	
+ 	$(document).ready(function(){
         $('#travelPeriod').daterangepicker({
-            
         	
         	opens: 'left', // 달력이 왼쪽에서 열립니다.
             locale: {
@@ -159,31 +173,7 @@
         });
     })
     
-    /*
-    $('#travelPeriod').click(function(){
- 
-        $('#travelPeriod').daterangepicker({
-            
-        	
-        	opens: 'left', // 달력이 왼쪽에서 열립니다.
-            locale: {
-            	 format: 'YYYY-MM-DD',
-                 daysOfWeek: [
-                     "일", "월", "화", "수", "목", "금", "토"
-                 ],
-                 monthNames: [
-                     "1월", "2월", "3월", "4월", "5월", "6월",
-                     "7월", "8월", "9월", "10월", "11월", "12월"
-                 ],
-                applyLabel: "저장",
-                cancelLabel: '취소' // 선택을 취소하는 레이블을 지정합니다.
-            }
-        });
-    	
-       // $('.daterangepicker.ltr.show-calendar.opensleft').css('width', '800px');
 
-    });
-   */
         
         
         
