@@ -75,12 +75,16 @@
 					src="./img/고흥 이미지/거금생태숲_1_공공3유형.jpg">
 			</div>
 		<%}else{ %>
-		<div>로그인하고나서화면</div> 
+
 	<div id="whiteBox">
-	    <p>어떤 여행을 계획하고 싶으신건가요?</p>
-	    <button>여행 계획하기</button>
+	    <p>어떤 여행을 계획하고 싶으신가요?</p>
 	</div>
-	
+	<div id="whiteBox2">
+	</div>
+	<div id="whiteBox3">
+	    <a href="#">여행 계획하기</a>
+	</div>
+		
 	
 	
 		<%} %>
