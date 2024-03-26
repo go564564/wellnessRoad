@@ -19,7 +19,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-
+<link rel="stylesheet" href="Main_login.css">
 
 </head>
 <body>
@@ -68,10 +68,26 @@
 			</div>
 		</header>
 		<main>
+			
+			<%if(mem_info==null){ %>
 			<div>
 				<img src="./img/main_sample2.jpg"> <img
 					src="./img/고흥 이미지/거금생태숲_1_공공3유형.jpg">
 			</div>
+		<%}else{ %>
+		<div>로그인하고나서화면</div> 
+	<div id="whiteBox">
+	    <p>어떤 여행을 계획하고 싶으신건가요?</p>
+	    <button>여행 계획하기</button>
+	</div>
+	
+	
+	
+		<%} %>
+		
+		
+		
+		
 		</main>
 		<footer>
 			<div>
