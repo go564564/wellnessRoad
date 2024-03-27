@@ -56,15 +56,23 @@ public class BoardsDAO {
 	}
 	
 	public int b_views_inc(BoardsDTO dto) {
-		System.out.println("BoardsDAO 도착");
+		System.out.println("BoardsDAO b_views_inc 도착");
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 						
 		int result = sqlSession.update("b_views_inc", dto);
+		
 		if(result > 0) {
 			System.out.println("업데이트 성공!");
+		}else {
+			System.out.println("업데이트 실패");
 		}
 		sqlSession.close();
 		
 		return result;
 	}
 
+
+
+	
 }

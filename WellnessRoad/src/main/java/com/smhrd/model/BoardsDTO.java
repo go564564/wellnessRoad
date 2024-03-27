@@ -25,6 +25,10 @@ public class BoardsDTO {
 		this.poi_idx = poi_idx;
 	}
 
+	public BoardsDTO(int b_idx, int b_views) {
+		this.b_idx = b_idx;
+		this.b_views = b_views;
+	}
 	
 	//default DTO
 	public BoardsDTO(){
