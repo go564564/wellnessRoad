@@ -68,6 +68,10 @@
     .board_write .info dt {
         display: none;
     }
+    
+    .board_view .title dd{
+		float: left;
+	}
 
     .board_write .title dd,
     .board_write .info dd {

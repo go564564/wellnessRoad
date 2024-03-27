@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.BoardsDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.MembersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,10 +15,15 @@
 </style>
 </head>
 <body>
-<%
-	// mem_info 불러오기 (로그인정보-사용자)
-	MembersDTO mem_info = (MembersDTO)session.getAttribute("mem_info");
-%>
+	<%
+		// mem_info 불러오기 (로그인정보-사용자)
+		MembersDTO mem_info = (MembersDTO)session.getAttribute("mem_info");
+	%>
+	<%
+		BoardsDAO dao = new BoardsDAO();
+		ArrayList<BoardsDTO> list = new ArrayList<BoardsDTO>();
+		list = dao.Show_allBoard();
+	%>
 <div class="board_wrap">
         <div class="board_title">
             <strong>게시판</strong>
@@ -23,47 +31,23 @@
         <div class="board_list_wrap">
             <div class="board_list">
                 <div class="top">
-                    <div class="num" name="indx">번호</div>
-                    <div class="title" name="title">제목</div>
-                    <div class="writer" name="writer">글쓴이</div>
-                    <div class="date" name="date">작성일</div>
-                    <div class="count" name="count">조회</div>
+                    <div class="num">번호</div>
+                    <div class="title">제목</div>
+                    <div class="writer">글쓴이</div>
+                    <div class="date">작성일</div>
+                    <div class="count">조회</div>
                 </div>
-                <div>
-                    <div class="num">5</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">이oo</div>
-                    <div class="date">2024-01-15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">4</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">최oo</div>
-                    <div class="date">2024-01-15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">3</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">박oo</div>
-                    <div class="date">2024-01-15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">2</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">이oo</div>
-                    <div class="date">2024-01-15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">1</div>
-                    <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                    <div class="writer">김oo</div>
-                    <div class="date">2024-01-06</div>
-                    <div class="count">33</div>
-                </div>
+					<%
+					for (int i = 0; i < list.size(); i++) {
+					%>
+				<div>
+					<div class="num" name="b_idx"><%=list.get(i).getB_idx()%></div>
+					<div class="title"> <a href="board_view.jsp?b_idx=<%=list.get(i).getB_idx()%>"><%=list.get(i).getB_title()%></a></div>
+					<div class="writer"><%=list.get(i).getMem_id()%></div>
+					<div class="date"><%=list.get(i).getCreated_at()%></div>
+					<div class="count"><%=list.get(i).getB_views()%></div>
+				</div>
+					<% } %>
             </div>
             <div class="board_page">
                 <a href="#" class="bt first"><<</a>
@@ -77,7 +61,7 @@
                 <a href="#" class="bt last">>></a>
             </div>
             <div class="bt_wrap">
-                <a href="board_write.jsp" class="on" id="writePost">등록</a>
+                <a href="board_write.jsp" class="on" id="writePost">글쓰기</a>
                 <!--<a href="#">수정</a>-->
             </div>
         </div>

@@ -1,3 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.MembersDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.BoardsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,13 +13,14 @@
  	<link rel="stylesheet" href="style.css">
 	<style>
 	 @import url(mxzedia.css);
-	</style>
-	
+	</style>	
 </head>
 <body>
-<%
-	BoardsDTO dto = new BoardsDTO();
-%>
+	<%
+	int B_IDX = Integer.parseInt(request.getParameter("b_idx"));
+	BoardsDAO dao = new BoardsDAO();
+	BoardsDTO result = dao.show_DetailBoard(B_IDX);
+	%>
    <div class="board_wrap">
         <div class="board_title">
             <strong>게시판</strong>
@@ -23,37 +28,31 @@
         <div class="board_view_wrap">
             <div class="board_view">
                 <div class="title">
-                   <%
-                   dto.getB_content();
-                   %>
+                    <dl>
+                        <dt>제목</dt>
+                        <dd><%=result.getB_title()%></dd>
+                    </dl>
                 </div>
                 <div class="info">
                     <dl>
                         <dt>번호</dt>
-                        <dd>1</dd>
+                        <dd><%=result.getB_idx()%></dd>
                     </dl>
                     <dl>
                         <dt>글쓴이</dt>
-                        <dd>김oo</dd>
+                        <dd><%=result.getMem_id()%></dd>
                     </dl>
                     <dl>
                         <dt>작성일</dt>
-                        <dd>2024.02.09</dd>
+                        <dd><%=result.getCreated_at()%></dd>
                     </dl>
                     <dl>
                         <dt>조회</dt>
-                        <dd>33</dd>
+                        <dd><%=result.getB_views()%></dd>
                     </dl>
                 </div>
                 <div class="cont">
-                    글 내용이 들어갑니다<br>
-                    글 내용이 들어갑니다<br>
-                    글 내용이 들어갑니다<br>
-                    글 내용이 들어갑니다<br>
-                    글 내용이 들어갑니다<br>
-                    글 내용이 들어갑니다<br>
-                    글 내용이 들어갑니다<br>
-                    글 내용이 들어갑니다
+					<%=result.getB_content()%>
                 </div>
             </div>
             <div class="bt_wrap">
