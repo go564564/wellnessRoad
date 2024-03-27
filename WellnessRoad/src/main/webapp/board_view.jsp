@@ -36,7 +36,7 @@
                 <div class="info">
                     <dl>
                         <dt>번호</dt>
-                        <dd><%=result.getB_idx()%></dd>
+                        <dd name="b_idx"><%=result.getB_idx()%></dd>
                     </dl>
                     <dl>
                         <dt>글쓴이</dt>
@@ -48,7 +48,7 @@
                     </dl>
                     <dl>
                         <dt>조회</dt>
-                        <dd><%=result.getB_views()%></dd>
+                        <dd name="b_views"><%=result.getB_views()+1%></dd>
                     </dl>
                 </div>
                 <div class="cont">

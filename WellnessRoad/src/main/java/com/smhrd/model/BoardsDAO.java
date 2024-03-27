@@ -15,10 +15,8 @@ public class BoardsDAO {
 // 게시글 업로드
 	public int upload_post(BoardsDTO dto) {
 		System.out.println("BoardsDAO 도착");
-		
-				
+						
 		int result = sqlSession.insert("upload",dto);
-		System.out.println(result);
 		if(result > 0) {
 			System.out.println("업로드 성공!");
 		}
@@ -54,7 +52,19 @@ public class BoardsDAO {
 			sqlSession.close();
 		}
 		
-		return list;	
-	
+		return list;		
 	}
+	
+	public int b_views_inc(BoardsDTO dto) {
+		System.out.println("BoardsDAO 도착");
+						
+		int result = sqlSession.update("b_views_inc", dto);
+		if(result > 0) {
+			System.out.println("업데이트 성공!");
+		}
+		sqlSession.close();
+		
+		return result;
+	}
+
 }

@@ -28,6 +28,7 @@
         <div class="board_title">
             <strong>게시판</strong>
         </div>
+            
         <div class="board_list_wrap">
             <div class="board_list">
                 <div class="top">
@@ -60,8 +61,10 @@
                 <a href="#" class="bt next">></a>
                 <a href="#" class="bt last">>></a>
             </div>
+            <%if(mem_info!=null){ %>
             <div class="bt_wrap">
                 <a href="board_write.jsp" class="on" id="writePost">글쓰기</a>
+                <%} %>
                 <!--<a href="#">수정</a>-->
             </div>
         </div>
