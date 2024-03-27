@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Wellness trip Planner</title>
 <link rel="stylesheet" href="Main.css" />
 
 <!-- Boot strap css 모달창 크기조절필요해서 가져옴 -->
@@ -13,12 +13,16 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <!-- Data ra -->
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <link rel="stylesheet" href="Main_login.css">
 
 </head>
@@ -44,7 +48,7 @@
 
 					<div onclick="location.href='board_main.jsp'">게시판</div>
 				</div>
-				
+
 				<div id="rightMenu">
 					<%
 					if (mem_info == null) {
@@ -68,30 +72,36 @@
 			</div>
 		</header>
 		<main>
-			
-			<%if(mem_info==null){ %>
+
+			<%
+			if (mem_info == null) {
+			%>
+
 			<div>
 				<img src="./img/main_sample2.jpg"> <img
 					src="./img/고흥 이미지/거금생태숲_1_공공3유형.jpg">
 			</div>
-		<%}else{ %>
+			<%
+			} else {
+			%>
 
-	<div id="whiteBox">
-	    <p>어떤 여행을 계획하고 싶으신가요?</p>
-	</div>
-	<div id="whiteBox2">
-	</div>
-	<div id="whiteBox3">
-	    <a href="#">여행 계획하기</a>
-	</div>
-		
-	
-	
-		<%} %>
-		
-		
-		
-		
+			<div id="whiteBox">
+				<p>어떤 여행을 계획하고 싶으신가요?</p>
+			</div>
+			<div id="whiteBox2"></div>
+			<div id="whiteBox3">
+				<a href="#">여행 계획하기</a>
+			</div>
+
+
+
+			<%
+			}
+			%>
+
+
+
+
 		</main>
 		<footer>
 			<div>
@@ -111,49 +121,55 @@
 
 
 	<!-- 모달창인데 테스트중 -->
-<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="width: 800px">
-    
-    
-        <div class="modal-content" style="width: 800px">
-        
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h5 class="modal-title">새로운 일정 만들기</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            
-            
-            
-            <!-- Modal Body -->
-            <div class="modal-body" ; style="width: 800px; overflow-y: auto;">
-                <div class="form-group">
-                    <label for="travelTitle">여행 제목:</label>
-                    <input type="text" name="trip_name" class="form-control" id="travelTitle">
-                </div>
-                <div class="form-group">
-                    <label for="travelPeriod">여행 기간:</label>
-                    <input type="text" class="form-control" id="travelPeriod">
-                </div>
-            </div>
-            
-            
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                <button type="button" class="btn btn-primary" onclick="saveTrip()">저장</button>
-            </div>
-        </div>
-        
-        
-        
-    </div>
-</div>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" defer></script>
+	<div class="modal" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document"
+			style="width: 800px">
 
-<script type="text/javascript">
+
+			<div class="modal-content" style="width: 800px">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h5 class="modal-title">새로운 일정 만들기</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+
+
+				<!-- Modal Body -->
+				<div class="modal-body" ; style="width: 800px; overflow-y: auto;">
+					<div class="form-group">
+						<label for="travelTitle">여행 제목:</label> <input type="text"
+							name="trip_name" class="form-control" id="travelTitle">
+					</div>
+					<div class="form-group">
+						<label for="travelPeriod">여행 기간:</label> <input type="text"
+							class="form-control" id="travelPeriod">
+					</div>
+				</div>
+
+
+				<!-- Modal Footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">취소</button>
+					<button type="button" class="btn btn-primary" onclick="saveTrip()">저장</button>
+				</div>
+			</div>
+
+
+
+		</div>
+	</div>
+	<script type="text/javascript"
+		src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
+		defer></script>
+
+	<script type="text/javascript">
   	
  	
  	
@@ -165,7 +181,7 @@
  	$('#exampleModal').on('show.bs.modal', function(e){
  		
  		// 여기서 mem_info는 객체로 불러와져서 문자열로 캐스팅해줘야함 - 조건문 비교도 똑같이 'null'로
- 		var mem_info = '<%= mem_info %>';
+ 		var mem_info = '<%=mem_info%>';
  		if(mem_info=='null'){
  			alert("로그인을 해주세요.");
  			e.preventDefault(); //모달열기 막기
@@ -215,34 +231,28 @@
     	console.log("끝 날짜 : " + endDate);
      	
     	
-    	<% if(mem_info != null) { %>
+    	<%if (mem_info != null) {%>
     	$.ajax({
     		 type: "get",
              url: "CreateTripService",
     		 data: {
-    			mem_id: '<%= mem_info.getMem_id() %>',
-    			travelTitle: travelTitle,
-    			startDate: startDate,
-    			endDate: endDate
-    		},
-    	success : function(response){
-    		 console.log("여행일정 저장완료");
-    	},
-    	error : function(xhr, status, error){
-    		console.error("오류 발생: " + error);
-    	}
-    		
-    		
-    	});
-    	<%}%>
-    	
-    	
-    	
-    	
-    	
-    }
-    
-</script>
+    			mem_id: '<%=mem_info.getMem_id()%>
+		',
+					travelTitle : travelTitle,
+					startDate : startDate,
+					endDate : endDate
+				},
+				success : function(response) {
+					console.log("여행일정 저장완료");
+				},
+				error : function(xhr, status, error) {
+					console.error("오류 발생: " + error);
+				}
+
+			});
+	<%}%>
+		}
+	</script>
 
 
 
