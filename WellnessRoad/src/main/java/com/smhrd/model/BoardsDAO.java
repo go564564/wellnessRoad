@@ -58,7 +58,7 @@ public class BoardsDAO {
 	public int b_views_inc(BoardsDTO dto) {
 		System.out.println("BoardsDAO 도착");
 						
-		int result = sqlSession.update("b_views_inc", dto);
+		int result = sqlSession.update("b_views_inc", dto.getB_views());
 		if(result > 0) {
 			System.out.println("업데이트 성공!");
 		}

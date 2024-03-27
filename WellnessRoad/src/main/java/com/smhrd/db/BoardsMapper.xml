@@ -15,7 +15,9 @@
 		</select>
 		
 		<update id="b_views_inc" parameterType="int">	
-			update boards set b_views = #{b_views} where b_idx = #{b_idx}
+			update boards 
+			set b_views = b_views +1 
+			where b_idx = #{b_idx}
 		</update>
 
 
