@@ -236,8 +236,8 @@
     		 type: "get",
              url: "CreateTripService",
     		 data: {
-    			mem_id: '<%=mem_info.getMem_id()%>
-		',
+    			mem_id: '<%=mem_info.getMem_id()%>'
+				,
 					travelTitle : travelTitle,
 					startDate : startDate,
 					endDate : endDate
