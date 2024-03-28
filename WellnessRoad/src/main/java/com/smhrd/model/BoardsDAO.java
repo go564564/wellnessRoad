@@ -1,6 +1,7 @@
 package com.smhrd.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -26,11 +27,11 @@ public class BoardsDAO {
 	}
 
 // 메인게시판 전체 데이터 가져오기
-	public ArrayList<BoardsDTO> Show_allBoard(){
-		ArrayList<BoardsDTO> list = new ArrayList<BoardsDTO>();
+	public List<BoardsDTO> Show_allBoard(int endRow){
+		List<BoardsDTO> list = new ArrayList<BoardsDTO>();
 				
 		try {
-			list = (ArrayList)sqlSession.selectList("Show_allBoard");
+			list =sqlSession.selectList("Show_allBoard",endRow);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
