@@ -219,6 +219,51 @@ table {
 	
 	<script>
 
+	
+	//======================
+	$(document).ready(function() {
+    // 서블릿을 통해 DB에서 받은 데이터를 화면에 표시하는 함수
+    function displaySupplies(suppliesArray) {
+        // suppliesArray를 이용하여 화면에 표시하는 코드 작성
+    }
+
+    // 페이지 로드 시 DB에서 준비물을 가져와서 화면에 표시
+    $.ajax({
+        url: "GetSuppliesService", // 여행에 대한 준비물을 불러오는 서블릿 주소
+        method: "GET",
+        success: function(response) {
+            // 성공 시 받은 데이터를 화면에 표시
+            displaySupplies(response);
+        },
+        error: function(xhr, status, error) {
+            console.error("DB로부터 준비물을 불러오는데 실패했습니다.", status, error);
+        }
+    });
+});
+		
+		
+		//======================
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 var suppliesArray =[];
 
 
