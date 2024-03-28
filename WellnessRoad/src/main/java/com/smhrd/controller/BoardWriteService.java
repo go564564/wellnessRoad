@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,19 +42,12 @@ public class BoardWriteService extends HttpServlet {
 			System.out.println("등록 실패");
 		}
 	
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		
-		
-		
-		response.sendRedirect("board_view.jsp");
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		out.println("<script>alert('게시글이 등록되었습니다.'); location.href='board_main.jsp';</script>");
+		out.close();
+	
 	}
 
 }

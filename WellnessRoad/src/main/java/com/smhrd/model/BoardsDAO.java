@@ -28,8 +28,7 @@ public class BoardsDAO {
 // 메인게시판 전체 데이터 가져오기
 	public ArrayList<BoardsDTO> Show_allBoard(){
 		ArrayList<BoardsDTO> list = new ArrayList<BoardsDTO>();
-		
-		
+				
 		try {
 			list = (ArrayList)sqlSession.selectList("Show_allBoard");
 		}catch(Exception e) {
@@ -40,7 +39,20 @@ public class BoardsDAO {
 		
 		return list;
 	}
+	
 
+	// db에 저장된 전체 갯수  ..페이징
+	public int BoardsTotal() {
+	    int total = 0;
+	    try (SqlSession session = sqlSessionFactory.openSession()) {
+	        total = session.selectOne("BoardsTotal");
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return total;
+	}
+	
+	
 	// 메인게시판에서 해당 게시물만 가져오기
 	public BoardsDTO show_DetailBoard(int B_IDX) {
 		BoardsDTO list = null;
@@ -55,6 +67,7 @@ public class BoardsDAO {
 		return list;		
 	}
 	
+	//조회수 업데이트하기
 	public int b_views_inc(BoardsDTO dto) {
 		System.out.println("BoardsDAO b_views_inc 도착");
 		
@@ -72,7 +85,14 @@ public class BoardsDAO {
 		return result;
 	}
 
-
+	// 해당게시물 삭제하기
+	public int delBoard(int b_idx) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int cnt = sqlSession.delete("delBoard", b_idx);
+		sqlSession.close();
+		return cnt; 
+		
+	}
 
 	
 }

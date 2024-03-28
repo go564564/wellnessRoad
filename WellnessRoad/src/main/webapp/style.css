@@ -34,10 +34,10 @@ a {
     font-size: 1.4rem;
 }
 
-.bt_wrap {
+.bt_wrap button {
     margin-top: 30px;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 0;
 }
 
 .bt_wrap a {
