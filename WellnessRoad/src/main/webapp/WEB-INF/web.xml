@@ -68,6 +68,13 @@
 	</servlet>
 	
 	<servlet>
+    <servlet-name>GetSuppliesService</servlet-name>
+    <display-name>GetSuppliesService</display-name>
+    <description>Servlet to fetch supplies</description>
+    <servlet-class>com.smhrd.controller.GetSuppliesService</servlet-class>
+</servlet>
+	
+	<servlet>
 		<servlet-name>BoardImg</servlet-name>
 		<display-name>BoardImg</display-name>
 		<description></description>
@@ -75,13 +82,6 @@
 	</servlet>
 
 
-		<servlet>
-		<servlet-name>GetSuppliesService</servlet-name>
-		<display-name>GetSuppliesService</display-name>
-		<description></description>
-		<servlet-class>com.smhrd.controller.GetSuppliesService</servlet-class>
-
-	</servlet>
 	<servlet-mapping>
 		<servlet-name>JoinService</servlet-name>
 		<url-pattern>/JoinService</url-pattern>
@@ -124,6 +124,10 @@
 		<servlet-name>AddSuppliesService</servlet-name>
 		<url-pattern>/AddSuppliesService</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+    <servlet-name>GetSuppliesService</servlet-name>
+    <url-pattern>/GetSuppliesService</url-pattern>
+</servlet-mapping>
+
 
 </web-app>

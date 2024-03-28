@@ -223,12 +223,15 @@ table {
 	//======================
 	$(document).ready(function() {
     // 서블릿을 통해 DB에서 받은 데이터를 화면에 표시하는 함수
- function displaySupplies(suppliesArray) {
+   function displaySupplies(suppliesArray) {
     var container = document.getElementById("main");
     suppliesArray.forEach(function(supply, index) {
-        console.log("준비물 명 : " + supply.supply_name);
-        console.log("준비상태 : " + supply.checked);
-
+    	console.log("준비물 명 : " + supply.supply_name);
+    	console.log("준비상태 : "+ supply.checked);
+    	
+    	
+    	
+    	
         var newBox = document.createElement("div");
         newBox.classList.add("boxContainer");
 
@@ -247,7 +250,12 @@ table {
         check.textContent = "준비완료";
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
-
+        
+        
+        
+        
+        
+        
         checkbox.checked = supply.checked === 1 ? true : false;
         checkbox.addEventListener("change", function() {
             updateCheckedStatus(supply.supply_name, checkbox.checked, checkbox);
