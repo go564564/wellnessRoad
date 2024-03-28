@@ -28,7 +28,9 @@ public class TripsDTO {
 		this.ed_dt = ed_dt;
 	}
 	
-	
+	public TripsDTO() {
+		
+	}
 	
 	
 

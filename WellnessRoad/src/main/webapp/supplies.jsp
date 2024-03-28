@@ -76,105 +76,104 @@ table {
 	margin: auto;
 	fomt-size: 25px;
 }
-.boxContainer{
-width:90%;
-display:flex;
-flex-wrap: nowrap;
-height:60px;
-background-color: white;
-margin:auto;
-border-radius: 20px;
-box-shadow: 2px 2px 2px;
-line-height:60px;
-margin-top:15px;
-margin-bottom:15px;
+
+.boxContainer {
+	width: 90%;
+	display: flex;
+	flex-wrap: nowrap;
+	height: 60px;
+	background-color: white;
+	margin: auto;
+	border-radius: 20px;
+	box-shadow: 2px 2px 2px;
+	line-height: 60px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
-.input>input{
-width:90%;
-height:60px;
-margin-top:15px;
-}
-.plusBox{
-width:90%;
-height:60px;
-background-color: white;
-margin:auto;
-border-radius: 20px;
-box-shadow: 2px 2px 2px;
-line-height:60px;
-text-align:center;
-cursor: pointer; /* 추가 버튼에 커서 스타일 변경 */
-margin-top:15px;
+.input>input {
+	width: 90%;
+	height: 60px;
+	margin-top: 15px;
 }
 
+.plusBox {
+	width: 90%;
+	height: 60px;
+	background-color: white;
+	margin: auto;
+	border-radius: 20px;
+	box-shadow: 2px 2px 2px;
+	line-height: 60px;
+	text-align: center;
+	cursor: pointer; /* 추가 버튼에 커서 스타일 변경 */
+	margin-top: 15px;
+}
 
 .plusBox:hover {
 	background-color: #f0f0f0; /* 추가 버튼에 호버 효과 추가 */
 }
 
-.saveBox{
-width:90%;
-height:60px;
-background-color: gray;
-margin:auto;
-border-radius: 20px;
-box-shadow: 2px 2px 2px;
-line-height:60px;
-text-align:center;
-cursor: pointer; /* 추가 버튼에 커서 스타일 변경 */
-margin-top:15px;
+.saveBox {
+	width: 90%;
+	height: 60px;
+	background-color: gray;
+	margin: auto;
+	border-radius: 20px;
+	box-shadow: 2px 2px 2px;
+	line-height: 60px;
+	text-align: center;
+	cursor: pointer; /* 추가 버튼에 커서 스타일 변경 */
+	margin-top: 15px;
 }
 
 .saveBox:hover {
 	background-color: #f0f0f0; /* 추가 버튼에 호버 효과 추가 */
 }
 
-
-
-
-.num{
-width:20%;
-height:60px;
-align-self: left;
-background-color: #8CB9BD;
-line-height:60px;
-border-radius: 20px;
-}
-.content{
-width:60%;
-height:60px;
-align-self: left;
-line-height:60px;
-}
-.check{
-width:10%;
-height:60px;
-line-height: 60px;
-text-align: center; /* 체크박스 가운데 정렬 */
-vertical-align: middle;
+.num {
+	width: 20%;
+	height: 60px;
+	align-self: left;
+	background-color: #8CB9BD;
+	line-height: 60px;
+	border-radius: 20px;
 }
 
-.check>input{
-  width:30px;
-  height:30px;
-  border:2px solid #F47C7C;
-  border-radius: 4px;
-  vertical-align:middle;
+.content {
+	width: 60%;
+	height: 60px;
+	align-self: left;
+	line-height: 60px;
 }
 
-.delete{
-width:10%;
-height:60px;
-line-height:60px;
-cursor: pointer; /* 삭제 버튼에 커서 스타일 변경 */
-color: red; /* 삭제 버튼 텍스트 색상 변경 */
+.check {
+	width: 10%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center; /* 체크박스 가운데 정렬 */
+	vertical-align: middle;
+}
+
+.check>input {
+	width: 30px;
+	height: 30px;
+	border: 2px solid #F47C7C;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+.delete {
+	width: 10%;
+	height: 60px;
+	line-height: 60px;
+	cursor: pointer; /* 삭제 버튼에 커서 스타일 변경 */
+	color: red; /* 삭제 버튼 텍스트 색상 변경 */
 }
 
 .delete:hover {
 	color: darkred; /* 삭제 버튼에 호버 효과 추가 */
 }
-
 </style>
 </head>
 <body>
@@ -205,22 +204,20 @@ color: red; /* 삭제 버튼 텍스트 색상 변경 */
 		</table>
 		<br>
 		<hr>
-				
+
 		<div class="input">
-		<input type="text" placeholder="엔터키를 눌러도 추가됩니다." id="inputItem">
+			<input type="text" placeholder="엔터키를 눌러도 추가됩니다." id="inputItem">
 		</div>
-		
-		<div class="plusBox" onclick="addItem()">
-		추가
-		</div>
-	
+
+		<div class="plusBox" onclick="addItem()">추가</div>
+
 	</div>
+
+	<div class="saveBox" id="saveButton">저장</div>
 	
-	<div class="saveBox" onclick="saveItems()">
-		저장
-		</div>
-		
-<script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<script>
 
 var suppliesArray =[];
 
@@ -228,89 +225,75 @@ var suppliesArray =[];
 
 //데이터 추가 함수 addItem()
 function addItem() {
-    // main 요소를 찾아옵니다.
     var container = document.getElementById("main");
-    // 현재 준비물 상자의 개수를 가져옵니다.
+    var trip_idx = 1;
+    //여기가 화면에보이는 숫자화면인듯
     var lastNum = container.getElementsByClassName("boxContainer").length;
-    // 새로운 준비물 상자의 번호를 설정합니다.
     var newNum = lastNum;
 
-    // 새로운 준비물 상자를 생성합니다.
     var newBox = document.createElement("div");
     newBox.classList.add("boxContainer");
 
-    // 번호 요소를 생성하고 추가합니다.
     var num = document.createElement("div");
     num.classList.add("num");
-    num.textContent = newNum;
+    num.textContent = newNum+1;
     newBox.appendChild(num);
-
-    // 내용물 요소를 생성하고 추가합니다.
+    
+    
+    
+	
+    //준비물이름 supply_name
     var content = document.createElement("div");
     content.classList.add("content");
-    // 입력된 준비물 이름을 가져와서 텍스트로 설정합니다.
-    var supplyName = document.getElementById("inputItem").value;
-    content.textContent = supplyName;
+   
+    var con = document.getElementById("inputItem").value;
+    content.textContent = con;
     newBox.appendChild(content);
 
-    // 체크 요소를 생성하고 추가합니다.
     var check = document.createElement("div");
     check.classList.add("check");
-
-    // 준비완료 텍스트를 생성하고 추가합니다.
-    var checkText = document.createElement("span");
-    checkText.textContent = "준비완료";
-    check.appendChild(checkText);
-
-    // 체크박스를 생성하고 추가합니다.
+    check.textContent = "준비완료";
     var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.addEventListener("change", function() {
-        updateCompletion(this);
-    });
-    check.appendChild(checkbox);
+    checkbox.addEventListener("change",function(){
+    	updateCheckedStatus(con, checkbox.checked, checkbox);
+    })
     
+
+    
+    check.appendChild(checkbox);
     newBox.appendChild(check);
 
-    // 삭제 버튼을 생성하고 추가합니다.
     var deleteBtn = document.createElement("div");
     deleteBtn.classList.add("delete");
     deleteBtn.textContent = "삭제";
     deleteBtn.onclick = function() { deleteItem(this); };
     newBox.appendChild(deleteBtn);
 
-    // supply_name과 completion을 객체에 담아 배열에 추가합니다.
-    var newItem = {
-        supply_name: supplyName,
-        completion: 0 // 초기값은 0으로 설정
+    container.insertBefore(newBox, container.lastElementChild);
+    
+    //준비물 객체 생성
+	var newItem = {
+    	supply_name: con,
+    	//준비완료 유/무(1:0)- 기본값 0 
+    	checked: 0,
+    	trip_idx: 1
     };
     suppliesArray.push(newItem);
-
-    // 새로운 준비물 상자를 main 요소의 마지막 자식으로 추가합니다.
-    container.insertBefore(newBox, container.lastElementChild);
     console.log(suppliesArray);
 }
 
 
-//체크박스 누르면 1 안누르면 0 //실험중
-//function checkCheck(checkbox){
-	//체크됐을떄?  1 체크안되면 0
-//	var completion = checkbox.checked ? 1: 0;
-	
-//}
-
-
-
-function updateCompletion(checkbox) {
-    var container = document.getElementById("main");
-    var index = Array.from(container.children).indexOf(checkbox.parentElement.parentElement);
-
-    if (!isNaN(index) && index >= 0 && index < suppliesArray.length) {
-        suppliesArray[index].completion = checkbox.checked ? 1 : 0;
-    } else {
-        console.error("Invalid index:", index);
+function updateCheckedStatus(con,isChcked, checkbox){
+    // 체크박스가 변경될 때마다 해당 준비물 객체의 체크 여부를 업데이트
+    var index = suppliesArray.findIndex(item => item.supply_name === con);
+    if (index !== -1) {
+        // 해당 준비물 객체가 배열 안에 존재하는 경우에만 업데이트 수행
+        suppliesArray[index].checked = checkbox.checked ? 1 : 0;
+        console.log(suppliesArray); // 업데이트된 배열 출력 (확인용)
     }
-}
+};
+
 
 
 
@@ -318,19 +301,35 @@ function updateCompletion(checkbox) {
 function deleteItem(btn) {
     var container = document.getElementById("main");
     var box = btn.parentElement;
+    
+    //삭제할 준비물의 번호
+    var num = box.querySelector(".num").textContent;
+    
+    //box에서 줄정보불러오기
+    var content = box.querySelector(".content").textContent;
+    
+    //줄 정보받아서 찾아서 삭제하기
+    var index = suppliesArray.findIndex(item => item.supply_name === content);
+    if(index !== -1){
+		suppliesArray.splice(index, 1);
+		}
     container.removeChild(box);
     
-    //삭제 준비물 인덱스찾기
-    var index = Array.from(container.children).indexOf(box);
-    //indexOf()는 해당요소가 배열에서 발견되지않을때 -1 뽑힘
-    //그니깐 index가 -1이 아닌 경우에만 해당요소를 삭제하는걸로 작업
-    
-    
-    //suppliesArray 배열에서 해당 요소 삭제하기
-    if(index !== -1){
-    	suppliesArray.splice(index, 1);
+    var boxes = container.getElementsByClassName("boxContainer");
+    for(var i = 0; i<boxes.length;i++){
+		//화면에보이는 숫자 업데이트    	
+    	var currentNum = boxes[i].querySelector(".num");
+    	currentNum.textContent = i+1;
     }
-}
+    
+    
+	console.log(suppliesArray);
+    
+    
+    }
+    
+    
+
 
 
 document.getElementById("inputItem").addEventListener("keypress", function(event) {
@@ -341,9 +340,29 @@ document.getElementById("inputItem").addEventListener("keypress", function(event
 });
 
 
-function saveItems(){
-	console.log();
-}
+
+
+$(document).ready(function(){
+	$("#saveButton").click(function(){
+		$.ajax({
+			url: "AddSuppliesService",
+			method: "POST",
+			data: { supplies: JSON.stringify(suppliesArray) },
+			success: function(response){
+				console.log("준비물 데이터 전송 성공!!!!!!");
+			},
+			error: function(xhr, status, error){
+				console.log("준비물 데이터 전송 실 페ㅐ . . ", status, error);
+			}
+			
+			
+		});
+	});
+	
+	
+	
+});//readyfunc
+
 
 </script>
 
@@ -351,4 +370,3 @@ function saveItems(){
 
 </body>
 </html>
-    

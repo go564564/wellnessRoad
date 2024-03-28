@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -18,7 +20,27 @@ public class TripsDAO {
 		return result;
 	}
 	
+
+
+	// 데이터 전체 조회
+	public ArrayList<TripsDTO> iwanttoseetripsname(){
+		ArrayList<TripsDTO> triplist = new ArrayList<TripsDTO>();
+		
+		
+		try {
+			triplist = (ArrayList)sqlSession.selectList("showTrips");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return triplist;
+	}
+
 	
+	
+	
+
 	
 	
 	

@@ -7,4 +7,10 @@
 	insert into trips (trip_name, mem_id, st_dt, ed_dt) values(#{trip_name}, #{mem_id}, #{st_dt}, #{ed_dt})
 </insert>
 
+<select id="showTrips" resultType="com.smhrd.model.TripsDTO">
+	select * from trips
+</select>
+
+
+
 </mapper>
