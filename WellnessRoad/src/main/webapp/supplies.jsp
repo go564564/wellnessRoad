@@ -226,12 +226,6 @@ table {
    function displaySupplies(suppliesArray) {
     var container = document.getElementById("main");
     suppliesArray.forEach(function(supply, index) {
-    	console.log("준비물 명 : " + supply.supply_name);
-    	console.log("준비상태 : "+ supply.checked);
-    	
-    	
-    	
-    	
         var newBox = document.createElement("div");
         newBox.classList.add("boxContainer");
 
@@ -250,13 +244,10 @@ table {
         check.textContent = "준비완료";
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
-        
-        
-        
-        
-        
-        
-        checkbox.checked = supply.checked === 1 ? true : false;
+
+        // 데이터베이스에서 가져온 값에 따라 체크박스 상태 설정
+        //checkbox.checked = supply.checked === 1 ? true : false;
+		checkbox.checked = supply.supply_status === 1 ? true : false;
         checkbox.addEventListener("change", function() {
             updateCheckedStatus(supply.supply_name, checkbox.checked, checkbox);
         });
@@ -270,8 +261,10 @@ table {
         newBox.appendChild(deleteBtn);
 
         container.insertBefore(newBox, container.lastElementChild);
+        
     });
 }
+
 
     // 페이지 로드 시 DB에서 준비물을 가져와서 화면에 표시
     $.ajax({
