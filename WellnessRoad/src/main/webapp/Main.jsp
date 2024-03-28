@@ -71,7 +71,7 @@
 				<h3>Trip Planner</h3>
 			</div>
 		</header>
-		<main>
+		<div id="subMenuwrap">
 
 			<%
 			if (mem_info == null) {
@@ -81,10 +81,15 @@
 				<img src="./img/main_sample2.jpg"> <img
 					src="./img/고흥 이미지/거금생태숲_1_공공3유형.jpg">
 			</div>
+
+			<section id="sec1">
+
+				<div id=whitebox00>어쩌구</div>
+
+			</section>
 			<%
 			} else {
 			%>
-
 			<div id="whiteBox">
 				<p>어떤 여행을 계획하고 싶으신가요?</p>
 			</div>
@@ -92,9 +97,6 @@
 			<div id="whiteBox3">
 				<a href="#">여행 계획하기</a>
 			</div>
-
-
-
 			<%
 			}
 			%>
@@ -102,7 +104,7 @@
 
 
 
-		</main>
+		</div>
 		<footer>
 			<div>
 				<h4>Wellness Road</h4>
@@ -236,8 +238,8 @@
     		 type: "get",
              url: "CreateTripService",
     		 data: {
-    			mem_id: '<%=mem_info.getMem_id()%>
-		',
+    			mem_id: '<%=mem_info.getMem_id()%>'
+				,
 					travelTitle : travelTitle,
 					startDate : startDate,
 					endDate : endDate

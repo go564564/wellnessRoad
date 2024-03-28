@@ -125,7 +125,9 @@ main img {
 	display: block;
 }
 
-main {
+#subMenuwrap {
+	width: 70%;
+	background-color: lightcoral;
 	margin: auto;
 	margin-top: 100px;
 	margin-bottom: 100px;

@@ -73,6 +73,7 @@ public class BoardsDAO {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 						
+
 		int result = sqlSession.update("b_views_inc", dto);
 		
 		if(result > 0) {
