@@ -8,9 +8,9 @@
 	
 		<select id="Show_allBoard" parameterType="int" resultType="com.smhrd.model.BoardsDTO">
 			SELECT *
-			FROM (SELECT rownum, t.*
-      			  FROM (SELECT * FROM boards ORDER BY CREATED_AT desc) t) 
-			WHERE rownum BETWEEN #{endRow}-9 AND #{endRow}
+			FROM (SELECT rownum TEST, t.*
+			     FROM (SELECT * FROM boards ORDER BY CREATED_AT desc) t) 
+			WHERE TEST BETWEEN #{endRow}-9 AND #{endRow}
 		</select>
 		
 		<select id="BoardsTotal" resultType="int">
