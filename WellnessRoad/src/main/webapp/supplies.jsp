@@ -224,6 +224,8 @@ var suppliesArray =[];
 //데이터 추가 함수 addItem()
 function addItem() {
     var container = document.getElementById("main");
+    
+    //여기가 화면에보이는 숫자화면인듯
     var lastNum = container.getElementsByClassName("boxContainer").length;
     var newNum = lastNum;
 
@@ -232,7 +234,7 @@ function addItem() {
 
     var num = document.createElement("div");
     num.classList.add("num");
-    num.textContent = newNum;
+    num.textContent = newNum+1;
     newBox.appendChild(num);
     
     
@@ -296,6 +298,10 @@ function updateCheckedStatus(con,isChcked, checkbox){
 function deleteItem(btn) {
     var container = document.getElementById("main");
     var box = btn.parentElement;
+    
+    //삭제할 준비물의 번호
+    var num = box.querySelector(".num").textContent;
+    
     //box에서 줄정보불러오기
     var content = box.querySelector(".content").textContent;
     
@@ -303,12 +309,24 @@ function deleteItem(btn) {
     var index = suppliesArray.findIndex(item => item.supply_name === content);
     if(index !== -1){
 		suppliesArray.splice(index, 1);
-    	console.log(suppliesArray);
-    }
+		}
     container.removeChild(box);
     
+    var boxes = container.getElementsByClassName("boxContainer");
+    for(var i = 0; i<boxes.length;i++){
+		//화면에보이는 숫자 업데이트    	
+    	var currentNum = boxes[i].querySelector(".num");
+    	currentNum.textContent = i+1;
+    }
     
-}
+    
+	console.log(suppliesArray);
+    
+    
+    }
+    
+    
+
 
 
 document.getElementById("inputItem").addEventListener("keypress", function(event) {
