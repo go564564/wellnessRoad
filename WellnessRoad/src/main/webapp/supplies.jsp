@@ -297,16 +297,16 @@ function deleteItem(btn) {
     var container = document.getElementById("main");
     var box = btn.parentElement;
     //box에서 줄정보불러오기
-    box.querySelector(".content").textContent;
+    var content = box.querySelector(".content").textContent;
     
     //줄 정보받아서 찾아서 삭제하기
-    var index = suppliesArray.findIndex(itemn => item.supply_name === content);
+    var index = suppliesArray.findIndex(item => item.supply_name === content);
     if(index !== -1){
-		suppliesArray[index].checked = 0;
-		console.log(suppliesArray);
+		suppliesArray.splice(index, 1);
+    	console.log(suppliesArray);
     }
-    
     container.removeChild(box);
+    
     
 }
 
