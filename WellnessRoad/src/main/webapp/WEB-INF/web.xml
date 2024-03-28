@@ -52,6 +52,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.ViewsIncrease</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CreateTripSche</servlet-name>
+  	<display-name>CreateTripSche</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.CreateTripSche</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -83,5 +89,9 @@
   <servlet-mapping>
   	<servlet-name>ViewsIncrease</servlet-name>
   	<url-pattern>/ViewsIncrease</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateTripSche</servlet-name>
+  	<url-pattern>/CreateTripSche</url-pattern>
   </servlet-mapping>
 </web-app>

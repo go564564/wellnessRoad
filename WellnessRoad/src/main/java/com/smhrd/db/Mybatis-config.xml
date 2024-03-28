@@ -13,6 +13,8 @@
 	<typeAlias type="com.smhrd.model.MembersDTO" alias="Members"/>
 	<typeAlias type="com.smhrd.model.TripsDTO" alias="Trips"/>
 	<typeAlias type="com.smhrd.model.BoardsDTO" alias="Boards"/>
+	<typeAlias type="com.smhrd.model.TripScheDTO" alias="TripSche"/>
+	
 </typeAliases>
 	
 	
@@ -35,6 +37,7 @@
 		<mapper resource="com/smhrd/db/MembersMapper.xml"/>
 		<mapper resource="com/smhrd/db/TripsMapper.xml"/>
 		<mapper resource="com/smhrd/db/BoardsMapper.xml"/>
+		<mapper resource="com/smhrd/db/TripScheMapper.xml"/>
 	</mappers>
 	
 </configuration>
