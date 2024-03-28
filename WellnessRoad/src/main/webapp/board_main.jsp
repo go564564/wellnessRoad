@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.BoardsDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
@@ -19,11 +20,26 @@
 		// mem_info 불러오기 (로그인정보-사용자)
 		MembersDTO mem_info = (MembersDTO)session.getAttribute("mem_info");
 	%>
-	<%
+	<%	
+		String vpage = request.getParameter("vpage");
+		if(vpage==null){
+		vpage="1";
+		}
+		int v_page=Integer.parseInt(vpage);
+		int pagesize=10;
+		int start=(v_page-1)*pagesize+1;
+		int end=v_page*pagesize;
+		
+	
 		BoardsDAO dao = new BoardsDAO();
 		ArrayList<BoardsDTO> list = new ArrayList<BoardsDTO>();
 		list = dao.Show_allBoard();
+		
+		int total=dao.BoardsTotal();
+		System.out.print(total);
+		int lastpage=(int)Math.ceil((double)total/10);
 	%>
+
 <div class="board_wrap">
         <div class="board_title">
             <strong>게시판</strong>
@@ -50,35 +66,32 @@
 				</div>
 					<% } %>
             </div>
-            <div class="board_page">
-                <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
-                <a href="#" class="num on">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
-                <a href="#" class="num">4</a>
-                <a href="#" class="num">5</a>
-                <a href="#" class="bt next">></a>
-                <a href="#" class="bt last">>></a>
-            </div>
-            <%if(mem_info!=null){ %>
+             
+             
+             <div class="board_page">
+            	<% System.out.println(mem_info.getMem_id()); %>
+          
+          
+          
+          
             <div class="bt_wrap">
-                <a href="board_write.jsp" class="on" id="writePost">글쓰기</a>
-                <%} %>
-                <!--<a href="#">수정</a>-->
+                 <button type="button" class="on" id="writePost" onclick="location='board_write.jsp'">글쓰기</button>
             </div>
+          
+          
+            <%
+			for(int i=1; i<=lastpage; i++){ %>
+			<a href="board_main.jsp?vpage=<%=i%>" class="num on"><%=i%></a>
+				 <%	}  %>
+            </div>
+           
+           
+                
+                
+                
+                
         </div>
     </div>
 </body>
-
-
-<script>
-
-
-
-
-
-</script>
-
 
 </html>

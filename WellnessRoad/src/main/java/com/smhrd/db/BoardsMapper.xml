@@ -7,7 +7,14 @@
 		</insert>
 	
 		<select id="Show_allBoard" resultType="com.smhrd.model.BoardsDTO">
-			select * from boards 
+			SELECT *
+			FROM (SELECT rownum AS rnum, t.*
+      			  FROM (SELECT * FROM boards ORDER BY CREATED_AT desc) t) 
+			WHERE rownum BETWEEN 1 AND 10
+		</select>
+		
+		<select id="BoardsTotal" resultType="int">
+		 	select count(*) from boards
 		</select>
 		
 		<select id="show_DetailBoard" resultType="com.smhrd.model.BoardsDTO">
@@ -18,6 +25,10 @@
 		<update id="b_views_inc" parameterType="com.smhrd.model.BoardsDTO">	
 			update boards set b_views=#{b_views} where b_idx=#{b_idx}
 		</update>
+		
+		<delete id="delBoard">
+			delete from boards where b_idx=#{b_idx}
+		</delete>
 
 
 
