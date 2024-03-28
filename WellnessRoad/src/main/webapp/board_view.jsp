@@ -60,6 +60,8 @@
                 </div>
                 <div class="cont">
 					<%=result.getB_content()%>
+					
+					
                 </div>
             </div>
             	<h2 class="comment">댓글쓰기</h2>
