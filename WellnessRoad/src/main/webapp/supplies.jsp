@@ -213,8 +213,10 @@ table {
 
 	</div>
 
-	<div class="saveBox">저장</div>
-
+	<div class="saveBox" id="saveButton">저장</div>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
 	<script>
 
 var suppliesArray =[];
@@ -224,7 +226,7 @@ var suppliesArray =[];
 //데이터 추가 함수 addItem()
 function addItem() {
     var container = document.getElementById("main");
-    
+    var trip_idx = 1;
     //여기가 화면에보이는 숫자화면인듯
     var lastNum = container.getElementsByClassName("boxContainer").length;
     var newNum = lastNum;
@@ -274,7 +276,8 @@ function addItem() {
 	var newItem = {
     	supply_name: con,
     	//준비완료 유/무(1:0)- 기본값 0 
-    	checked: 0
+    	checked: 0,
+    	trip_idx: 1
     };
     suppliesArray.push(newItem);
     console.log(suppliesArray);
@@ -335,6 +338,30 @@ document.getElementById("inputItem").addEventListener("keypress", function(event
         document.getElementById("inputItem").value="";
     }
 });
+
+
+
+
+$(document).ready(function(){
+	$("#saveButton").click(function(){
+		$.ajax({
+			url: "AddSuppliesService",
+			method: "POST",
+			data: { supplies: JSON.stringify(suppliesArray) },
+			success: function(response){
+				console.log("준비물 데이터 전송 성공!!!!!!");
+			},
+			error: function(xhr, status, error){
+				console.log("준비물 데이터 전송 실 페ㅐ . . ", status, error);
+			}
+			
+			
+		});
+	});
+	
+	
+	
+});//readyfunc
 
 
 </script>

@@ -26,7 +26,10 @@ public class SuppliesDTO {
 		this.supply_status = supply_status;
 		this.trip_idx = trip_idx;
 	}
-
+	
+	public SuppliesDTO() {
+		
+	}
 
 
 	public int getSupply_idx() {
