@@ -20,9 +20,10 @@
 	int B_IDX = Integer.parseInt(request.getParameter("b_idx"));
 	BoardsDAO dao = new BoardsDAO();
 	BoardsDTO result = dao.show_DetailBoard(B_IDX);
-	int cnt = result.getB_views()+1;
-	session.setAttribute("b_idx", B_IDX);
-	session.setAttribute("view", cnt);
+	int view = result.getB_views()+1;
+	int inc_result = new BoardsDAO().b_views_inc(new BoardsDTO(B_IDX, view));
+	//session.setAttribute("b_idx", B_IDX);
+	//session.setAttribute("view", view);
 	%>
    <div class="board_wrap">
         <div class="board_title">
@@ -51,7 +52,7 @@
                     </dl>
                     <dl>
                         <dt>조회</dt>
-                        <dd name="b_views"><%=cnt%></dd>
+                        <dd name="b_views"><%=view%></dd>
                     </dl>
                 </div>
                 <div class="cont">
@@ -59,7 +60,7 @@
                 </div>
             </div>
             <div class="bt_wrap">
-                <a href="ViewsIncrease" class="on">목록</a>
+                <a href="board_main.jsp" class="on">목록</a>
                 <a href="board_edit.jsp">수정</a>
             </div>
         </div>

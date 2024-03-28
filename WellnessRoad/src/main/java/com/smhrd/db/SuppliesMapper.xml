@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.SuppliesMapper">
+
+
+<insert id="makeSupplies" parameterType="com.smhrd.model.SuppliesDTO">
+	insert into supplies (supply_name, sche_name, supply_status) values(#{supply_name},#{sche_name},#{supply_status})
+</insert>
+</mapper>
