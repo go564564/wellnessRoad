@@ -14,10 +14,9 @@
 			select * from boards where B_IDX=#{B_IDX}
 		</select>
 		
-		<update id="b_views_inc" parameterType="int">	
-			update boards 
-			set b_views = b_views +1 
-			where b_idx = #{b_idx}
+
+		<update id="b_views_inc" parameterType="com.smhrd.model.BoardsDTO">	
+			update boards set b_views=#{b_views} where b_idx=#{b_idx}
 		</update>
 
 

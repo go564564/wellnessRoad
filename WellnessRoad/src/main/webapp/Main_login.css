@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+a {}
+
 #whiteBox {
 	box-sizing: border-box;
 	width: 1602px;
@@ -21,24 +23,24 @@
 }
 
 #whiteBox3 a {
-position: absolute;
-width: 250px;
-height: 35px;
-left: 860px;
-top: 1115px;
+	position: absolute;
+	width: 250px;
+	height: 35px;
+	left: 860px;
+	top: 1115px;
 
-font-family: 'SeoulHangang CBL';
-font-style: normal;
-font-weight: 500px;
-font-size: 35px;
-line-height: 35px;
-/* identical to box height */
+	font-family: 'SeoulHangang CBL';
+	font-style: normal;
+	font-weight: 500px;
+	font-size: 35px;
+	line-height: 35px;
+	/* identical to box height */
 
-color: #3618EB;
+	color: #3618EB;
 }
 
-#whiteBox2{
-		box-sizing: border-box;
+#whiteBox2 {
+	box-sizing: border-box;
 
 	position: absolute;
 	width: 451px;
@@ -52,5 +54,3 @@ color: #3618EB;
 	border-radius: 10px;
 
 }
-
-
