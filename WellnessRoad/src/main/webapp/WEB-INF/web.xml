@@ -87,12 +87,7 @@
     <servlet-class>com.smhrd.controller.GetSuppliesService</servlet-class>
 </servlet>
 	
-	<servlet>
-		<servlet-name>BoardImg</servlet-name>
-		<display-name>BoardImg</display-name>
-		<description></description>
-		<servlet-class>com.smhrd.controller.BoardImg</servlet-class>
-	</servlet>
+
 
 
 		<servlet>
@@ -102,7 +97,14 @@
 		<servlet-class>com.smhrd.controller.GetSuppliesService</servlet-class>
 
 	</servlet>
+<servlet>
+		<servlet-name>BoardImgs</servlet-name>
+		<display-name>BoardImgs</display-name>
+		<description></description>
+		<servlet-class>com.smhrd.controller.BoardImgs</servlet-class>
+		
 
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>JoinService</servlet-name>
@@ -156,15 +158,17 @@
 		<url-pattern>/AddSuppliesService</url-pattern>
 	</servlet-mapping>
 	
-	<servlet-mapping>
 
-		<servlet-name>BoardImgs</servlet-name>
-		<url-pattern>/BoardImgs</url-pattern>
-	</servlet-mapping>
 	
 <servlet-mapping>
     <servlet-name>GetSuppliesService</servlet-name>
     <url-pattern>/GetSuppliesService</url-pattern>
+
+</servlet-mapping>
+
+<servlet-mapping>
+    <servlet-name>BoardImgs</servlet-name>
+    <url-pattern>/BoardImgs</url-pattern>
 
 </servlet-mapping>
 
