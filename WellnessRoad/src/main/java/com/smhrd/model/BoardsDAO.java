@@ -14,10 +14,10 @@ public class BoardsDAO {
 	SqlSession sqlSession = sqlSessionFactory.openSession(true);
 	
 // 게시글 업로드
-	public int upload_post(BoardsDTO dto) {
+	public int upload_post(BoardsDTO b_dto) {
 		System.out.println("BoardsDAO 도착");
 						
-		int result = sqlSession.insert("upload",dto);
+		int result = sqlSession.insert("upload",b_dto);
 		if(result > 0) {
 			System.out.println("업로드 성공!");
 		}
@@ -96,5 +96,16 @@ public class BoardsDAO {
 		
 	}
 
+	public int imgUpload(BoardImgsDTO idto) {
+		System.out.println("BoardImgsDAO 도착");
+						
+		int result = sqlSession.insert("imgUpload",idto);
+		if(result > 0) {
+			System.out.println("이미지업로드 성공!");
+		}
+		sqlSession.close();
+		
+		return result;
+	}
 	
 }

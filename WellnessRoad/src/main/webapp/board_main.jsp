@@ -11,9 +11,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 <style>
  @import url(mxzedia.css);
+
+.pnum{
+	align-content:center;
+	border:1px solid #42454c;
+	padding: 10px;
+	margin-left: 70px;
+	font-size: large;
+}
+ 
+ 
+ 
 </style>
 </head>
 <body>
@@ -34,8 +45,6 @@
 		int startRow=(v_page-1)*pageSize+1; //시작행
 		int endRow=v_page*pageSize; //마지막행	
 		list = dao.Show_allBoard(endRow);
-		//int lastpage=(int)Math.ceil((double)total/10);		
-		System.out.print("페이지"+v_page  +"시작행"+startRow  +"끝행"+endRow+"전체게시물수"+total);
 	%>
 
 <div class="board_wrap">
@@ -65,13 +74,13 @@
 					<% } %>
             </div>
                          
-             <div class="board_page">
+           <div class="board_page">
                     
-          <% if(mem_info !=null){%>
-            <div class="bt_wrap">
+           <% if(mem_info !=null){%>
+             <div class="bt_wrap">
                  <button type="button" class="on" id="writePost" onclick="location='board_write.jsp'">글쓰기</button>
-            </div>
-          <%}%> 
+             </div>
+           <%}%> 
                  
             </div>
   <%	// 페이징  처리
@@ -94,18 +103,18 @@
 							
 				if(startPage > pageBlock){ // 페이지 블록수보다 startPage가 클경우 이전 링크 생성
 					%>
-					<a href="board_main.jsp?vpage=<%=startPage - 10%>" class="bt prev"><</a>	
-					<%			
+							 <a href="board_main.jsp?vpage=<%=startPage - 10%>" class="bt prev"><</a>	
+					<%		 	
 							}
 							
 							for(int i=startPage; i <= lastpage; i++){ // 페이지 블록 번호
 								if(i == total){ // 현재 페이지에는 링크를 설정하지 않음
 					%>
-									[<%=i %>]
+									<%=i %>
 					<%									
 								}else{ // 현재 페이지가 아닌 경우 링크 설정
 					%>
-									<a href="board_main.jsp?vpage=<%=i%>" class="num on"><%=i%></a>
+								<a href="board_main.jsp?vpage=<%=i%>" class="pnum"><%=i%></a>
 					<%	
 								}
 							} // for end

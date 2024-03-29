@@ -60,6 +60,7 @@
                 </div>
                 <div class="cont">
 					<%=result.getB_content()%>
+					<img src="./b_imgs/<%=result.getFilename() %>">
 					
 					
                 </div>
@@ -70,6 +71,7 @@
            
             <div class="bt_wrap">
                  <button type="button" onclick="location='board_main.jsp'">목록</button>
+                 
             <%if(mem_info.getMem_id().equals(result.getMem_id())){ %>
                  <button type="button" onclick="location='board_edit.jsp'">수정</button>
                  <button type="button" onclick="location='BoardDelete?b_idx=<%=b_idx%>'">삭제</button>

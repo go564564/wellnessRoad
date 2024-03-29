@@ -9,10 +9,11 @@ public class BoardsDTO {
 	private int b_likes;
 	private String mem_id;
 	private int poi_idx;
+	private String filename;
 	
-	
-	
+
 	//게시판 DTO 
+	
 	public BoardsDTO(int b_idx, String b_title, String b_content, String created_at, int b_views, int b_likes,
 			String mem_id, int poi_idx) {
 		this.b_idx = b_idx;
@@ -23,6 +24,20 @@ public class BoardsDTO {
 		this.b_likes = b_likes;
 		this.mem_id = mem_id;
 		this.poi_idx = poi_idx;
+	}
+	
+	
+	public BoardsDTO(int b_idx, String b_title, String b_content, String created_at, int b_views, int b_likes,
+			String mem_id, int poi_idx, String filename) {
+		this.b_idx = b_idx;
+		this.b_title = b_title;
+		this.b_content = b_content;
+		this.created_at = created_at;
+		this.b_views = b_views;
+		this.b_likes = b_likes;
+		this.mem_id = mem_id;
+		this.poi_idx = poi_idx;
+		this.filename = filename;
 	}
 
 	public BoardsDTO(int b_idx, int b_views) {
@@ -128,8 +143,16 @@ public class BoardsDTO {
 	public void setPoi_idx(int poi_idx) {
 		this.poi_idx = poi_idx;
 	}
-	
-	
-	
+
+
+	public String getFilename() {
+		return filename;
+	}
+
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
 	
 }
