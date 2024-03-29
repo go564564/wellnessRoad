@@ -30,12 +30,12 @@
         height: 26px;
     }
 
-    .board_page a.bt {
+    .board_page a .bt {
         padding-top: 7px;
     }
     
-    .board_page a.num {
-        padding-top: 6px;
+    .board_page a .num {
+        padding-top: 5px;
     }
 
     .board_view .info dl {

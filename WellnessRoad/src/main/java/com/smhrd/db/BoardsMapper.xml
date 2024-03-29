@@ -3,14 +3,14 @@
 <mapper namespace="com.smhrd.db.BoardsMapper">
 
 		<insert id="upload" parameterType="com.smhrd.model.BoardsDTO">
-	 		insert into boards (b_title, b_content, created_at, b_views, b_likes, mem_id) values(#{b_title},#{b_content},sysdate,0,0,#{mem_id})
+	 		insert into boards (b_title, b_content, created_at, b_views, b_likes, mem_id, filename) values(#{b_title},#{b_content},sysdate,0,0,#{mem_id},#{filename})
 		</insert>
 	
-		<select id="Show_allBoard" resultType="com.smhrd.model.BoardsDTO">
+		<select id="Show_allBoard" parameterType="int" resultType="com.smhrd.model.BoardsDTO">
 			SELECT *
-			FROM (SELECT rownum AS rnum, t.*
-      			  FROM (SELECT * FROM boards ORDER BY CREATED_AT desc) t) 
-			WHERE rownum BETWEEN 1 AND 10
+			FROM (SELECT rownum TEST, t.*
+			     FROM (SELECT * FROM boards ORDER BY CREATED_AT desc) t) 
+			WHERE TEST BETWEEN #{endRow}-9 AND #{endRow}
 		</select>
 		
 		<select id="BoardsTotal" resultType="int">

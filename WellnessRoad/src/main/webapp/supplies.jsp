@@ -213,17 +213,112 @@ table {
 
 	</div>
 
-	<div class="saveBox">저장</div>
-
+	<div class="saveBox" id="saveButton">저장</div>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
 	<script>
+	//여긴 이제 trip_idx를 나중에받아야함 메인파일완성되면
+	var trip_idx = 1;
+	var suppliesArray =[];
+	//======================
+	$(document).ready(function() {
+    // 서블릿을 통해 DB에서 받은 데이터를 화면에 표시하는 함수
+   function displaySupplies(suppliesArray) {
+   	var container = document.getElementById("main");
+    
+    suppliesArray.forEach(function(supply, index) {
+    	
+    	var newBox = document.createElement("div");
+        newBox.classList.add("boxContainer");
 
-var suppliesArray =[];
+        var num = document.createElement("div");
+        num.classList.add("num");
+        num.textContent = index + 1;
+        newBox.appendChild(num);
+
+        var content = document.createElement("div");
+        content.classList.add("content");
+        content.textContent = supply.supply_name;
+        newBox.appendChild(content);
+
+        var check = document.createElement("div");
+        check.classList.add("check");
+        check.textContent = "준비완료";
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        // 데이터베이스에서 가져온 값에 따라 체크박스 상태 설정
+        //checkbox.checked = supply.checked === 1 ? true : false;
+		checkbox.checked = supply.supply_status === 1 ? true : false;
+        checkbox.addEventListener("change", function() {
+            updateCheckedStatus(supply.supply_name, checkbox.checked, checkbox);
+        });
+        check.appendChild(checkbox);
+        newBox.appendChild(check);
+
+        var deleteBtn = document.createElement("div");
+        deleteBtn.classList.add("delete");
+        deleteBtn.textContent = "삭제";
+        deleteBtn.onclick = function() { deleteItem(this); };
+        newBox.appendChild(deleteBtn);
+
+        container.insertBefore(newBox, container.lastElementChild);
+        console.log(suppliesArray);
+        
+    });
+}
+
+
+    // 페이지 로드 시 DB에서 준비물을 가져와서 화면에 표시
+    $.ajax({
+        url: "GetSuppliesService", // 여행에 대한 준비물을 불러오는 서블릿 주소
+        method: "GET",
+        data: {trip_idx: trip_idx},
+        success: function(response) {
+            // 성공 시 받은 데이터를 화면에 표시
+            suppliesArray = response;
+            displaySupplies(response);
+            //callbackFunc 콜백함수?? 를 써야하나 response를 callbackFunc로?
+        },
+        error: function(xhr, status, error) {
+            console.error("DB로부터 준비물을 불러오는데 실패했습니다.", status, error);
+        }
+    });
+});
+		
+		
+		//======================
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 
 
 
 //데이터 추가 함수 addItem()
 function addItem() {
     var container = document.getElementById("main");
+    var trip_idx = 1;
+    //여기가 화면에보이는 숫자화면인듯
     var lastNum = container.getElementsByClassName("boxContainer").length;
     var newNum = lastNum;
 
@@ -232,7 +327,7 @@ function addItem() {
 
     var num = document.createElement("div");
     num.classList.add("num");
-    num.textContent = newNum;
+    num.textContent = newNum+1;
     newBox.appendChild(num);
     
     
@@ -272,9 +367,10 @@ function addItem() {
 	var newItem = {
     	supply_name: con,
     	//준비완료 유/무(1:0)- 기본값 0 
-    	checked: 0
+    	checked: 0,
+    	trip_idx: 1
     };
-    suppliesArray.push(newItem);
+	suppliesArray.push(newItem)
     console.log(suppliesArray);
 }
 
@@ -296,6 +392,10 @@ function updateCheckedStatus(con,isChcked, checkbox){
 function deleteItem(btn) {
     var container = document.getElementById("main");
     var box = btn.parentElement;
+    
+    //삭제할 준비물의 번호
+    var num = box.querySelector(".num").textContent;
+    
     //box에서 줄정보불러오기
     var content = box.querySelector(".content").textContent;
     
@@ -303,12 +403,24 @@ function deleteItem(btn) {
     var index = suppliesArray.findIndex(item => item.supply_name === content);
     if(index !== -1){
 		suppliesArray.splice(index, 1);
-    	console.log(suppliesArray);
-    }
+		}
     container.removeChild(box);
     
+    var boxes = container.getElementsByClassName("boxContainer");
+    for(var i = 0; i<boxes.length;i++){
+		//화면에보이는 숫자 업데이트    	
+    	var currentNum = boxes[i].querySelector(".num");
+    	currentNum.textContent = i+1;
+    }
     
-}
+    
+	console.log(suppliesArray);
+    
+    
+    }
+    
+    
+
 
 
 document.getElementById("inputItem").addEventListener("keypress", function(event) {
@@ -317,6 +429,30 @@ document.getElementById("inputItem").addEventListener("keypress", function(event
         document.getElementById("inputItem").value="";
     }
 });
+
+
+
+
+$(document).ready(function(){
+	$("#saveButton").click(function(){
+		$.ajax({
+			url: "AddSuppliesService",
+			method: "POST",
+			data: { supplies: JSON.stringify(suppliesArray) },
+			success: function(response){
+				console.log("준비물 데이터 전송 성공!!!!!!");
+			},
+			error: function(xhr, status, error){
+				console.log("준비물 데이터 전송 실 페ㅐ . . ", status, error);
+			}
+			
+			
+		});
+	});
+	
+	
+	
+});//readyfunc
 
 
 </script>

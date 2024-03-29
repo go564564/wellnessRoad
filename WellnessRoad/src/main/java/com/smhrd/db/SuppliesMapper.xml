@@ -4,6 +4,11 @@
 
 
 <insert id="makeSupplies" parameterType="com.smhrd.model.SuppliesDTO">
-	insert into supplies (supply_name, sche_name, supply_status) values(#{supply_name},#{sche_name},#{supply_status})
+	insert into supplies (supply_name, supply_status,trip_idx) values(#{supply_name},#{supply_status},#{trip_idx})
 </insert>
+
+
+<select id="getSupplies" parameterType="int" resultType="com.smhrd.model.SuppliesDTO">
+	select * from supplies where trip_idx=#{trip_idx}
+</select>
 </mapper>
