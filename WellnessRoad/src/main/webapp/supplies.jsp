@@ -220,13 +220,16 @@ table {
 	<script>
 	//여긴 이제 trip_idx를 나중에받아야함 메인파일완성되면
 	var trip_idx = 1;
+	var suppliesArray =[];
 	//======================
 	$(document).ready(function() {
     // 서블릿을 통해 DB에서 받은 데이터를 화면에 표시하는 함수
    function displaySupplies(suppliesArray) {
-    var container = document.getElementById("main");
+   	var container = document.getElementById("main");
+    
     suppliesArray.forEach(function(supply, index) {
-        var newBox = document.createElement("div");
+    	
+    	var newBox = document.createElement("div");
         newBox.classList.add("boxContainer");
 
         var num = document.createElement("div");
@@ -261,6 +264,7 @@ table {
         newBox.appendChild(deleteBtn);
 
         container.insertBefore(newBox, container.lastElementChild);
+        console.log(suppliesArray);
         
     });
 }
@@ -273,7 +277,9 @@ table {
         data: {trip_idx: trip_idx},
         success: function(response) {
             // 성공 시 받은 데이터를 화면에 표시
+            suppliesArray = response;
             displaySupplies(response);
+            //callbackFunc 콜백함수?? 를 써야하나 response를 callbackFunc로?
         },
         error: function(xhr, status, error) {
             console.error("DB로부터 준비물을 불러오는데 실패했습니다.", status, error);
@@ -304,7 +310,7 @@ table {
 	
 	
 	
-var suppliesArray =[];
+
 
 
 
@@ -364,7 +370,7 @@ function addItem() {
     	checked: 0,
     	trip_idx: 1
     };
-    suppliesArray.push(newItem);
+	suppliesArray.push(newItem)
     console.log(suppliesArray);
 }
 

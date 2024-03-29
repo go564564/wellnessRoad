@@ -29,6 +29,8 @@ public class GetSuppliesService extends HttpServlet {
 		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
+		
+		
 		response.getWriter().write(suppliesJsonArray.toString());
 		System.out.println("GetSupp 도착");
 		System.out.println(suppliesList.get(1).getSupply_status());
