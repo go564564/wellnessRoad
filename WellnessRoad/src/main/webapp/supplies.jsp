@@ -318,7 +318,7 @@ table {
 function addItem() {
     var container = document.getElementById("main");
     var trip_idx = 1;
-    //여기가 화면에보이는 숫자화면인듯
+    // 여기가 화면에 보이는 숫자화면인 듯
     var lastNum = container.getElementsByClassName("boxContainer").length;
     var newNum = lastNum;
 
@@ -327,16 +327,13 @@ function addItem() {
 
     var num = document.createElement("div");
     num.classList.add("num");
-    num.textContent = newNum+1;
+    num.textContent = newNum + 1;
     newBox.appendChild(num);
-    
-    
-    
-	
-    //준비물이름 supply_name
+
+    // 준비물이름 supply_name
     var content = document.createElement("div");
     content.classList.add("content");
-   
+
     var con = document.getElementById("inputItem").value;
     content.textContent = con;
     newBox.appendChild(content);
@@ -346,45 +343,83 @@ function addItem() {
     check.textContent = "준비완료";
     var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.addEventListener("change",function(){
-    	updateCheckedStatus(con, checkbox.checked, checkbox);
-    })
-    
-
-    
+    checkbox.addEventListener("change", function () {
+        updateCheckedStatus(con, checkbox.checked, checkbox);
+    });
     check.appendChild(checkbox);
     newBox.appendChild(check);
 
     var deleteBtn = document.createElement("div");
     deleteBtn.classList.add("delete");
     deleteBtn.textContent = "삭제";
-    deleteBtn.onclick = function() { deleteItem(this); };
+    deleteBtn.onclick = function () {
+        deleteItem(this);
+    };
     newBox.appendChild(deleteBtn);
 
     container.insertBefore(newBox, container.lastElementChild);
-    
-    //준비물 객체 생성
-	var newItem = {
-    	supply_name: con,
-    	//준비완료 유/무(1:0)- 기본값 0 
-    	supply_status: 0,
-    	trip_idx: 1
-    };
-	suppliesArray.push(newItem)
-    console.log(suppliesArray);
+
+    // AJAX 호출을 비동기적으로 처리
+    $.ajax({
+        url: 'AddSupply',
+        method: 'POST',
+        data: { name: con, status: 0, trip_idx: trip_idx },
+        success: function (response) {
+            console.log("새로운 준비물 추가 성공!");
+            // 성공적으로 추가되면 suppliesArray에도 추가
+            var newItem = {
+                supply_name: con,
+                supply_status: 0,
+                trip_idx: 1
+            };
+            suppliesArray.push(newItem);
+            console.log(suppliesArray);
+        },
+        error: function (xhr, status, error) {
+            console.error('Error', status, error);
+            alert('준비물 추가 실패. 다시 시도하세요.');
+        }
+    });
 }
 
 
-function updateCheckedStatus(con,isChcked, checkbox){
-    // 체크박스가 변경될 때마다 해당 준비물 객체의 체크 여부를 업데이트
-    var index = suppliesArray.findIndex(item => item.supply_name === con);
-    if (index !== -1) {
-        // 해당 준비물 객체가 배열 안에 존재하는 경우에만 업데이트 수행
-        suppliesArray[index].supply_status = checkbox.checked ? 1 : 0;
-        console.log(suppliesArray); // 업데이트된 배열 출력 (확인용)
-    }
-};
 
+	
+	function updateCheckedStatus(supplyName, isChecked, checkbox){
+	$.ajax({
+		url: 'UpdateSupply',
+		method: 'POST',
+		data: { name: supplyName, status: isChecked },
+		success: function(response){
+				console.log(response);
+			
+				 if(response.success){
+		                console.log("준비물 업데이트 성공! -ajax");
+		            } else {
+		                console.log("준비물 업데이트 실패! -ajax");
+		                alert('준비물 업데이트 실패. 다시 시도하도록 하세요.');
+		            }//if else
+			
+			
+		},//func
+		error: function(xhr, status, error){
+			console.error('Error', status, error);
+			alert('ajax 요청 실패');
+		}
+		
+		
+	});//ajax
+	
+	checkbox.addEventListener("change", function(){
+		var supplyName = con;
+		var isChecked = this.checked ? 1:0 //체크박스 상태 (1: 체크됨, 0: 체크 해제됨)
+	});
+	}//func
+	
+	
+	
+
+		
 
 
 
