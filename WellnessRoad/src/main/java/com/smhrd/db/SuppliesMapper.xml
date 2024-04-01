@@ -4,7 +4,12 @@
 
 
 <insert id="makeSupplies" parameterType="com.smhrd.model.SuppliesDTO">
-	insert into supplies (supply_name, supply_status,trip_idx) values(#{supply_name},#{supply_status},#{trip_idx})
+	insert into supplies (supply_name, supply_status,trip_idx)
+SELECT #{supply_name},#{supply_status},#{trip_idx}
+FROM dual
+WHERE NOT EXISTS (
+    SELECT 1 FROM supplies WHERE supply_name= #{supply_name}
+)
 </insert>
 
 

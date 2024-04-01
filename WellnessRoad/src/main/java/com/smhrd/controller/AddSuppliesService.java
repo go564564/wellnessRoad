@@ -41,7 +41,7 @@ public class AddSuppliesService extends HttpServlet {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String supplyName = jsonObject.getString("supply_name");
-                int supply_status = jsonObject.getInt("checked");
+                int supply_status = jsonObject.getInt("supply_status");
                 int trip_idx = jsonObject.getInt("trip_idx");
                 SuppliesDTO dto = new SuppliesDTO(supplyName, supply_status, trip_idx);
                 result = dao.insertSupplies(sqlSession, dto);
@@ -58,7 +58,7 @@ public class AddSuppliesService extends HttpServlet {
             System.out.println("준비물 등록 성공");
             response.sendRedirect("supplies.jsp");
         } else {
-            System.out.println("실패실패실패 등록 실패");
+            System.out.println("add sup등록 실패");
         }
 
     }

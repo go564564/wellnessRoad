@@ -367,7 +367,7 @@ function addItem() {
 	var newItem = {
     	supply_name: con,
     	//준비완료 유/무(1:0)- 기본값 0 
-    	checked: 0,
+    	supply_status: 0,
     	trip_idx: 1
     };
 	suppliesArray.push(newItem)
@@ -380,7 +380,7 @@ function updateCheckedStatus(con,isChcked, checkbox){
     var index = suppliesArray.findIndex(item => item.supply_name === con);
     if (index !== -1) {
         // 해당 준비물 객체가 배열 안에 존재하는 경우에만 업데이트 수행
-        suppliesArray[index].checked = checkbox.checked ? 1 : 0;
+        suppliesArray[index].supply_status = checkbox.checked ? 1 : 0;
         console.log(suppliesArray); // 업데이트된 배열 출력 (확인용)
     }
 };
