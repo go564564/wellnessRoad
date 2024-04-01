@@ -213,7 +213,7 @@ table {
 
 	</div>
 
-	<div class="saveBox" id="saveButton">저장</div>
+	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
@@ -468,26 +468,7 @@ document.getElementById("inputItem").addEventListener("keypress", function(event
 
 
 
-$(document).ready(function(){
-	$("#saveButton").click(function(){
-		$.ajax({
-			url: "AddSuppliesService",
-			method: "POST",
-			data: { supplies: JSON.stringify(suppliesArray) },
-			success: function(response){
-				console.log("준비물 데이터 전송 성공!!!!!!");
-			},
-			error: function(xhr, status, error){
-				console.log("준비물 데이터 전송 실 페ㅐ . . ", status, error);
-			}
-			
-			
-		});
-	});
-	
-	
-	
-});//readyfunc
+
 
 
 </script>
