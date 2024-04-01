@@ -28,9 +28,12 @@ public class CreateTripService extends HttpServlet {
 		TripsDTO tdto = new TripsDTO(trip_name,mem_id,st_dt,ed_dt);
 		TripsDAO tdao = new TripsDAO();	
 		
-		int result = tdao.makeTrip(tdto);
-		int trip_idx = tdto.getTrip_idx();
-		System.out.println("createTripservbidx"+tdto.getTrip_idx());
+		//int result = tdao.makeTrip(tdto);
+		tdao.makeTrip(tdto);
+		int trip_idx = tdto.getTrip_idx(); 
+		
+		
+		System.out.println("Service : "+tdto.getTrip_idx());
 		
 		HttpSession session = request.getSession();
 		
@@ -40,7 +43,7 @@ public class CreateTripService extends HttpServlet {
 		
 		
 		
-		if(result>0) {
+		if(trip_idx>0) {
 			session.setAttribute("trip_idx", trip_idx);
 			response.sendRedirect("sessiontest.jsp?trip_idx=" + trip_idx);
 		}
