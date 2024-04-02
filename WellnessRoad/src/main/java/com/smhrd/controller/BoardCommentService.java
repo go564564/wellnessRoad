@@ -2,7 +2,9 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,16 +40,21 @@ public class BoardCommentService extends HttpServlet {
 		
 		int result = dao.b_cmt(dto);
 		
+		response.setContentType("text/html; charset=UTF-8");
+		request.setAttribute("result", result);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("board_view.jsp");
+		dispatcher.forward(request, response);
+		
 		if (result > 0) {
 			System.out.println("댓글 등록 성공!");
 			
-			response.setContentType("text/html; charset=UTF-8");
-			out.println("<script>alert('댓글이 등록되었습니다.'); location.href='board_view.jsp'</script>");
-			out.close();
+			//out.println("<script>alert('댓글이 등록되었습니다.'); location.href='board_view.jsp'</script>");
+			//out.close();
 		} else {
 			System.out.println("등록 실패!");
 		}
-		request.getRequestDispatcher("board_view.jsp").forward(request, response);
+		//request.getRequestDispatcher("board_view.jsp").forward(request, response);
 		
 	}
 
