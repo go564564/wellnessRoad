@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smhrd.model.PoiMapper">
+
+
+
+
+
+<select id="poiSelect" parameterType="int" resultType="com.smhrd.model.PoiDTO">
+    SELECT 
+        POI_IDX, 
+        POI_NAME, 
+        POI_ADDR, 
+        POI_LAT, 
+        POI_LNG, 
+        POI_INFO, 
+        CASE WHEN POI_CLOSEDAY IS NULL THEN '없음' ELSE POI_CLOSEDAY END AS POI_CLOSEDAY,
+        CASE WHEN POI_AVAILABLE IS NULL THEN '없음' ELSE POI_AVAILABLE END AS POI_AVAILABLE,
+        CASE WHEN POI_PARKING IS NULL THEN '없음' ELSE POI_PARKING END AS POI_PARKING, 
+        POI_REGION, 
+        POI_TAG, 
+        POI_IMG
+    FROM (
+        SELECT pois.*, ROW_NUMBER() OVER (ORDER BY poi_idx) AS row_num
+        FROM pois
+    )
+    WHERE row_num BETWEEN #{num}-9 AND #{num}
+</select>
+
+<insert id="insertPoi" parameterType="com.smhrd.model.InsPoiDTO">
+	insert into TRIP_SCHEDULES (trip_idx,sche_day,trip_sche) values (#{id},#{day},#{schedule})
+</insert>
+
+<select id="checkPoi" parameterType="com.smhrd.model.InsPoiDTO" resultType="com.smhrd.model.InsPoiDTO">
+			select * from TRIP_SCHEDULES where trip_idx = #{id} and sche_day = #{day}		
+</select>
+
+<update id="updatePoi" parameterType="com.smhrd.model.InsPoiDTO">
+    update TRIP_SCHEDULES set trip_sche = #{schedule} where trip_idx = #{id} and sche_day = #{day}
+</update>
+
+
+<select id="poiSelectRegion" parameterType="com.smhrd.model.TagSelectDTO" resultType="com.smhrd.model.PoiDTO">
+SELECT 
+    POI_IDX, 
+    POI_NAME, 
+    POI_ADDR, 
+    POI_LAT, 
+    POI_LNG, 
+    POI_INFO, 
+    CASE WHEN POI_CLOSEDAY IS NULL THEN '없음' ELSE POI_CLOSEDAY END AS POI_CLOSEDAY,
+    CASE WHEN POI_AVAILABLE IS NULL THEN '없음' ELSE POI_AVAILABLE END AS POI_AVAILABLE,
+    CASE WHEN POI_PARKING IS NULL THEN '없음' ELSE POI_PARKING END AS POI_PARKING, 
+    POI_REGION, 
+    POI_TAG, 
+    POI_IMG
+FROM (
+    SELECT pois.*, ROW_NUMBER() OVER (ORDER BY poi_idx) AS row_num
+    FROM pois
+    WHERE poi_region = #{tag} 
+) 
+WHERE row_num BETWEEN #{num}-9 AND #{num}
+    
+</select>
+
+<select id="poiSelectTag" parameterType="com.smhrd.model.PoiDTO" resultType="com.smhrd.model.PoiDTO">
+SELECT 
+    POI_IDX, 
+    POI_NAME, 
+    POI_ADDR, 
+    POI_LAT, 
+    POI_LNG, 
+    POI_INFO, 
+    CASE WHEN POI_CLOSEDAY IS NULL THEN '없음' ELSE POI_CLOSEDAY END AS POI_CLOSEDAY,
+    CASE WHEN POI_AVAILABLE IS NULL THEN '없음' ELSE POI_AVAILABLE END AS POI_AVAILABLE,
+    CASE WHEN POI_PARKING IS NULL THEN '없음' ELSE POI_PARKING END AS POI_PARKING, 
+    POI_REGION, 
+    POI_TAG, 
+    POI_IMG
+FROM (
+    SELECT pois.*, ROW_NUMBER() OVER (ORDER BY poi_idx) AS row_num
+    FROM pois
+    WHERE poi_tag = #{tag} 
+) 
+WHERE row_num BETWEEN #{num}-9 AND #{num}
+
+</select>
+
+	<delete id="deletePoi" parameterType="com.smhrd.model.InsPoiDTO" >
+		delete from TRIP_SCHEDULES where trip_idx = #{id} and sche_day = #{day}
+		
+	</delete>
+	
+	<select id="allTripGet" resultType="com.smhrd.model.IdNameDayDTO">
+		SELECT trip_idx, trip_name, st_dt, ed_dt
+		FROM trips
+		WHERE mem_id = #{id}
+		ORDER BY trip_idx DESC	
+	</select>
+
+
+	
+	<select id="getIdNameDay" resultType="com.smhrd.model.IdNameDayDTO">
+		SELECT trip_idx, trip_name, st_dt, ed_dt
+		FROM trips
+		WHERE trip_idx = #{id}
+	</select>
+
+</mapper>

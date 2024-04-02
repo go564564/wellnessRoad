@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.smhrd.model.DataMapper">
+  
+  	
+<select id="checkData" parameterType="com.smhrd.model.InsPoiDTO" resultType="com.smhrd.model.InsPoiDTO">
+			select * from TRIP_SCHEDULES where trip_idx = #{id} and sche_day = #{day}		
+</select>
+
+<select id="getData" resultType="com.smhrd.model.PoiDTO">
+	select * from pois where POI_IDX = #{id}
+</select>
+
+<select id="getDayData" resultType="int">
+	SELECT DISTINCT SCHE_DAY FROM TRIP_SCHEDULES WHERE TRIP_IDX = #{id} ORDER BY SCHE_DAY ASC	
+</select>
+
+<select id="selectAllData" resultType="int">
+    SELECT COUNT(*) FROM pois
+</select>
+
+<select id="selectTag" parameterType="String" resultType="int">
+    SELECT COUNT(*) FROM pois where poi_tag = #{tag}
+</select>
+
+<select id="selectRegion" parameterType="String" resultType="int">
+    SELECT COUNT(*) FROM pois where poi_region = #{region}
+</select>
+  
+  
+  
+  
+  
+  
+  
+  </mapper>

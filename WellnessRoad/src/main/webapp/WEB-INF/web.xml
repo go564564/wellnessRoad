@@ -3,6 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
 	<display-name>Archetype Created Web Application</display-name>
 	<servlet>
 		<servlet-name>JoinService</servlet-name>
@@ -95,9 +96,9 @@
 		<display-name>GetSuppliesService</display-name>
 		<description></description>
 		<servlet-class>com.smhrd.controller.GetSuppliesService</servlet-class>
-
-	</servlet>
-<servlet>
+		</servlet>
+		
+		<servlet>
 		<servlet-name>BoardImgs</servlet-name>
 		<display-name>BoardImgs</display-name>
 		<description></description>
@@ -105,6 +106,7 @@
 		
 
 	</servlet>
+	
 <servlet>
 
 	<servlet-name>BoardCommentsDTO</servlet-name>
@@ -112,36 +114,42 @@
 	<description></description>
 	<servlet-class>com.smhrd.model.BoardCommentsDTO</servlet-class>
 </servlet>
+
 <servlet>
 	<servlet-name>BoardCommentsService</servlet-name>
 	<display-name>BoardCommentsService</display-name>
 	<description></description>
 	<servlet-class>com.smhrd.controller.BoardCommentsService</servlet-class>
 </servlet>
+
 <servlet>
 	<servlet-name>BoardCommentService</servlet-name>
 	<display-name>BoardCommentService</display-name>
 	<description></description>
 	<servlet-class>com.smhrd.controller.BoardCommentService</servlet-class>
 </servlet>
+
 <servlet>
 	<servlet-name>BoardgetCmt</servlet-name>
 	<display-name>BoardgetCmt</display-name>
 	<description></description>
 	<servlet-class>com.smhrd.controller.BoardgetCmt</servlet-class>
 </servlet>
+
 <servlet>
 	<servlet-name>UpdateSupply</servlet-name>
 	<display-name>UpdateSupply</display-name>
 	<description></description>
 	<servlet-class>com.smhrd.controller.UpdateSupply</servlet-class>
 </servlet>
+
 <servlet>
 	<servlet-name>AddSupply</servlet-name>
 	<display-name>AddSupply</display-name>
 	<description></description>
 	<servlet-class>com.smhrd.controller.AddSupply</servlet-class>
 </servlet>
+
 <servlet>
 	<servlet-name>DeleteSupply</servlet-name>
 	<display-name>DeleteSupply</display-name>
@@ -242,7 +250,105 @@
 <servlet-mapping>
 	<servlet-name>DeleteSupply</servlet-name>
 	<url-pattern>/DeleteSupply</url-pattern>
-
 </servlet-mapping>
+
+<servlet>
+  	<servlet-name>poiGet</servlet-name>
+  	<display-name>poiGet</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.poiGet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>insertPoi</servlet-name>
+  	<display-name>insertPoi</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.insertPoi</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>getData</servlet-name>
+  	<display-name>getData</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.getData</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetDataAll</servlet-name>
+  	<display-name>GetDataAll</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.GetDataAll</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PoiPageNum</servlet-name>
+  	<display-name>PoiPageNum</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.PoiPageNum</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LinkDataMainSche</servlet-name>
+  	<display-name>LinkDataMainSche</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.LinkDataMainSche</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>deletePoi</servlet-name>
+  	<display-name>deletePoi</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.deletePoi</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AllScheduleView</servlet-name>
+  	<display-name>AllScheduleView</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.AllScheduleView</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetIdNameDay</servlet-name>
+  	<display-name>GetIdNameDay</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.GetIdNameDay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>poiGet</servlet-name>
+  	<url-pattern>/poiGet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>insertPoi</servlet-name>
+  	<url-pattern>/insertPoi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>getData</servlet-name>
+  	<url-pattern>/getData</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetDataAll</servlet-name>
+  	<url-pattern>/GetDataAll</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PoiPageNum</servlet-name>
+  	<url-pattern>/PoiPageNum</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LinkDataMainSche</servlet-name>
+  	<url-pattern>/LinkDataMainSche</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>deletePoi</servlet-name>
+  	<url-pattern>/deletePoi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AllScheduleView</servlet-name>
+  	<url-pattern>/AllScheduleView</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetIdNameDay</servlet-name>
+  	<url-pattern>/GetIdNameDay</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+
+
 
 </web-app>
