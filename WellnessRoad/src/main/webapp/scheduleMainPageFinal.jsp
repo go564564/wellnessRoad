@@ -562,10 +562,12 @@ text-decoration: none;
 	LocalDate tenDaysLater = today.plusDays(10);
 
 	
-	 // 시작 인덱스를 구해보자
-	 long startIndex = startDate.isBefore(threeDaysLater) ? -ChronoUnit.DAYS.between(threeDaysLater, startDate) : ChronoUnit.DAYS.between(threeDaysLater, startDate);
+	 // 오늘날짜에서 3일후가 기준일 기준일 전이면 - 기준일 후면 + 시작 인덱스를 구해보자
 	 
-	 System.out.println(startIndex);
+	 long startIndex = ChronoUnit.DAYS.between(threeDaysLater, startDate);
+	 if (startDate.isBefore(threeDaysLater)) {
+	     startIndex *= -1; // 시작일이 기준일 이전이면 음수를 붙입니다.
+	 }
 	 
 	%>
 
@@ -1806,7 +1808,7 @@ text-decoration: none;
                     break;
                 default:
             }
-            
+            alert(index);
             // 이미지 출력 
             if(index>=0&&index<=15){
             
