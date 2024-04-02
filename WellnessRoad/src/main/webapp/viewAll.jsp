@@ -1,4 +1,3 @@
-<%@page import="com.smhrd.model.MembersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -237,8 +236,9 @@ text-decoration: none;
 			<div id="topLeftMenu">
 				<img src="./img/logo.png" alt="로고" id="logo" />
 
-				<div class="menu"><a href="Main.jsp">메인메뉴</a></div>
-				<div class="menu"><a href="#">준비물</a></div>
+				<div class="menu"><a href="#">메인메뉴</a></div>
+				<div class="menu">여행계획보기</div>
+				<div class="menu">준비물</div>
 
 			</div>
 
@@ -282,14 +282,8 @@ text-decoration: none;
 		    var day = ('0' + date.getDate()).slice(-2); // 일
 		    return year + '-' + month + '-' + day; // yyyy-mm-dd 형식으로 반환
 		}
-		
-		<%
-		MembersDTO mem_info = (MembersDTO) session.getAttribute("mem_info");
-		%>
-	    
-		alert('<%=mem_info.getMem_id()%>');
-		
-		var mem_id = '<%=mem_info.getMem_id()%>';
+
+		var mem_id = "kca"; // 여기에 실제 mem_id 값을 설정합니다.
 		var tripIdxArray = [];
 
 		$.ajax({
@@ -316,7 +310,7 @@ text-decoration: none;
 		            tripIdxArray.push(trip.trip_idx);
 		        }); // forEach 메서드의 닫는 괄호  
 		       
-		        // reDraw(tripIdxArray[0]);
+		        reDraw(tripIdxArray[0]);
 		    },
 		    error: function() {}
 		});
@@ -358,6 +352,7 @@ $.ajax({
                 jsonData[dayKey].push({ poi_name: item.poi_name, poi_url: item.poi_url });
             }
 
+            console.log(jsonData);
 
             var numberOfArrays = Object.keys(jsonData).length;
             console.log("생성된 배열의 개수:", numberOfArrays);
