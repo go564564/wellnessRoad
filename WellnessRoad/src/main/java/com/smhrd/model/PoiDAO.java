@@ -93,11 +93,11 @@ public class PoiDAO {
 
 	}
 	
-	public InsPoiDTO checkDataGetData(InsPoiDTO poi) {
+	public String checkDataGetData(InsPoiDTO poi) {
 
 		sqlSession = sqlSessionFactory.openSession(true);
 
-		InsPoiDTO tempDTO = null;
+		String tempDTO = "";
 		
 		try {
 			tempDTO = sqlSession.selectOne("checkDataGetData", poi);
