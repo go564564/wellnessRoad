@@ -129,7 +129,6 @@ a {
     height: 32px;
     box-sizing: border-box;
     vertical-align: middle;
-    border: 1px solid #ddd;
     border-left: 0;
     line-height: 100%;
 }
