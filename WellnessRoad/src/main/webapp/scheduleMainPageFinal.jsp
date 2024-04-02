@@ -489,8 +489,8 @@ background-color: #1b273f;
 }
 
 #weather img{
-weight:20px;
-height:20px;
+weight:40px;
+height:40px;
 }
 #weather{
 font-size:16px;
@@ -554,7 +554,6 @@ text-decoration: none;
     long daysDifference = ChronoUnit.DAYS.between(startDate, endDate)+1;
     int[] pageArray=linkdata.getData_count();
 	        
-    boolean weatherSwitch=false;
     
     // 3일부터 10일사이에 값이 있으면 데이터 계산
    // 현재 날짜에서 3일과 10일을 더한 날짜를 구함
@@ -562,13 +561,9 @@ text-decoration: none;
 	LocalDate threeDaysLater = today.plusDays(3);
 	LocalDate tenDaysLater = today.plusDays(10);
 
-// 시작일과 종료일이 현재 날짜로부터 3일보다 모두 전에 있거나, 현재 날짜로부터 10일보다 모두 후에 있을 때 조건을 만족하는지 확인
-	weatherSwitch = !(startDate.isBefore(threeDaysLater) & endDate.isBefore(threeDaysLater)) ||
-                    !(startDate.isAfter(tenDaysLater) & endDate.isAfter(tenDaysLater));
 	
-	 	
 	 // 시작 인덱스를 구해보자
-	 long startIndex = startDate.isBefore(threeDaysLater) ? ChronoUnit.DAYS.between(threeDaysLater, startDate) : -ChronoUnit.DAYS.between(threeDaysLater, startDate);
+	 long startIndex = startDate.isBefore(threeDaysLater) ? -ChronoUnit.DAYS.between(threeDaysLater, startDate) : ChronoUnit.DAYS.between(threeDaysLater, startDate);
 	 
 	 System.out.println(startIndex);
 	 
@@ -1185,9 +1180,9 @@ text-decoration: none;
 		        getData(currentDay);
 		        
 		        weatherIndex=weatherIndex-2;
-		        if(weatherSwitchJs){
+		        
 		        	displayWeather(weatherIndex);
-		        }
+		        
 		        
 		    }
 		});
@@ -1207,9 +1202,9 @@ text-decoration: none;
 		    //임시 저장
 		    
 		    weatherIndex=weatherIndex+2;
-	        if(weatherSwitchJs){
+	        
 	        	displayWeather(weatherIndex);
-	        }
+	        
 		    
 	        
 			}
@@ -1678,11 +1673,8 @@ text-decoration: none;
     		});	
         };    //데이터 가져오기
     	
-        var weatherSwitchJs = <%=weatherSwitch%>;
         var weatherIndex=0;
         
-        // 날짜가 3~10사이에 있으면 데이터 가져오기  
-  		if(weatherSwitchJs){
                   			
   		weatherIndex = (<%=startIndex%>)*2;
                         
@@ -1742,7 +1734,7 @@ text-decoration: none;
         
 		xhr.send('');
 
-  		} // 날씨 if 문 끝
+
         
         function displayWeather(index) {
             // 오전과 오후 날씨에 따라 이미지를 지정하여 출력
@@ -1816,7 +1808,6 @@ text-decoration: none;
             }
             
             // 이미지 출력 
-            
             if(index>=0&&index<=15){
             
             var weatherDiv = document.getElementById('weather');
