@@ -17,17 +17,20 @@
 
 .pnum{
 	align-content:center;
-	border:1px solid #42454c;
-	padding: 10px;
-	margin-left: 70px;
+	margin-left: 20px;
 	font-size: large;
+	margin-bottom: 100px;
 }
- 
- 
- 
+.pnum:hover {
+
+	border-radius:100%;
+	border-color: #E8F6E9;
+	
+}
 </style>
 </head>
 <body>
+	<%System.out.print("여기는 메인게시판"); %>
 	<%
 		// mem_info 불러오기 (로그인정보-사용자)
 		MembersDTO mem_info = (MembersDTO)session.getAttribute("mem_info");
@@ -46,35 +49,58 @@
 		int endRow=v_page*pageSize; //마지막행	
 		list = dao.Show_allBoard(endRow);
 	%>
+	<div id="topMenu">
+		<div id="menuContainer">
+			<a href="Main.jsp"><img src="img/logo.png" alt="" id="logo" /></a>
+		</div>
+	</div>
 
-<div class="board_wrap">
+	<div class="board_wrap">
         <div class="board_title">
             <strong>게시판</strong>
         </div>
             
-        <div class="board_list_wrap">
-            <div class="board_list">
-                <div class="top">
-                    <div class="num">번호</div>
-                    <div class="title">제목</div>
-                    <div class="writer">글쓴이</div>
-                    <div class="date">작성일</div>
-                    <div class="count">조회수</div>
-                </div>
-					<%
-					for (int i = 0; i < list.size(); i++) {
-					%>
-				<div>
-					<div class="num" name="b_idx"><%=list.get(i).getB_idx()%></div>
-					<div class="title"> <a href="board_view.jsp?b_idx=<%=list.get(i).getB_idx()%>"><%=list.get(i).getB_title()%></a></div>
-					<div class="writer"><%=list.get(i).getMem_id()%></div>
-					<div class="date"><%=list.get(i).getCreated_at()%></div>
-					<div class="count"><%=list.get(i).getB_views()%></div>
-				</div>
-					<% } %>
-            </div>
-                         
-           <div class="board_page">
+	        <div class="board_list_wrap">
+	            <div class="board_list">
+	                <div class="top">
+	                    <div class="num">번호</div>
+	                    <div class="title">제목</div>
+	                    <div class="writer">글쓴이</div>
+	                    <div class="date">작성일</div>
+	                    <div class="count">조회수</div>
+              	   </div>
+						<%
+						for (int i = 0; i < list.size(); i++) {
+							
+							if(list.get(i).getFilename()!=null){
+						%>
+						<div id="file_yes">
+							<div class="num" name="b_idx"><%=list.get(i).getB_idx()%></div>
+							<div class="title">
+								 <a href="board_view.jsp?b_idx=<%=list.get(i).getB_idx()%>"><%=list.get(i).getB_title()%></a>
+								 <img src="./img/attach-file_Icon.png" width="16" height="16" border="0">
+							</div>
+							<div class="writer"><%=list.get(i).getMem_id()%></div>
+							<div class="date"><%=list.get(i).getCreated_at()%></div>
+							<div class="count"><%=list.get(i).getB_views()%></div>
+						</div>
+							<%}else{%>					
+						<div id="file_no">
+							<div class="num" name="b_idx"><%=list.get(i).getB_idx()%></div>
+							<div class="title">
+								 <a href="board_view.jsp?b_idx=<%=list.get(i).getB_idx()%>"><%=list.get(i).getB_title()%></a>
+							</div>
+							<div class="writer"><%=list.get(i).getMem_id()%></div>
+							<div class="date"><%=list.get(i).getCreated_at()%></div>
+							<div class="count"><%=list.get(i).getB_views()%></div>						
+						</div>
+							 <% } %>
+					  <% } %>
+	            </div>
+	        </div>
+	 	</div>
+                       
+       <div class="board_page">
                     
            <% if(mem_info !=null){%>
              <div class="bt_wrap">
@@ -82,35 +108,31 @@
              </div>
            <%}%> 
                  
-            </div>
-  <%	// 페이징  처리
+  		  <%	// 페이징  처리
 				if(total > 0){
-							// 총 페이지의 수
+				// 총 페이지의 수
 				int pageCount = total / pageSize + (total%pageSize == 0 ? 0 : 1);
 
-							// 한 페이지에 보여줄 페이지 블럭(링크) 수
+				// 한 페이지에 보여줄 페이지 블럭(링크) 수
 				int pageBlock = 10;
 
-							// 한 페이지에 보여줄 시작 및 끝 번호(예 : 1, 2, 3 ~ 10 / 11, 12, 13 ~ 20)
-							
+				// 한 페이지에 보여줄 시작 및 끝 번호(예 : 1, 2, 3 ~ 10 / 11, 12, 13 ~ 20)
 				int startPage = ((v_page-1)/pageBlock)*pageBlock+1;
 				int lastpage=(int)Math.ceil((double)total/10);	
-				System.out.print("stp"+startPage+"lastp"+lastpage);
-							// 마지막 페이지가 총 페이지 수 보다 크면 endPage를 pageCount로 할당	
+				// 마지막 페이지가 총 페이지 수 보다 크면 endPage를 pageCount로 할당	
 				if(lastpage > pageCount){
 					lastpage = pageCount;
 							}
 							
-				if(startPage > pageBlock){ // 페이지 블록수보다 startPage가 클경우 이전 링크 생성
-					%>
-							 <a href="board_main.jsp?vpage=<%=startPage - 10%>" class="bt prev"><</a>	
+  				if(startPage > pageBlock){ // 페이지 블록수보다 startPage가 클경우 이전 링크 생성
+    		%>
+					<a href="board_main.jsp?vpage=<%=startPage - 10%>" class="bt prev"><</a>	
 					<%		 	
-							}
-							
+						}							
 							for(int i=startPage; i <= lastpage; i++){ // 페이지 블록 번호
 								if(i == total){ // 현재 페이지에는 링크를 설정하지 않음
 					%>
-									<%=i %>
+									<%=i%>
 					<%									
 								}else{ // 현재 페이지가 아닌 경우 링크 설정
 					%>
@@ -121,12 +143,13 @@
 							
 							if(lastpage < pageCount){ // 현재 블록의 마지막 페이지보다 페이지 전체 블록수가 클경우 다음 링크 생성
 					%>
-								<a href="board_main.jsp?vpage=<%=startPage + 10 %>" class="bt next">></a>
+								<a href="board_main.jsp?vpage=<%=startPage + 10 %>" class="bt next">next</a>
 					<%			
 							}
 						}
 					%>
 
+            </div>
         </div>
     </div>
 </body>

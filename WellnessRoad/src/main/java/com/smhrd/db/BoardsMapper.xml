@@ -29,7 +29,14 @@
 		<delete id="delBoard">
 			delete from boards where b_idx=#{b_idx}
 		</delete>
-
+		
+		<insert id="b_cmt" parameterType="com.smhrd.model.BoardCommentsDTO">
+	 		insert into BOARD_COMMENTS (b_idx,CMT_CONTENT,created_at,mem_id) values(#{b_idx},#{cmt_content},sysdate,#{mem_id})
+		</insert>
+		
+		<select id="show_cmt" resultType="com.smhrd.model.BoardCommentsDTO">
+			select * from BOARD_COMMENTS where b_idx=#{b_idx} ORDER BY CREATED_AT desc
+		</select>
 
 
 </mapper>

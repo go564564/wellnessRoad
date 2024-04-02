@@ -100,7 +100,7 @@
 			<%
 			}
 			%>
-
+		
 
 
 
@@ -246,6 +246,7 @@
 				},
 				success : function(response) {
 					console.log("여행일정 저장완료");
+					 window.location.href = "sessiontest.jsp";
 				},
 				error : function(xhr, status, error) {
 					console.error("오류 발생: " + error);

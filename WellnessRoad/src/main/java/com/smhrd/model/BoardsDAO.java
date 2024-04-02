@@ -95,7 +95,8 @@ public class BoardsDAO {
 		return cnt; 
 		
 	}
-
+	
+	// 이미지 업로드
 	public int imgUpload(BoardImgsDTO idto) {
 		System.out.println("BoardImgsDAO 도착");
 						
@@ -106,6 +107,34 @@ public class BoardsDAO {
 		sqlSession.close();
 		
 		return result;
+	}
+	
+	//댓글 업로드
+	public int b_cmt(BoardCommentsDTO dto) {
+
+		int result = sqlSession.insert("b_cmt",dto);
+		if(result > 0) {
+			System.out.println("댓글등록 성공!");
+		}
+		sqlSession.close();
+		
+		return result;
+	}
+	
+	//댓글 db에서 꺼내오기
+	public  List<BoardCommentsDTO> show_cmt(int b_idx){
+		System.out.println("dao댓글"+b_idx);
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		 List<BoardCommentsDTO> cmtList = new ArrayList<>();	
+		try {
+			cmtList =sqlSession.selectList("show_cmt",b_idx);
+			System.out.println("리스트"+cmtList);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}		
+		return cmtList;
 	}
 	
 }
