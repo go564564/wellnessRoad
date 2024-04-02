@@ -521,7 +521,7 @@ text-decoration: none;
 				</div>
 			
 			<div id="ropRightMenu">
-				<div class="menu"><a href="">로그아웃</a></div>
+				<div class="menu"><a href="LogoutService">로그아웃</a></div>
 			</div>
 			
 		</div>
@@ -1176,7 +1176,9 @@ text-decoration: none;
 		// 이전 버튼에 클릭 이벤트 핸들러를 추가합니다.
 		prevButton.addEventListener('click', function() {
 		    if (currentDay > 1) {
-		    	idxSave(currentDay);
+		    	
+		    	// idxSave(currentDay); 저장 버튼으로만 하게
+		    	
 		    	currentDay--;
 		        currentDate.setDate(currentDate.getDate() - 1);
 		        updateDayAndDate();
@@ -1193,8 +1195,12 @@ text-decoration: none;
 		// 다음 버튼에 클릭 이벤트 핸들러를 추가합니다.
 		nextButton.addEventListener('click', function() {
 			if (currentDay < <%=daysDifference%>) {
-			idxSave(currentDay);	
-		    currentDay++;
+			
+				
+			// idxSave(currentDay); 저장버튼으로	
+		    
+				
+				currentDay++;
 		    currentDate.setDate(currentDate.getDate() + 1);
 		    updateDayAndDate();
 		    getData(currentDay);

@@ -30,7 +30,7 @@ public class getData extends HttpServlet {
 			
 			PoiDAO poiDao = new PoiDAO(); 
 			
-			InsPoiDTO tempDTO = poiDao.checkData(checkDTO);
+			InsPoiDTO tempDTO = poiDao.checkDataGetData(checkDTO);
 			
 			if(tempDTO!=null) {
 			String scheduleString = tempDTO.getSchedule();			
