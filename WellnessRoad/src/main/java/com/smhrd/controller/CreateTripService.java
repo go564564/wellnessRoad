@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.TripsDAO;
 import com.smhrd.model.TripsDTO;
@@ -27,10 +28,24 @@ public class CreateTripService extends HttpServlet {
 		TripsDTO tdto = new TripsDTO(trip_name,mem_id,st_dt,ed_dt);
 		TripsDAO tdao = new TripsDAO();	
 		
-		int result = tdao.makeTrip(tdto);
+		//int result = tdao.makeTrip(tdto);
+		tdao.makeTrip(tdto);
+		int trip_idx = tdto.getTrip_idx(); 
 		
-		if(result>0) {
-			response.sendRedirect("Main.jsp");
+		
+		System.out.println("Service : "+tdto.getTrip_idx());
+		
+		HttpSession session = request.getSession();
+		
+		
+		
+		
+		
+		
+		
+		if(trip_idx>0) {
+			session.setAttribute("trip_idx", trip_idx);
+			response.sendRedirect("sessiontest.jsp?trip_idx=" + trip_idx);
 		}
 	
 	

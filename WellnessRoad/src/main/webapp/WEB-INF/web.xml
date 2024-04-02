@@ -106,6 +106,7 @@
 
 	</servlet>
 <servlet>
+<<<<<<< HEAD
 	<servlet-name>BoardCommentsDTO</servlet-name>
 	<display-name>BoardCommentsDTO</display-name>
 	<description></description>
@@ -128,6 +129,24 @@
 	<display-name>BoardgetCmt</display-name>
 	<description></description>
 	<servlet-class>com.smhrd.controller.BoardgetCmt</servlet-class>
+=======
+	<servlet-name>UpdateSupply</servlet-name>
+	<display-name>UpdateSupply</display-name>
+	<description></description>
+	<servlet-class>com.smhrd.controller.UpdateSupply</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>AddSupply</servlet-name>
+	<display-name>AddSupply</display-name>
+	<description></description>
+	<servlet-class>com.smhrd.controller.AddSupply</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>DeleteSupply</servlet-name>
+	<display-name>DeleteSupply</display-name>
+	<description></description>
+	<servlet-class>com.smhrd.controller.DeleteSupply</servlet-class>
+>>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad.git
 </servlet>
 
 	<servlet-mapping>
@@ -196,6 +215,7 @@
 
 </servlet-mapping>
 <servlet-mapping>
+<<<<<<< HEAD
 	<servlet-name>BoardCommentsDTO</servlet-name>
 	<url-pattern>/BoardCommentsDTO</url-pattern>
 </servlet-mapping>
@@ -210,6 +230,18 @@
 <servlet-mapping>
 	<servlet-name>BoardgetCmt</servlet-name>
 	<url-pattern>/BoardgetCmt</url-pattern>
+=======
+	<servlet-name>UpdateSupply</servlet-name>
+	<url-pattern>/UpdateSupply</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>AddSupply</servlet-name>
+	<url-pattern>/AddSupply</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>DeleteSupply</servlet-name>
+	<url-pattern>/DeleteSupply</url-pattern>
+>>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad.git
 </servlet-mapping>
 
 </web-app>

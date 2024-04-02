@@ -4,11 +4,33 @@
 
 
 <insert id="makeSupplies" parameterType="com.smhrd.model.SuppliesDTO">
-	insert into supplies (supply_name, supply_status,trip_idx) values(#{supply_name},#{supply_status},#{trip_idx})
+	insert into supplies (supply_name, supply_status,trip_idx) value(#{supply_name},#{supply_status},#{trip_idx})
+</insert>
+
+<insert id="insertSupplies" parameterType="com.smhrd.model.SuppliesDTO">
+	insert into supplies(supply_name, supply_status, trip_idx) 
+	values(#{supply_name},#{supply_status},#{trip_idx})
 </insert>
 
 
 <select id="getSupplies" parameterType="int" resultType="com.smhrd.model.SuppliesDTO">
 	select * from supplies where trip_idx=#{trip_idx}
 </select>
+
+
+<update id="updateSupplies" parameterType="String">
+	update supplies set supply_status =
+		case
+			when supply_status = 0 then 1
+			else 0
+		end
+		where supply_name = #{name}
+</update>
+
+<delete id="deleteSupply" parameterType="string">
+	delete from supplies
+	where supply_name = #{supply_name}
+</delete>
+
+
 </mapper>
