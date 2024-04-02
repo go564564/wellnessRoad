@@ -69,6 +69,7 @@
 	                    <div class="date">작성일</div>
 	                    <div class="count">조회수</div>
               	   </div>
+              	   		
 						<%
 						for (int i = 0; i < list.size(); i++) {
 							
@@ -107,6 +108,7 @@
                  <button type="button" class="on" id="writePost" onclick="location='board_write.jsp'">글쓰기</button>
              </div>
            <%}%> 
+              	 <a href="board_main.jsp?vpage=1" class="bt first">[첫페이지로]</a>
                  
   		  <%	// 페이징  처리
 				if(total > 0){
@@ -119,6 +121,7 @@
 				// 한 페이지에 보여줄 시작 및 끝 번호(예 : 1, 2, 3 ~ 10 / 11, 12, 13 ~ 20)
 				int startPage = ((v_page-1)/pageBlock)*pageBlock+1;
 				int lastpage=(int)Math.ceil((double)total/10);	
+					System.out.print("맨끝페이지 숫자"+lastpage);
 				// 마지막 페이지가 총 페이지 수 보다 크면 endPage를 pageCount로 할당	
 				if(lastpage > pageCount){
 					lastpage = pageCount;
@@ -148,7 +151,6 @@
 							}
 						}
 					%>
-
             </div>
         </div>
     </div>

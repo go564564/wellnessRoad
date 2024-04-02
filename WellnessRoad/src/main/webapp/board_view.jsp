@@ -21,6 +21,7 @@
 	 
 	 .submit{
     background-color: rgb(0, 128,255);
+    border-radius:10%;
     width: 3em;
     height: 2em;;
     font-size: 15px;
@@ -125,7 +126,7 @@
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<tr>
 						<td style="text-align: left;"><%=cmtList.get(i).getMem_id()%></td>
-						<td style="text-align: right;"><%=cmtList.get(i).getCreated_at()%></td>
+						<td style="text-align: right; font-size: 10px;"><%=cmtList.get(i).getCreated_at()%></td>
 					</tr>
 					<tr>
 						<td><%=cmtList.get(i).getCmt_content() %></td>

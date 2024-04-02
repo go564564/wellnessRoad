@@ -72,8 +72,7 @@ public class BoardsDAO {
 	public int b_views_inc(BoardsDTO dto) {
 		System.out.println("BoardsDAO b_views_inc 도착");
 		
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-						
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);						
 
 		int result = sqlSession.update("b_views_inc", dto);
 		
@@ -87,13 +86,19 @@ public class BoardsDAO {
 		return result;
 	}
 
-	// 해당게시물 삭제하기
+	// 해당게시물 삭제하기_반드시 댓글을 삭제하고 게시글 삭제할 것
 	public int delBoard(int b_idx) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		int cnt = sqlSession.delete("delBoard", b_idx);
 		sqlSession.close();
 		return cnt; 
-		
+	}
+	// 해당게시물의 댓글 삭제하기
+	public int delCmt(int b_idx) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int result = sqlSession.delete("delCmt", b_idx);
+		sqlSession.close();
+		return result; 
 	}
 	
 	// 이미지 업로드
@@ -136,5 +141,6 @@ public class BoardsDAO {
 		}		
 		return cmtList;
 	}
+
 	
 }

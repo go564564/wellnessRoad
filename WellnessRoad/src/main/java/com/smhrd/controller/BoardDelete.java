@@ -17,9 +17,10 @@ public class BoardDelete extends HttpServlet {
 		int b_idx = Integer.parseInt(request.getParameter("b_idx"));		
 		System.out.println(b_idx);
 		
+		int result = new BoardsDAO().delCmt(b_idx);
 		int cnt = new BoardsDAO().delBoard(b_idx);
 		
-		if (cnt > 0) {
+		if (cnt > 0 && result > 0) {
 			System.out.println("삭제 성공");
 		} else {
 			System.out.println("삭제 실패");

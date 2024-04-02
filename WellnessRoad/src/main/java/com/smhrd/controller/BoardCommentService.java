@@ -19,6 +19,8 @@ public class BoardCommentService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.setCharacterEncoding("utf-8"); // 이해가 안되는 부분
 		
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("댓글서블릿 도착");

@@ -49,7 +49,7 @@
                 <div class="img_up">
                     <input type="file" name="filename" style="float: right;">
                 </div>
-                <div class="cont">
+                <div class="cont" align="center">
                     <textarea placeholder="내용 입력" name="b_content"></textarea>
                 </div>
             </div>
