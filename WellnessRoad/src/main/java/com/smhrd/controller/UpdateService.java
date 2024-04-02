@@ -46,7 +46,7 @@ public class UpdateService extends HttpServlet {
 			//session.setAttribute("info", updateMember);
 			
 			response.setContentType("text/html; charset='UTF-8'");
-			out.println("<script>alert('Update Success'); location.href='mypage.jsp'</script>");
+			out.println("<script>alert('Update Success'); location.href='Main.jsp'</script>");
 			out.close();
 		}else {
 			response.setContentType("text/html; charset=UTF-8");
