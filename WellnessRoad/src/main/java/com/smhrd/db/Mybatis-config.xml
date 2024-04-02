@@ -39,6 +39,8 @@
 		<mapper resource="com/smhrd/db/BoardsMapper.xml"/>
 		<mapper resource="com/smhrd/db/TripScheMapper.xml"/>
 		<mapper resource="com/smhrd/db/SuppliesMapper.xml"/>
+		<mapper resource="com/smhrd/model/PoiMapper.xml"/>
+    	<mapper resource="com/smhrd/model/DataMapper.xml"/>
 	</mappers>
 	
 </configuration>
