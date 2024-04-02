@@ -512,11 +512,11 @@ text-decoration: none;
 		<div id="menuContainer">
 			
 			<div id="topLeftMenu">
-				<img src="./img/logo.png" alt="로고" id="logo" />
+				<img src="./img/logoBus.png" alt="로고" id="logo" />
 				
 					<div class="menu"><a href="Main.jsp">메인메뉴</a></div>
 					<div class="menu"><a href="viewAll.jsp">여행계획보기</a></div>
-					<div class="menu"><a href="">준비물</a></div>
+					<div class="menu"><a href="supplies.jsp">준비물</a></div>
 					
 				</div>
 			

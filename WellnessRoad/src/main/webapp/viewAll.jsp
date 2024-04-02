@@ -235,16 +235,15 @@ text-decoration: none;
 		<div id="menuContainer">
 
 			<div id="topLeftMenu">
-				<img src="./img/logo.png" alt="로고" id="logo" />
+				<img src="./img/logoBus.png" alt="로고" id="logo" />
 
-				<div class="menu"><a href="#">메인메뉴</a></div>
-				<div class="menu">여행계획보기</div>
-				<div class="menu">준비물</div>
+				<div class="menu"><a href="Main.jsp">메인메뉴</a></div>
+				<div class="menu"><a href="supplies.jsp">준비물</a></div>
 
 			</div>
 
 			<div id="ropRightMenu">
-				<div class="menu">로그아웃</div>
+				<div class="menu"><a href="LogoutService">로그아웃</a></div>
 			</div>
 
 		</div>

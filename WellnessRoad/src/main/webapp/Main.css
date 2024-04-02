@@ -14,7 +14,7 @@
 
 #menu {
 	grid-area: menu;
-	background-color: white;
+	background-color:rgba(255, 255, 255, 0.5);
 	/* z-index: 100; */
 	line-height: 70px;
 	display: flex;
@@ -95,7 +95,7 @@
 header {
 	display: grid;
 	grid-template-columns: 100px auto 100px;
-	grid-template-rows: 20px 70px 380px;
+	grid-template-rows: 20px 70px 250px;
 	grid-template-areas:
 		". . ."
 		". menu ."
@@ -127,7 +127,6 @@ main img {
 
 #subMenuwrap {
 	width: 70%;
-	background-color: lightcoral;
 	margin: auto;
 	margin-top: 100px;
 	margin-bottom: 100px;
