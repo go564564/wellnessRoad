@@ -5,12 +5,13 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.BoardsDTO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="style.css">
  	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -37,7 +38,6 @@
 	#cmt_id{
 	padding: 30px;
 	}
-	
 	</style>	
 </head>
 <body>
@@ -130,6 +130,7 @@
 					<tr>
 						<td><%=cmtList.get(i).getCmt_content() %></td>
 					</tr>
+				</table>	
 				</div>
 				 	  <%}
 				  	}else{%>
