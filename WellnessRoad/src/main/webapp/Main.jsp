@@ -44,7 +44,8 @@
 					<!-- 테스트중 -->
 					<div class="btn btn-primary" id="makeTrips" data-toggle="modal"
 						data-target="#exampleModal">여행 계획하기</div>
-
+					<div onclick="location.href='viewAll.jsp'">여행계획보기</div>
+					
 
 					<div onclick="location.href='board_main.jsp'">게시판</div>
 				</div>
@@ -246,7 +247,13 @@
 				},
 				success : function(response) {
 					console.log("여행일정 저장완료");
-					 window.location.href = "sessiontest.jsp";
+					var newPageURL = 'LinkDataMainSche?' +
+			        '&name=' + encodeURIComponent(travelTitle) +
+			        '&st_dt=' + encodeURIComponent(startDate) +
+			        '&ed_dt=' + encodeURIComponent(endDate);
+					
+					// 새로운 페이지로 이동
+				    window.location.href = newPageURL;
 				},
 				error : function(xhr, status, error) {
 					console.error("오류 발생: " + error);
