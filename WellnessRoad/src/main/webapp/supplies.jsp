@@ -450,6 +450,21 @@ function deleteItem(btn) {
     
     
 	console.log(suppliesArray);
+	
+	
+	
+	$.ajax({
+		url: 'DeleteSupply',
+		method: 'POST',
+		data: { name: content },
+		success: function(response){
+			console.log("준비물 삭제 성공!");
+		},
+		error: function(xhr, status, error){
+			console.error('Error', status, error);
+			alert('준비물 삭제 실패. 다시 시도하세요.');
+		}
+	});
     
     
     }

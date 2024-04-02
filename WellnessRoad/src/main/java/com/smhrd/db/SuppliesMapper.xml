@@ -26,4 +26,11 @@
 		end
 		where supply_name = #{name}
 </update>
+
+<delete id="deleteSupply" parameterType="string">
+	delete from supplies
+	where supply_name = #{supply_name}
+</delete>
+
+
 </mapper>

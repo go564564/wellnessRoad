@@ -41,5 +41,13 @@ public class SuppliesDAO {
 		}
 		return result;
 	}
+	
+	public int deleteSupplies(String supply_name) {
+		int result = sqlSession.delete("deleteSupply", supply_name);
+		if (result>0) {
+			System.out.println("준비물 삭제 성공");
+		}
+		return result;
+	}
 
 }

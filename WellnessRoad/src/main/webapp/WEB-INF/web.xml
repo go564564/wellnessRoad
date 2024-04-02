@@ -117,6 +117,12 @@
 	<description></description>
 	<servlet-class>com.smhrd.controller.AddSupply</servlet-class>
 </servlet>
+<servlet>
+	<servlet-name>DeleteSupply</servlet-name>
+	<display-name>DeleteSupply</display-name>
+	<description></description>
+	<servlet-class>com.smhrd.controller.DeleteSupply</servlet-class>
+</servlet>
 
 	<servlet-mapping>
 		<servlet-name>JoinService</servlet-name>
@@ -190,6 +196,10 @@
 <servlet-mapping>
 	<servlet-name>AddSupply</servlet-name>
 	<url-pattern>/AddSupply</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>DeleteSupply</servlet-name>
+	<url-pattern>/DeleteSupply</url-pattern>
 </servlet-mapping>
 
 </web-app>
