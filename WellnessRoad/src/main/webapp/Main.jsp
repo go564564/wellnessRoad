@@ -74,29 +74,13 @@
 		</header>
 		<div id="subMenuwrap">
 
-			<%
-			if (mem_info == null) {
-			%>
+			
 
 			<div style="background-color: white;text-align:center;">
 				<img src="./img/tripbus.jpg">
 			</div>
 
-			
-			<%
-			} else {
-			%>
-			<div id="whiteBox">
-				<p>어떤 여행을 계획하고 싶으신가요?</p>
-			</div>
-			<div id="whiteBox2"></div>
-			<div id="whiteBox3">
-				<a href="#">여행 계획하기</a>
-			</div>
-			<%
-			}
-			%>
-		
+					
 
 
 
