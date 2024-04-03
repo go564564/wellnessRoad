@@ -82,8 +82,8 @@
 	</servlet>
 
 	<servlet>
-		<servlet-name>BoardCommentsService</servlet-name>
-		<servlet-class>com.smhrd.controller.BoardCommentsService</servlet-class>
+		<servlet-name>BoardCommentService</servlet-name>
+		<servlet-class>com.smhrd.controller.BoardCommentService</servlet-class>
 	</servlet>
 
 	<servlet>
@@ -233,8 +233,8 @@
 	</servlet-mapping>
 
 	<servlet-mapping>
-		<servlet-name>BoardCommentsService</servlet-name>
-		<url-pattern>/BoardCommentsService</url-pattern>
+		<servlet-name>BoardCommentService</servlet-name>
+		<url-pattern>/BoardCommentService</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
