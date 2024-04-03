@@ -21,6 +21,8 @@ public class UpdateService extends HttpServlet {
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		System.out.println("UpdateService 도착");
 		PrintWriter out = response.getWriter();
 
@@ -46,7 +48,7 @@ public class UpdateService extends HttpServlet {
 			//session.setAttribute("info", updateMember);
 			
 			response.setContentType("text/html; charset='UTF-8'");
-			out.println("<script>alert('Update Success'); location.href='Main.jsp'</script>");
+			out.println("<script>alert('회원정보 수정 완료!'); location.href='Main.jsp'</script>");
 			out.close();
 		}else {
 			response.setContentType("text/html; charset=UTF-8");
