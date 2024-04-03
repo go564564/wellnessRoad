@@ -30,7 +30,7 @@ public class poiGet extends HttpServlet {
 
 			List<PoiDTO> tempArray = new ArrayList<PoiDTO>();
 			
-			List<String> validTags = Arrays.asList("관광", "바다", "자연", "치유의 숲", "휴양림","힐링");
+			List<String> validTags = Arrays.asList("관광", "바다", "자연", "치유의 숲", "휴양림","힐링","템플스테이","캠핑");
 			
 		    int num = Integer.parseInt(request.getParameter("num"))*10;
 			String tag = request.getParameter("tag");

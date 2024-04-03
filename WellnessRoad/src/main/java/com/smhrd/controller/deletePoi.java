@@ -25,7 +25,7 @@ public class deletePoi extends HttpServlet {
 					
 		PoiDAO poiDao = new PoiDAO();
 		
-		InsPoiDTO tempDTO = poiDao.checkPoi(checkPoi);
+		String tempDTO = poiDao.checkPoi(checkPoi);
 		
 		System.out.println(tempDTO);
 		

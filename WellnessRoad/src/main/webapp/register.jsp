@@ -108,7 +108,7 @@ button:hover {
 
 <body>
 	<wrap> <header>
-		<img src="./img/logo.png">
+		<img src="./img/logoBus.png">
 	</header>
 	<main>
 		<div>
