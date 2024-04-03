@@ -80,6 +80,7 @@
 
 	<script src="assets/js/jquery.min.js"></script>
 <script>
+
 function pwCheck(){
 	if($('#n_mem_pw').val()==$('#n_mem_pw_Check').val()){
 		$('#pwConfirm').text("비밀번호가 일치합니다").css('color','green')
@@ -87,6 +88,7 @@ function pwCheck(){
 		$('#pwConfirm').text('비밀번호가 일치하지 않습니다.').css('color','red')			
 	}
 }
+
 </script>
 	
 	

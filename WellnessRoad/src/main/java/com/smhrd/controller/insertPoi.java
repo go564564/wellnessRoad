@@ -27,7 +27,7 @@ public class insertPoi extends HttpServlet {
 					
 		PoiDAO poiDao = new PoiDAO();
 		
-		InsPoiDTO tempDTO = poiDao.checkPoi(insert);
+		String tempDTO = poiDao.checkPoi(insert);
 		
 		System.out.println(tempDTO);
 		int i=0;
@@ -36,7 +36,7 @@ public class insertPoi extends HttpServlet {
 		
 		 if (tempDTO == null) {
 	            i = poiDao.insertPoi(insert);
-	        } else if (tempDTO.getSchedule().equals(schedule)) {
+	        } else if (tempDTO.equals(schedule)) {
 	            i = 0;
 	        } else {
 	            i = poiDao.updatePoi(insert);

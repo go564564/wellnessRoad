@@ -34,8 +34,8 @@
 	insert into TRIP_SCHEDULES (trip_idx,sche_day,trip_sche) values (#{id},#{day},#{schedule})
 </insert>
 
-<select id="checkPoi" parameterType="com.smhrd.model.InsPoiDTO" resultType="com.smhrd.model.InsPoiDTO">
-			select * from TRIP_SCHEDULES where trip_idx = #{id} and sche_day = #{day}		
+<select id="checkPoi" parameterType="com.smhrd.model.InsPoiDTO" resultType="String">
+			select trip_sche from TRIP_SCHEDULES where trip_idx = #{id} and sche_day = #{day}		
 </select>
 
 <update id="updatePoi" parameterType="com.smhrd.model.InsPoiDTO">

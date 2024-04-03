@@ -56,11 +56,11 @@ public class PoiDAO {
 	}
 
 	// id 와 day 만 체크
-	public InsPoiDTO checkPoi(InsPoiDTO poi) {
+	public String checkPoi(InsPoiDTO poi) {
 
 		sqlSession = sqlSessionFactory.openSession(true);
 
-		InsPoiDTO tempDTO = null;
+		String tempDTO = null;
 
 		// try catch 를 쓰는 이유 -> 실행시 결과가 없을수도 있으므로
 		try {
