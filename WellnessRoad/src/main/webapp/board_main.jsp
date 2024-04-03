@@ -144,10 +144,10 @@ html {
 		<div id="menuContainer">
 			
 			<div id="topLeftMenu">
-				<img src="./img/logo.png" alt="로고" id="logo" />
+				<a href="Main.jsp" ><img src="./img/logoBus.png" alt="로고" id="logo" /></a>
 				
-					<div class="menu"><a href="Main.jsp">게시판</a></div>
-					<div class="menu"><a href="viewAll.jsp">여행계획보기</a></div>
+				<div class="menu"><a href="board_main.jsp">게시판</a></div>
+				<div class="menu"><a href="viewAll.jsp">여행계획보기</a></div>
 					
 				</div>
 			
@@ -186,9 +186,9 @@ html {
 				</div>
 
 				<%
-						for (int i = 0; i < list.size(); i++) {
+					for (int i = 0; i < list.size(); i++) {
 							
-							if(list.get(i).getFilename()!=null){
+						if(list.get(i).getFilename()!=null){
 						%>
 				<div id="file_yes">
 					<div class="num" name="b_idx"><%=list.get(i).getB_idx()%></div>
@@ -224,7 +224,7 @@ html {
 		   <button type="button" class="on" id="writePost" onclick="location='board_write.jsp'">글쓰기</button>
 		</div>
 			<%}%>
-			<a href="board_main.jsp?vpage=1" class="bt first">[첫페이지로]</a>
+			<a href="board_main.jsp?vpage=1" class="bt">[첫페이지로]</a>
 	
 			<%	// 페이징  처리
 				if(total > 0){
@@ -248,26 +248,22 @@ html {
 					<a href="board_main.jsp?vpage=<%=startPage - 10%>" class="bt prev"><</a>
 					<%		 	
 						}							
-							for(int i=startPage; i <= lastpage; i++){ // 페이지 블록 번호
-								if(i == total){ // 현재 페이지에는 링크를 설정하지 않음%>
+					for(int i=startPage; i <= lastpage; i++){ // 페이지 블록 번호
+						if(i == total){ // 현재 페이지에는 링크를 설정하지 않음%>
 											
-								<%=i%>
+							<%=i%>
 																	
-							<%}else{ // 현재 페이지가 아닌 경우 링크 설정
-											%>
-								<a href="board_main.jsp?vpage=<%=i%>" class="pnum"><%=i%></a>
+						<%}else{ // 현재 페이지가 아닌 경우 링크 설정%>
+											
+							<a href="board_main.jsp?vpage=<%=i%>" class="pnum"><%=i%></a>
 							<%	
-								}
-							} // for end
+							}
+					} // for end
 							
-							if(lastpage < pageCount){ // 현재 블록의 마지막 페이지보다 페이지 전체 블록수가 클경우 다음 링크 생성
-							%>
+						if(lastpage < pageCount){ // 현재 블록의 마지막 페이지보다 페이지 전체 블록수가 클경우 다음 링크 생성%>
 							<a href="board_main.jsp?vpage=<%=startPage + 10 %>" class="bt next">next</a>
-							<%}
-							}%>
-					
-	</div>
-	</div>
+						<%}
+					}%>
 	</div>
 </body>
 
