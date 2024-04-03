@@ -44,7 +44,13 @@
 					<!-- 테스트중 -->
 					<div class="btn btn-primary" id="makeTrips" data-toggle="modal"
 						data-target="#exampleModal">여행 계획하기</div>
-					<div onclick="location.href='viewAll.jsp'">여행계획보기</div>
+					<div id="viewPlan" 
+					<% if(mem_info ==null){%>
+					onclick="alert('로그인이 필요합니다.');"<%}else{ %>
+					onclick="location.href='viewAll.jsp'"
+					<%} %>
+					>
+					여행계획보기</div>
 					
 
 					<div onclick="location.href='board_main.jsp'">게시판</div>
@@ -183,6 +189,12 @@
  			e.preventDefault(); //모달열기 막기
  		}
  	})
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
  	
     
     
