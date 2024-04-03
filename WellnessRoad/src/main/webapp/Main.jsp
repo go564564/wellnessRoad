@@ -37,7 +37,7 @@
 			<div></div>
 			<div id="menu">
 				<div id="leftMenu">
-					<a href=""><img src="./img/logo.png" id="logoImg"></a>
+					<img src="./img/logoBus.png" id="logoImg">
 
 
 
@@ -78,16 +78,11 @@
 			if (mem_info == null) {
 			%>
 
-			<div>
-				<img src="./img/main_sample2.jpg"> <img
-					src="./img/고흥 이미지/거금생태숲_1_공공3유형.jpg">
+			<div style="background-color: white;text-align:center;">
+				<img src="./img/tripbus.jpg">
 			</div>
 
-			<section id="sec1">
-
-				<div id=whitebox00>어쩌구</div>
-
-			</section>
+			
 			<%
 			} else {
 			%>
@@ -108,10 +103,8 @@
 		</div>
 		<footer>
 			<div>
-				<h4>Wellness Road</h4>
-				<h5>건강한 전남여행</h5>
-				<h5>행복한 전남여행</h5>
-				<h5>즐거운 전남여행</h5>
+				<h4>Wellness Trip Planner</h4>
+				<h5>건강한 전남 행복한 전남 즐거운 전남</h5>
 			</div>
 		</footer>
 	</div>

@@ -24,17 +24,23 @@ public class GetDataAll extends HttpServlet {
 		
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-				
+		
+		System.out.println("여행 아이디 "+id);
+		
 		PoiDAO poiDao = new PoiDAO(); 
 		
 		List<Integer> intArray = poiDao.getDayData(id);
-				
+		
+		System.out.println("여행 아이디 "+intArray);
+		
 		List<SelectAllPoiDTO> tempArray = new ArrayList<SelectAllPoiDTO>();
 		
 				
 		for(int i=0;i<intArray.size();i++) {
-			InsPoiDTO tempDto =poiDao.checkData(new InsPoiDTO(id,intArray.get(i),null));
-			String scheduleString = tempDto.getSchedule();			
+			String temp =poiDao.checkData(new InsPoiDTO(id,intArray.get(i)));
+			String scheduleString = temp;			
+			
+			System.out.println("tempDTO 오냐?"+temp);
 			
 			String[] scheduleArray = scheduleString.split(",");
 						

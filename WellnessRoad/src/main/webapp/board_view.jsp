@@ -20,6 +20,7 @@
 	 
 	 .submit{
     background-color: rgb(0, 128,255);
+    border-radius:10%;
     width: 3em;
     height: 2em;;
     font-size: 15px;
@@ -124,7 +125,7 @@
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<tr>
 						<td style="text-align: left;"><%=cmtList.get(i).getMem_id()%></td>
-						<td style="text-align: right;"><%=cmtList.get(i).getCreated_at()%></td>
+						<td style="text-align: right; font-size: 10px;"><%=cmtList.get(i).getCreated_at()%></td>
 					</tr>
 					<tr>
 						<td><%=cmtList.get(i).getCmt_content() %></td>
@@ -132,15 +133,13 @@
 				</table>	
 				</div>
 				 	  <%}
-				  	}else{%>
-				<p>등록된 댓글이 없습니다.</p>
-				<%}%>
+				  	}else{%><p>등록된 댓글이 없습니다.</p><%}%>
 			</div>
 			<div class="bt_wrap">
                  <button type="button" class="submit" onclick="location='board_main.jsp'">목록</button>
                  
             <%if(mem_info.getMem_id().equals(result.getMem_id())){ %>
-                 <button type="button" class="submit" onclick="location='board_edit.jsp'">수정</button>
+                 <button type="button" class="submit" onclick="location='board_edit.jsp?b_idx=<%=b_idx%>'">수정</button>
                  <button type="button" class="submit" onclick="location='BoardDelete?b_idx=<%=b_idx%>'">삭제</button>
             <%}%>
                 

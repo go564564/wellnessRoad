@@ -11,45 +11,11 @@
 	href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap"
 	rel="stylesheet">
 <style>
-* {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
 
-#topMenu {
-	width: 100%;
-	height: 100px;
-	background-image: url("./img/back.jpg");
-}
-
-#menuContainer {
-	width: 1800px;
-	height: 50px;
-	display: flex;
-	flex-wrap: nowrap;
-	margin: auto;
-	padding-top: 25px;
-}
 
 #logo {
 	width: 200px;
 	height: 50px;
-}
-
-.menu {
-	width: 200px;
-	height: 50px;
-	display: inline-block;
-	line-height: 50px; /* 텍스트 수직 가운데 정렬을 위한 줄 높이 조절 */
-	text-align: center;
-	font-family: "Bagel Fat One", system-ui;
-	color: white;
-	font-size: 25px;
-}
-
-.menu:hover {
-	text-decoration: underline;
 }
 
 #main {
@@ -174,18 +140,121 @@ table {
 .delete:hover {
 	color: darkred; /* 삭제 버튼에 호버 효과 추가 */
 }
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#topMenu {
+	width: 100%;
+	height: 100px;
+	background-image: url("./img/back.jpg");
+}
+
+#topMenu {
+	width: 100%;
+	height: 100px;
+	background-image: url("./img/back.jpg");
+	display: grid;
+	grid-template-columns: 1fr 20fr 1fr;
+	grid-template-rows: 1fr 3fr 1fr;
+	grid-template-areas: ". . ." ". main ." ". . .";
+}
+
+#menuContainer {
+	grid-area: main;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 0.5);;
+	display: flex;
+	justify-content: space-between;
+}
+
+#topLeftMenu {
+	height: 50px;
+	display: flex;
+	align-items: center; /* 세로 중앙 정렬 */
+}
+
+#toprightMenu {
+	height: 50px;
+	display: flex;
+	align-items: center; /* 세로 중앙 정렬 */
+}
+
+#logo {
+	width: 200px;
+	height: 50px;
+}
+
+.menu {
+	width: 200px;
+	font-size: 23px;
+	/* 글자 크기를 20px로 변경 */
+	color: #333;
+	font-family: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+	text-align: center;
+	line-height: 50px;
+}
+
+.menu:focus, .menu:hover {
+	color: #222;
+}
+
+.menu:focus:after, .menu:hover:after {
+	width: 100%;
+	left: 0%;
+}
+
+.menu:after {
+	content: "";
+	pointer-events: none;
+	bottom: 5px;
+	left: 50%;
+	position: absolute;
+	width: 0%;
+	height: 4px;
+	background-color: #96E9C6;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: width, left;
+}
+
+a{
+color: inherit;
+text-decoration: none;
+
+}
+
+
 </style>
 </head>
 <body>
 
 	<div id="topMenu">
 		<div id="menuContainer">
-			<a href=""><img src="img/logo.png" alt="" id="logo" /></a>
-			<ul>
-				<li class="menu">혼자 여행하기</li>
-				<li class="menu">여럿이 여행하기</li>
-				<li class="menu">게시판</li>
-			</ul>
+			
+			<div id="topLeftMenu">
+				<img src="./img/logoBus.png" alt="로고" id="logo" />
+				
+					<div class="menu"><a href="Main.jsp">메인메뉴</a></div>
+					<div class="menu"><a href="viewAll.jsp">여행계획보기</a></div>					
+					
+				</div>
+			
+			<div id="ropRightMenu">
+				<div class="menu"><a href="LogoutService">로그아웃</a></div>
+			</div>
+			
 		</div>
 	</div>
 

@@ -489,8 +489,8 @@ background-color: #1b273f;
 }
 
 #weather img{
-weight:20px;
-height:20px;
+weight:40px;
+height:40px;
 }
 #weather{
 font-size:16px;
@@ -512,16 +512,16 @@ text-decoration: none;
 		<div id="menuContainer">
 			
 			<div id="topLeftMenu">
-				<img src="./img/logo.png" alt="로고" id="logo" />
+				<img src="./img/logoBus.png" alt="로고" id="logo" />
 				
 					<div class="menu"><a href="Main.jsp">메인메뉴</a></div>
 					<div class="menu"><a href="viewAll.jsp">여행계획보기</a></div>
-					<div class="menu"><a href="">준비물</a></div>
+					<div class="menu"><a href="supplies.jsp">준비물</a></div>
 					
 				</div>
 			
 			<div id="ropRightMenu">
-				<div class="menu"><a href="">로그아웃</a></div>
+				<div class="menu"><a href="LogoutService">로그아웃</a></div>
 			</div>
 			
 		</div>
@@ -554,7 +554,6 @@ text-decoration: none;
     long daysDifference = ChronoUnit.DAYS.between(startDate, endDate)+1;
     int[] pageArray=linkdata.getData_count();
 	        
-    boolean weatherSwitch=false;
     
     // 3일부터 10일사이에 값이 있으면 데이터 계산
    // 현재 날짜에서 3일과 10일을 더한 날짜를 구함
@@ -562,15 +561,13 @@ text-decoration: none;
 	LocalDate threeDaysLater = today.plusDays(3);
 	LocalDate tenDaysLater = today.plusDays(10);
 
-// 시작일과 종료일이 현재 날짜로부터 3일보다 모두 전에 있거나, 현재 날짜로부터 10일보다 모두 후에 있을 때 조건을 만족하는지 확인
-	weatherSwitch = !(startDate.isBefore(threeDaysLater) & endDate.isBefore(threeDaysLater)) ||
-                    !(startDate.isAfter(tenDaysLater) & endDate.isAfter(tenDaysLater));
 	
-	 	
-	 // 시작 인덱스를 구해보자
-	 long startIndex = startDate.isBefore(threeDaysLater) ? ChronoUnit.DAYS.between(threeDaysLater, startDate) : -ChronoUnit.DAYS.between(threeDaysLater, startDate);
+	 // 오늘날짜에서 3일후가 기준일 기준일 전이면 - 기준일 후면 + 시작 인덱스를 구해보자
 	 
-	 System.out.println(startIndex);
+	 long startIndex = ChronoUnit.DAYS.between(threeDaysLater, startDate);
+	// if (startDate.isBefore(threeDaysLater)) {
+	//     startIndex *= -1; // 시작일이 기준일 이전이면 음수를 붙입니다.
+	// }
 	 
 	%>
 
@@ -1176,16 +1173,18 @@ text-decoration: none;
 		// 이전 버튼에 클릭 이벤트 핸들러를 추가합니다.
 		prevButton.addEventListener('click', function() {
 		    if (currentDay > 1) {
-		    	idxSave(currentDay);
+		    	
+		    	// idxSave(currentDay); 저장 버튼으로만 하게
+		    	
 		    	currentDay--;
 		        currentDate.setDate(currentDate.getDate() - 1);
 		        updateDayAndDate();
 		        getData(currentDay);
 		        
 		        weatherIndex=weatherIndex-2;
-		        if(weatherSwitchJs){
+		        
 		        	displayWeather(weatherIndex);
-		        }
+		        
 		        
 		    }
 		});
@@ -1193,17 +1192,21 @@ text-decoration: none;
 		// 다음 버튼에 클릭 이벤트 핸들러를 추가합니다.
 		nextButton.addEventListener('click', function() {
 			if (currentDay < <%=daysDifference%>) {
-			idxSave(currentDay);	
-		    currentDay++;
+			
+				
+			// idxSave(currentDay); 저장버튼으로	
+		    
+				
+				currentDay++;
 		    currentDate.setDate(currentDate.getDate() + 1);
 		    updateDayAndDate();
 		    getData(currentDay);
 		    //임시 저장
 		    
 		    weatherIndex=weatherIndex+2;
-	        if(weatherSwitchJs){
+	        
 	        	displayWeather(weatherIndex);
-	        }
+	        
 		    
 	        
 			}
@@ -1672,11 +1675,8 @@ text-decoration: none;
     		});	
         };    //데이터 가져오기
     	
-        var weatherSwitchJs = <%=weatherSwitch%>;
         var weatherIndex=0;
         
-        // 날짜가 3~10사이에 있으면 데이터 가져오기  
-  		if(weatherSwitchJs){
                   			
   		weatherIndex = (<%=startIndex%>)*2;
                         
@@ -1736,7 +1736,7 @@ text-decoration: none;
         
 		xhr.send('');
 
-  		} // 날씨 if 문 끝
+
         
         function displayWeather(index) {
             // 오전과 오후 날씨에 따라 이미지를 지정하여 출력
@@ -1808,9 +1808,7 @@ text-decoration: none;
                     break;
                 default:
             }
-            
             // 이미지 출력 
-            
             if(index>=0&&index<=15){
             
             var weatherDiv = document.getElementById('weather');

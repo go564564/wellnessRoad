@@ -18,15 +18,13 @@ public class GetIdNameDay extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("mem_id");		
+		String id = request.getParameter("mem_id");	
 		
 		List<IdNameDayDTO> allTrip = new ArrayList<IdNameDayDTO>();		
 				
 		PoiDAO poiDao = new PoiDAO(); 
 		
 		allTrip = poiDao.allTripGet(id);
-		
-		System.out.println("allTrip"+allTrip);
 
 		
 		// Gson 객체 생성

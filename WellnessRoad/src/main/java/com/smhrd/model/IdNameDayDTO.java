@@ -13,6 +13,11 @@ public class IdNameDayDTO {
 		this.ed_dt = ed_dt;
 	}
 
+	public IdNameDayDTO() {
+	
+	}
+	
+	
 	public int getTrip_idx() {
 		return trip_idx;
 	}

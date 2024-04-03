@@ -100,8 +100,13 @@ WHERE row_num BETWEEN #{num}-9 AND #{num}
 		WHERE mem_id = #{id}
 		ORDER BY trip_idx DESC	
 	</select>
-
-
+	<select id="allTripGetNext" resultType="com.smhrd.model.IdNameDayDTO">
+		SELECT trip_idx, trip_name, st_dt, ed_dt
+		FROM trips
+		WHERE mem_id = #{id}
+		ORDER BY trip_idx DESC	
+	</select>
+	
 	
 	<select id="getIdNameDay" resultType="com.smhrd.model.IdNameDayDTO">
 		SELECT trip_idx, trip_name, st_dt, ed_dt

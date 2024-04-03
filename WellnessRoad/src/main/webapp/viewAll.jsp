@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MembersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -234,16 +235,15 @@ text-decoration: none;
 		<div id="menuContainer">
 
 			<div id="topLeftMenu">
-				<img src="./img/logo.png" alt="로고" id="logo" />
+				<img src="./img/logoBus.png" alt="로고" id="logo" />
 
-				<div class="menu"><a href="#">메인메뉴</a></div>
-				<div class="menu">여행계획보기</div>
-				<div class="menu">준비물</div>
+				<div class="menu"><a href="Main.jsp">메인메뉴</a></div>
+				<div class="menu"><a href="supplies.jsp">준비물</a></div>
 
 			</div>
 
 			<div id="ropRightMenu">
-				<div class="menu">로그아웃</div>
+				<div class="menu"><a href="LogoutService">로그아웃</a></div>
 			</div>
 
 		</div>
@@ -266,6 +266,8 @@ text-decoration: none;
 	<br>
 
 	<div class="wrapDayContainer">
+	
+	</div>
 
 
 
@@ -283,7 +285,11 @@ text-decoration: none;
 		    return year + '-' + month + '-' + day; // yyyy-mm-dd 형식으로 반환
 		}
 
-		var mem_id = "kca"; // 여기에 실제 mem_id 값을 설정합니다.
+		<%
+		MembersDTO mem_info = (MembersDTO) session.getAttribute("mem_info");
+		%>
+		
+		var mem_id = '<%=mem_info.getMem_id()%>'; // 여기에 실제 mem_id 값을 설정합니다.
 		var tripIdxArray = [];
 
 		$.ajax({
@@ -293,10 +299,15 @@ text-decoration: none;
 		    dataType: "json", // 서버에서 받아온 데이터 타입을 JSON으로 지정합니다.
 		    success: function(response) {
 		        var responseData = response;
+		        
+		        if (responseData !== null) {
+		        
 		        var selectElement = document.getElementById('select');
 		        selectElement.innerHTML = ''; // 기존 옵션을 지웁니다
 		        responseData.forEach(function(trip) {
 		            var optionElement = document.createElement('option');
+		            
+		            
 		            // 날짜와 여행 이름을 텍스트로 설정합니다.
 		            optionElement.text = trip.trip_name + ' ' + formatDate(trip.st_dt) + ' - ' + formatDate(trip.ed_dt);
 		           
@@ -311,6 +322,9 @@ text-decoration: none;
 		        }); // forEach 메서드의 닫는 괄호  
 		       
 		        reDraw(tripIdxArray[0]);
+		        
+		        } // null if문 끝
+		        
 		    },
 		    error: function() {}
 		});
@@ -352,10 +366,8 @@ $.ajax({
                 jsonData[dayKey].push({ poi_name: item.poi_name, poi_url: item.poi_url });
             }
 
-            console.log(jsonData);
 
             var numberOfArrays = Object.keys(jsonData).length;
-            console.log("생성된 배열의 개수:", numberOfArrays);
 
             for (var i = 1; i <= numberOfArrays; i++) {
                 var dayKey = "day" + i;
@@ -485,7 +497,6 @@ document.getElementById('submitMenu').addEventListener('click', function(event) 
     var selectedTripName = selectedOption.dataset.tripName;
     var selectedStDt = selectedOption.dataset.stDt;
     var selectedEdDt = selectedOption.dataset.edDt;
-	alert(selectedStDt)
     
     // 새로운 페이지 URL 구성
     var newPageURL = 'LinkDataMainSche?' +

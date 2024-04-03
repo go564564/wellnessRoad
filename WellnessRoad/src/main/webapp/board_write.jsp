@@ -29,6 +29,14 @@
 		function goToB_main() {
 			  location.href = "board_main.jsp";
 		}
+		function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
 	</script>
 </head>
 <body>
@@ -47,16 +55,18 @@
                 </div>
                 <!-- 이미지첨부 -->
                 <div class="img_up">
-                    <input type="file" name="filename" style="float: right;">
-                </div>
-                <div class="cont">
-                    <textarea placeholder="내용 입력" name="b_content"></textarea>
+                    <input type="file" name="filename" style="float: right;" accept="image/*" onchange="previewImage(event)">
+                </div><br>
+                <div class="cont" align="center">
+                    <textarea placeholder="내용 입력" name="b_content"></textarea>   			    
+    			    <img id="imagePreview" src="#" alt="이미지 미리보기" style="max-width: 300px; max-height: 300px;"><br>
                 </div>
             </div>
             <div class="bt_wrap">
-                <input type="submit" value="등록">
+                <input type="submit" value="등록" onclick="checkValue()">
                 <input type="reset" value="초기화">               
                 <input type="button"value="취소" onclick="goToB_main()"></input>
+           
             </div>
         </div>
     </div>
