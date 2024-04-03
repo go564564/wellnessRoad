@@ -150,6 +150,12 @@
 		<servlet-name>GetIdNameDay</servlet-name>
 		<servlet-class>com.smhrd.controller.GetIdNameDay</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Board_edit</servlet-name>
+		<display-name>Board_edit</display-name>
+		<description></description>
+		<servlet-class>com.smhrd.controller.Board_edit</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>JoinService</servlet-name>
@@ -294,6 +300,10 @@
 	<servlet-mapping>
 		<servlet-name>GetIdNameDay</servlet-name>
 		<url-pattern>/GetIdNameDay</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Board_edit</servlet-name>
+		<url-pattern>/Board_edit</url-pattern>
 	</servlet-mapping>
 
 </web-app>
