@@ -113,6 +113,7 @@ a {
     width: 10%;
 }
 
+
 .board_list .count {
     width: 10%;
 }
@@ -125,18 +126,18 @@ a {
 
 .board_page a {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
     box-sizing: border-box;
     vertical-align: middle;
     border-left: 0;
     line-height: 100%;
+    font-weight: 400;
 }
 
-.board_page a.bt {
-    padding-top: 10px;
-    font-size: 1.2rem;
-    letter-spacing: -1px;
+.board_main .board_page a:hover {
+	border-radius: 5px;
+	border-color: #4CAF50;
 }
 
 .board_page a .num {
@@ -149,10 +150,6 @@ a {
     border-color: #000;
     background: #000;
     color: #fff;
-}
-
-.board_page a:first-child {
-    border-left: 1px solid #ddd;
 }
 
 .board_view {

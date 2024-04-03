@@ -5,6 +5,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.BoardsDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -18,15 +19,16 @@
 	<style>
 	 @import url(mxzedia.css);
 	 
-	 .submit{
-    background-color: rgb(0, 128,255);
-    border-radius:10%;
-    width: 3em;
-    height: 2em;;
-    font-size: 15px;
-    font-weight: bold;
-    color: aliceblue;
-	}
+	 
+	.submit{
+  	background-color: rgb(0, 128,255);
+ 	border-radius:10%;
+  	width: 3em;
+ 	height: 2em;;
+  	font-size: 15px;
+ 	font-weight: bold;
+ 	color: aliceblue;
+}
 	
 	.cmd_tb{
 	text-align: center; 
@@ -98,7 +100,8 @@
                 </div>
                 <%}%>                
             </div>
-
+				
+			<!-- 댓글 등록 부분 -->
 			<div class="container">
 				<div class="form-group">
 					<form action="BoardCommentService" method="post">
@@ -109,7 +112,7 @@
 								<td><input type="text" name="cmt_content" style="height: 100px; width: 800px" class="form-control" placeholder="댓글을 남겨주세요" name="commentText"></td>
 								<td><input type="submit" class="submit" value="등록"></td>
 							</tr>
-						</table>
+					    </table>
 					</form>					
 				</div>
 			</div> 

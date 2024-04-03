@@ -105,10 +105,36 @@ html {
 	transition-property: width, left;
 }
 #rightMenu {
+	padding-right:50px;
 	display: flex;
+	width:200px;
+	font-size: 23px;
+	/* 글자 크기를 20px로 변경 */
+	color: #333;
+	font-family: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+	text-align:center;
+	line-height:50px;
 }
 
+.pagination {
+  display: inline-block;
+}
 
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
 .pnum {
 	align-content: center;
 	margin-left: 20px;
@@ -117,8 +143,17 @@ html {
 }
 
 .pnum:hover {
-	border-radius: 100%;
-	border-color: #E8F6E9;
+	border-radius: 5px;
+	border-color: #4CAF50;
+}
+.submit{
+  	background-color: rgb(0, 128,255);
+ 	border-radius:10%;
+  	width: 5em;
+ 	height: 2em;;
+  	font-size: 15px;
+ 	font-weight: bold;
+ 	color: aliceblue;
 }
 </style>
 </head>
@@ -212,7 +247,7 @@ html {
 					<div class="count"><%=list.get(i).getB_views()%></div>
 				</div>
 				<% } %>
-				<% } %>
+			<% } %>
 			</div>
 		</div>
 	</div>
@@ -221,10 +256,12 @@ html {
 
 		<% if(mem_info !=null){%>
 		<div class="bt_wrap">
-		   <button type="button" class="on" id="writePost" onclick="location='board_write.jsp'">글쓰기</button>
+		   <button type="button" class="submit" id="writePost" onclick="location='board_write.jsp'">글쓰기</button>
 		</div>
-			<%}%>
-			<a href="board_main.jsp?vpage=1" class="bt">[첫페이지로]</a>
+		
+			<%}
+			int lastpage=0;%>
+			<a href="board_main.jsp?vpage=1" class="pnum"> << </a>
 	
 			<%	// 페이징  처리
 				if(total > 0){
@@ -236,18 +273,11 @@ html {
 
 				// 한 페이지에 보여줄 시작 및 끝 번호(예 : 1, 2, 3 ~ 10 / 11, 12, 13 ~ 20)
 				int startPage = ((v_page-1)/pageBlock)*pageBlock+1;
-				int lastpage=(int)Math.ceil((double)total/10);	
-					System.out.print("맨끝페이지 숫자"+lastpage);
+				lastpage=(int)Math.ceil((double)total/10);	
 				// 마지막 페이지가 총 페이지 수 보다 크면 endPage를 pageCount로 할당	
 				if(lastpage > pageCount){
 					lastpage = pageCount;
-				}
-							
-  				if(startPage > pageBlock){ // 페이지 블록수보다 startPage가 클경우 이전 링크 생성
-			    	%>
-					<a href="board_main.jsp?vpage=<%=startPage - 10%>" class="bt prev"><</a>
-					<%		 	
-						}							
+				}						
 					for(int i=startPage; i <= lastpage; i++){ // 페이지 블록 번호
 						if(i == total){ // 현재 페이지에는 링크를 설정하지 않음%>
 											
@@ -256,15 +286,14 @@ html {
 						<%}else{ // 현재 페이지가 아닌 경우 링크 설정%>
 											
 							<a href="board_main.jsp?vpage=<%=i%>" class="pnum"><%=i%></a>
-							<%	
-							}
-					} // for end
+						<%} 
 							
-						if(lastpage < pageCount){ // 현재 블록의 마지막 페이지보다 페이지 전체 블록수가 클경우 다음 링크 생성%>
-							<a href="board_main.jsp?vpage=<%=startPage + 10 %>" class="bt next">next</a>
-						<%}
+					  }
+
 					}%>
-	</div>
+			  <a href="board_main.jsp?vpage=<%=lastpage%>" class="pnum"> >> </a>		
+		</div>
+
 </body>
 
 </html>
