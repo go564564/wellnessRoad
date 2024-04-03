@@ -40,7 +40,7 @@ public class LinkDataMainSche extends HttpServlet {
 		
 		
 		String[] tag = { "영광,장성", "함평,무안,나주", "신안,목포,영암", "진도,해남,완도", "장흥,화순", "담양,곡성", "보성,순천,고흥", "여수",
-				"광양,구례", "관광", "바다", "자연", "치유의 숲", "휴양림","힐링","템플스테이"};
+				"광양,구례", "관광", "바다", "자연", "치유의 숲", "휴양림","힐링","템플스테이","캠핑"};
 		
 		
 		String trip_name = request.getParameter("name");

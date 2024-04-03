@@ -623,6 +623,7 @@ text-decoration: none;
 						<option value="휴양림">휴양림</option>
 						<option value="힐링">힐링</option>
 						<option value="템플스테이">템플스테이</option>
+						<option value="캠핑">캠핑</option>
 					</select>
 					<button type="button" id="tagBtn">가져오기</button>
 				</form>
