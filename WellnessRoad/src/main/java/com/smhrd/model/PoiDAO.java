@@ -75,11 +75,11 @@ public class PoiDAO {
 
 	}
 
-	public InsPoiDTO checkData(InsPoiDTO poi) {
+	public String checkData(InsPoiDTO poi) {
 
 		sqlSession = sqlSessionFactory.openSession(true);
 
-		InsPoiDTO tempDTO = null;
+		String tempDTO = null;
 		
 		try {
 			tempDTO = sqlSession.selectOne("checkData", poi);
@@ -92,7 +92,26 @@ public class PoiDAO {
 		return tempDTO;
 
 	}
+	
+	public String checkDataGetData(InsPoiDTO poi) {
 
+		sqlSession = sqlSessionFactory.openSession(true);
+
+		String tempDTO = "";
+		
+		try {
+			tempDTO = sqlSession.selectOne("checkDataGetData", poi);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+
+		return tempDTO;
+
+	}
+	
+	
 	public PoiDTO getData(int scheduleArray) {
 
 		sqlSession = sqlSessionFactory.openSession(true);
@@ -117,7 +136,10 @@ public class PoiDAO {
 	    sqlSession = sqlSessionFactory.openSession(true);
 	    List<Integer> dayData = null;
 	    try {
-	        dayData = sqlSession.selectList("getDayData", id);       
+	        dayData = sqlSession.selectList("getDayData", id);   
+	        
+	        System.out.println("getDayData"+dayData+"나오능가");
+	        
 	        
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -149,8 +171,8 @@ public class PoiDAO {
 	    
 	    try {
 	    	
-	        temp = sqlSession.selectList("allTripGet",id);
-	        
+	        temp = sqlSession.selectList("allTripGetNext",id);
+	                
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {

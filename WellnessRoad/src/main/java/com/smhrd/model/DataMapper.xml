@@ -6,9 +6,15 @@
   <mapper namespace="com.smhrd.model.DataMapper">
   
   	
-<select id="checkData" parameterType="com.smhrd.model.InsPoiDTO" resultType="com.smhrd.model.InsPoiDTO">
-			select * from TRIP_SCHEDULES where trip_idx = #{id} and sche_day = #{day}		
+<select id="checkData" parameterType="com.smhrd.model.InsPoiDTO" resultType="String">
+			select trip_sche from TRIP_SCHEDULES where trip_idx = #{id} and sche_day = #{day}		
 </select>
+
+<select id="checkDataGetData" parameterType="com.smhrd.model.InsPoiDTO" resultType="String">
+			select trip_sche from TRIP_SCHEDULES where trip_idx = #{id} and sche_day = #{day}
+</select>
+
+
 
 <select id="getData" resultType="com.smhrd.model.PoiDTO">
 	select * from pois where POI_IDX = #{id}

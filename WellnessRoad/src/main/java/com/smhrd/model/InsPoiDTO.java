@@ -13,6 +13,12 @@ public class InsPoiDTO {
 		this.schedule = schedule;
 	}
 	
+	public InsPoiDTO() {
+		
+	}
+	
+	
+	
 	public InsPoiDTO(int id, int day) {
 		
 		this.id = id;
