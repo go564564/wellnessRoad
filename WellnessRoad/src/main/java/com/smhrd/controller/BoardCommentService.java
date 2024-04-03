@@ -35,7 +35,7 @@ public class BoardCommentService extends HttpServlet {
 		BoardCommentsDTO dto = new BoardCommentsDTO();
 		BoardsDAO dao = new BoardsDAO();
 		
-		
+		System.out.println("BoardCommetService 댓글인코딩 : "+cmt_content);
 		dto.setB_idx(b_idx);
 		dto.setMem_id(mem_id);
 		dto.setCmt_content(cmt_content);
@@ -45,19 +45,20 @@ public class BoardCommentService extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setAttribute("result", result);
 		
+		System.out.println("BoardCommetService 댓글인코딩2 : "+cmt_content);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("board_view.jsp");
 		dispatcher.forward(request, response);
 		
 		if (result > 0) {
 			System.out.println("댓글 등록 성공!");
-			
 			//out.println("<script>alert('댓글이 등록되었습니다.'); location.href='board_view.jsp'</script>");
 			//out.close();
 		} else {
 			System.out.println("등록 실패!");
 		}
 		//request.getRequestDispatcher("board_view.jsp").forward(request, response);
-		
+		out.close();
 	}
 
 }

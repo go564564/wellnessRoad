@@ -31,10 +31,7 @@
 	</update>
 
 
-	<!-- pw 중복확인 -->
-	<select id="pwCheck" parameterType="String" resultType="boolean">
-		select case when count(*)>0 then 1 else 0 end result from members where mem_pw=#{mem_pw}
-	</select>
+
 
 </mapper>
 

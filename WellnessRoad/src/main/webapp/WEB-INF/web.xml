@@ -82,8 +82,8 @@
 	</servlet>
 
 	<servlet>
-		<servlet-name>BoardCommentsService</servlet-name>
-		<servlet-class>com.smhrd.controller.BoardCommentsService</servlet-class>
+		<servlet-name>BoardCommentService</servlet-name>
+		<servlet-class>com.smhrd.controller.BoardCommentService</servlet-class>
 	</servlet>
 
 	<servlet>
@@ -149,6 +149,18 @@
 	<servlet>
 		<servlet-name>GetIdNameDay</servlet-name>
 		<servlet-class>com.smhrd.controller.GetIdNameDay</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Board_edit</servlet-name>
+		<display-name>Board_edit</display-name>
+		<description></description>
+		<servlet-class>com.smhrd.controller.Board_edit</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CheckPasswordService</servlet-name>
+		<display-name>CheckPasswordService</display-name>
+		<description></description>
+		<servlet-class>com.smhrd.controller.CheckPasswordService</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -227,8 +239,8 @@
 	</servlet-mapping>
 
 	<servlet-mapping>
-		<servlet-name>BoardCommentsService</servlet-name>
-		<url-pattern>/BoardCommentsService</url-pattern>
+		<servlet-name>BoardCommentService</servlet-name>
+		<url-pattern>/BoardCommentService</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
@@ -294,6 +306,14 @@
 	<servlet-mapping>
 		<servlet-name>GetIdNameDay</servlet-name>
 		<url-pattern>/GetIdNameDay</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Board_edit</servlet-name>
+		<url-pattern>/Board_edit</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CheckPasswordService</servlet-name>
+		<url-pattern>/CheckPasswordService</url-pattern>
 	</servlet-mapping>
 
 </web-app>

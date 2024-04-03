@@ -141,6 +141,14 @@ public class BoardsDAO {
 		}		
 		return cmtList;
 	}
-
 	
+	public int update_post(BoardsDTO b_dto) {
+		int result = sqlSession.update("update_post", b_dto);
+		if(result > 0) {
+			System.out.println("댓글등록 성공!");
+		}
+		sqlSession.close();
+		
+		return result;
+	}
 }

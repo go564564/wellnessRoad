@@ -40,6 +40,9 @@
 		<select id="show_cmt" resultType="com.smhrd.model.BoardCommentsDTO">
 			select * from BOARD_COMMENTS where b_idx=#{b_idx} ORDER BY CREATED_AT
 		</select>
-
+		<update id="update_post" parameterType="com.smhrd.model.BoardsDTO">
+			update boards set b_title=#{b_title},b_content=#{b_content},filename=#{filename} where
+			b_idx=#{b_idx}
+		</update>
 
 </mapper>

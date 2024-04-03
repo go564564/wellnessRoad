@@ -5,7 +5,6 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.BoardsDAO"%>
 <%@page import="com.smhrd.model.BoardsDTO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -134,15 +133,13 @@
 				</table>	
 				</div>
 				 	  <%}
-				  	}else{%>
-				<p>등록된 댓글이 없습니다.</p>
-				<%}%>
+				  	}else{%><p>등록된 댓글이 없습니다.</p><%}%>
 			</div>
 			<div class="bt_wrap">
                  <button type="button" class="submit" onclick="location='board_main.jsp'">목록</button>
                  
             <%if(mem_info.getMem_id().equals(result.getMem_id())){ %>
-                 <button type="button" class="submit" onclick="location='board_edit.jsp'">수정</button>
+                 <button type="button" class="submit" onclick="location='board_edit.jsp?b_idx=<%=b_idx%>'">수정</button>
                  <button type="button" class="submit" onclick="location='BoardDelete?b_idx=<%=b_idx%>'">삭제</button>
             <%}%>
                 
