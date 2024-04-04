@@ -57,7 +57,7 @@
 	int view = result.getB_views()+1;
 	int inc_result = new BoardsDAO().b_views_inc(new BoardsDTO(B_IDX, view));
 	int b_idx=result.getB_idx();
-	System.out.println("b_idx"+ b_idx);
+	System.out.println(result.getFilename());
 	%>
    <div class="board_wrap">
         <div class="board_title">

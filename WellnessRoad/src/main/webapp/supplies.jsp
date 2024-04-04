@@ -288,7 +288,7 @@ text-decoration: none;
 	
 	<script>
 	//여긴 이제 trip_idx를 나중에받아야함 메인파일완성되면
-	var trip_idx = 1;
+	var temp_idx = '<%=session.getAttribute("trip_idx")%>';
 	var suppliesArray =[];
 	//======================
 	$(document).ready(function() {
@@ -343,7 +343,7 @@ text-decoration: none;
     $.ajax({
         url: "GetSuppliesService", // 여행에 대한 준비물을 불러오는 서블릿 주소
         method: "GET",
-        data: {trip_idx: trip_idx},
+        data: {trip_idx: temp_idx},
         success: function(response) {
             // 성공 시 받은 데이터를 화면에 표시
             suppliesArray = response;
@@ -386,7 +386,7 @@ text-decoration: none;
 //데이터 추가 함수 addItem()
 function addItem() {
     var container = document.getElementById("main");
-    var trip_idx = 1;
+    var trip_idx = temp_idx;
     // 여기가 화면에 보이는 숫자화면인 듯
     var lastNum = container.getElementsByClassName("boxContainer").length;
     var newNum = lastNum;
@@ -432,14 +432,14 @@ function addItem() {
     $.ajax({
         url: 'AddSupply',
         method: 'POST',
-        data: { name: con, status: 0, trip_idx: trip_idx },
+        data: { name: con, status: 0, trip_idx: temp_idx },
         success: function (response) {
             console.log("새로운 준비물 추가 성공!");
             // 성공적으로 추가되면 suppliesArray에도 추가
             var newItem = {
                 supply_name: con,
                 supply_status: 0,
-                trip_idx: 1
+                trip_idx: temp_idx
             };
             suppliesArray.push(newItem);
             console.log(suppliesArray);

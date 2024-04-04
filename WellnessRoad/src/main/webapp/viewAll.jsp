@@ -322,7 +322,6 @@ text-decoration: none;
 		        }); // forEach 메서드의 닫는 괄호  
 		       
 		        reDraw(tripIdxArray[0]);
-		        
 		        } // null if문 끝
 		        
 		    },
