@@ -103,10 +103,12 @@
 ![JOIN](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/984130f2-6d9c-4207-b69e-dc88521784a5)
 
 <br>
+
 ### 로그인 
 ![LOGIN](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/af83372a-f2c0-4a73-907f-571f0c38100a)
 
 <br>
+
 ### 새로운 일정 만들기 01
 ![0001](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/df9c003f-c966-495f-ae8f-46ecd4555cf2)
 <br>
@@ -115,10 +117,12 @@
 ![0002](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/4c0855c6-16a6-4495-aeec-f026729379d5)
 
 <br>
+
 ### 새로운 일정 만들기 03
 ![0003](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/f8ae1a04-d32f-4949-a2d8-d5ac0a01351f)
 
 <br>
+
 ### 새로운 일정 만들기 04
 ![0004](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/c7c5ab8b-f2ca-4dd5-9b48-adfa3d35dbf9)
 
@@ -129,6 +133,7 @@
 ![0005](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/e2279d83-554f-4986-a9e3-e89ae9214623)
 
 <br>
+
 ### 게시판
 ![0006](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/8cfa037a-95e9-44fe-b5f9-296d61da0725)
 
