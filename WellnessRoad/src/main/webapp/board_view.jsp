@@ -40,6 +40,11 @@
 	#cmt_id{
 	padding: 30px;
 	}
+	
+	.table-striped{
+	font-size: 16px;
+	}
+	
 	</style>	
 </head>
 <body>
@@ -117,7 +122,7 @@
 				</div>
 			</div> 
 			<div class="comment-section">
-				<h3>댓글</h3>
+				<h1 style="padding: 5px 0;">댓글</h1>
 				<%
 				// 댓글 목록 조회
 				   List<BoardCommentsDTO> cmtList = dao.show_cmt(b_idx);
