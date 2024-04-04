@@ -17,9 +17,10 @@ public class LogoutService extends HttpServlet {
 		
 		session.removeAttribute("mem_info");
 		
+		session.removeAttribute("trip_idx");
+	
 		response.sendRedirect("Main.jsp");
-	
-	
+		
 	
 	}
 
