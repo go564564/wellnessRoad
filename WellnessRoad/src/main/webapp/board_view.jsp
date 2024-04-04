@@ -91,7 +91,7 @@
                 </div>
                 <%if(result.getFilename()!=null){ %>
                 <div class="cont">
-					<img src="./b_imgs/<%=result.getFilename()%>">
+					<img src="./b_imgs/<%=result.getFilename()%>" height="350px" width="350px"><br>
 					<%=result.getB_content()%>
                 </div>
                 <%} else{ %>

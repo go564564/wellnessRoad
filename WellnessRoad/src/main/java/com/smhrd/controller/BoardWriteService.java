@@ -27,7 +27,7 @@ public class BoardWriteService extends HttpServlet {
 		HttpSession session = request.getSession();
 		MembersDTO mem_info=(MembersDTO)session.getAttribute("mem_info");
 		
-		String path = "C:\\Users\\User\\git\\wellnessRoad\\WellnessRoad\\src\\main\\webapp\\b_imgs";
+		String path = "C:\\Users\\User\\Desktop\\SeverStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WellnessRoad\\b_imgs";
 		// 서버에 파일을 저장할 디렉토리 경로
 		int maxSize = 3 * 1024 * 1024; // 최대 3MB지정
 		String encoding = "UTF-8"; // 인코딩 설정

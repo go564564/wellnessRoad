@@ -142,7 +142,7 @@ html {
 	margin-bottom: 100px;
 }
 
-.pnum:hover {
+.pnum: hover {
 	border-radius: 5px;
 	border-color: #4CAF50;
 }
@@ -195,7 +195,7 @@ html {
 					<%
 					} else {
 					%>
-					<div onclick="location.href='mypage.jsp';">마이페이지</div>
+					<div onclick="location.href='realMyPage.jsp';">마이페이지</div>
 					<div onclick="location.href='LogoutService';">로그아웃</div>
 					<%
 					}
