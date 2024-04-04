@@ -76,36 +76,64 @@
 
 <br>
 
-## ⚙ 시스템 아키텍처(구조) 예시 
-![서비스 아키텍처](https://user-images.githubusercontent.com/25995055/169925538-15867bd9-aa0b-42fc-a39b-88981e926e51.png)
+## ⚙ 시스템 아키텍처(구조)
+![System Architecture](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/6624f169-0fc9-4a3c-a250-e025eadf1b7d)
+
 <br>
 
 ## 📌 SW유스케이스
-![image](https://user-images.githubusercontent.com/25995055/178401023-9a015e66-aa6e-4d74-8564-9b1f9d306649.png)
+![usecase](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/c3643495-8a51-4c73-b810-b97a67f87d3b)
+
 <br>
 
-## 📌 서비스 흐름도
-![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
+## 📌서비스 흐름도
+![Service wave](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/cd140cd6-c0b0-437e-8165-d32efb488e43)
+
+
 <br>
 
 ## 📌 ER다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
+![ER DIAGRAM](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/ea4e2d7a-edfe-4a2a-acdc-b32c5e6ddba7)
+
 <br>
 
 ## 🖥 화면 구성
 
-### 로그인/회원가입/회원괸리/회원수정/회원탈퇴
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
+### 회원가입
+![JOIN](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/984130f2-6d9c-4207-b69e-dc88521784a5)
+
+<br>
+### 로그인 
+![LOGIN](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/af83372a-f2c0-4a73-907f-571f0c38100a)
+
+<br>
+### 새로운 일정 만들기 01
+![0001](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/df9c003f-c966-495f-ae8f-46ecd4555cf2)
 <br>
 
-### 옷 정보/코디 추천
-![image](https://user-images.githubusercontent.com/25995055/178401127-287e6de2-4396-49fc-a107-59c4d5cd55c7.png)
+### 새로운 일정 만들기 02
+![0002](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/4c0855c6-16a6-4495-aeec-f026729379d5)
+
+<br>
+### 새로운 일정 만들기 03
+![0003](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/f8ae1a04-d32f-4949-a2d8-d5ac0a01351f)
+
+<br>
+### 새로운 일정 만들기 04
+![0004](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/c7c5ab8b-f2ca-4dd5-9b48-adfa3d35dbf9)
+
 <br>
 
-### 일정/고객센터
-![image](https://user-images.githubusercontent.com/25995055/178401150-861f0e93-0f40-4fae-98c1-2099bf513c8d.png)
-<br>
 
+### 준비물
+![0005](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/e2279d83-554f-4986-a9e3-e89ae9214623)
+
+<br>
+### 게시판
+![0006](https://github.com/2023-SMHRD-KDT-AI-16/wellnessRoad/assets/157657483/8cfa037a-95e9-44fe-b5f9-296d61da0725)
+
+
+<br>
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
   <tr>
@@ -116,11 +144,11 @@
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
+    <td align="center"><strong>권창안</strong></td>
+    <td align="center"><strong>강성훈</strong></td>
+    <td align="center"><strong>고성언</strong></td>
+    <td align="center"><strong>임정민</strong></td>
+    <td align="center"><strong>임찬혁</strong></td>
   </tr>
   <tr>
     <td align="center"><b>Frontend</b></td>
