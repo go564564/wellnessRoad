@@ -29,7 +29,9 @@ html {
 #topMenu {
 	width: 100%;
 	height: 100px;
-	background-image: url("./img/greentea.jpg");
+	background-image: url("./img/mokgoo.jpg");
+	background-repeat: no-repeat;
+	background-size:cover;
 	display: grid;
 	grid-template-columns: 1fr 20fr 1fr;
 	grid-template-rows: 1fr 3fr 1fr;
@@ -107,7 +109,7 @@ html {
 #rightMenu {
 	padding-right:50px;
 	display: flex;
-	width:200px;
+	width:300px;
 	font-size: 23px;
 	/* 글자 크기를 20px로 변경 */
 	color: #333;
@@ -123,30 +125,10 @@ html {
 	transition-property: color;
 	text-align:center;
 	line-height:50px;
+	justify-content: space-between;
 }
 
-.pagination {
-  display: inline-block;
-}
-
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-.pnum {
-	align-content: center;
-	margin-left: 20px;
-	font-size: large;
-	margin-bottom: 100px;
-}
-
-.pnum: hover {
-	border-radius: 5px;
-	border-color: #4CAF50;
-}
-.submit{
+	.submit{
   	background-color: rgb(0, 128,255);
  	border-radius:10%;
   	width: 5em;
@@ -154,6 +136,7 @@ html {
   	font-size: 15px;
  	font-weight: bold;
  	color: aliceblue;
+ 	border: none;
 }
 </style>
 </head>

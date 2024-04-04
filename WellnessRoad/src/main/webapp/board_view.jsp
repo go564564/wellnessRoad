@@ -16,9 +16,120 @@
 	<link rel="stylesheet" href="style.css">
  	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-	<style>
+  <style>
 	 @import url(mxzedia.css);
 	 
+	* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+#topMenu {
+	width: 100%;
+	height: 100px;
+	background-image: url("./img/mokgoo.jpg");
+	background-repeat: no-repeat;
+	background-size:cover;
+	display: grid;
+	grid-template-columns: 1fr 20fr 1fr;
+	grid-template-rows: 1fr 3fr 1fr;
+	grid-template-areas: ". . ." ". main ." ". . .";
+}
+
+#menuContainer {
+	grid-area: main;
+	height: 50px;
+	background-color: rgba(255,255,255,0.5);;
+	display: flex;
+	justify-content: space-between;	
+}
+
+#topLeftMenu{	
+	height:50px;
+	 display: flex;
+    align-items: center; /* 세로 중앙 정렬 */     
+}
+#toprightMenu{
+	height:50px;
+	 display: flex;
+    align-items: center; /* 세로 중앙 정렬 */    
+}
+
+
+#logo {
+	width: 200px;
+	height: 50px;
+}
+
+.menu{
+	width:200px;
+	font-size: 23px;
+	/* 글자 크기를 20px로 변경 */
+	color: #333;
+	font-family: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+	text-align:center;
+	line-height:50px;
+}
+
+.menu:focus,
+.menu:hover {
+	color: #222;
+}
+
+.menu:focus:after,
+.menu:hover:after {
+	width: 100%;
+	left: 0%;
+}
+
+.menu:after {
+	content: "";
+	pointer-events: none;
+	bottom: 5px;
+	left: 50%;
+	position: absolute;
+	width: 0%;
+	height: 4px;
+	background-color: #96E9C6;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: width, left;
+}
+#rightMenu {
+	padding-right:50px;
+	display: flex;
+	width:300px;
+	font-size: 23px;
+	/* 글자 크기를 20px로 변경 */
+	color: #333;
+	font-family: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+	text-align:center;
+	line-height:50px;
+	justify-content: space-between;
+} 
 	 
 	.submit{
   	background-color: rgb(0, 128,255);
@@ -28,6 +139,7 @@
   	font-size: 15px;
  	font-weight: bold;
  	color: aliceblue;
+ 	border: none;
 }
 	
 	.cmd_tb{
@@ -64,6 +176,38 @@
 	int b_idx=result.getB_idx();
 	System.out.println(result.getFilename());
 	%>
+	
+	  <div id="topMenu">
+		<div id="menuContainer">
+			
+			<div id="topLeftMenu">
+				<a href="Main.jsp" ><img src="./img/logoBus.png" alt="로고" id="logo" /></a>
+				
+				<div class="menu"><a href="board_main.jsp">게시판</a></div>
+				<div class="menu"><a href="viewAll.jsp">여행계획보기</a></div>
+					
+				</div>
+			
+				<div id="rightMenu">
+					<%
+					if (mem_info == null) {
+					%>
+					<div onclick="location.href='Login.jsp';">로그인</div>
+					<div onclick="location.href='register.jsp';">회원가입</div>
+					<%
+					} else {
+					%>
+					<div onclick="location.href='realMyPage.jsp';">마이페이지</div>
+					<div onclick="location.href='LogoutService';">로그아웃</div>
+					<%
+					}
+					%>
+				</div>
+			
+		</div>
+	</div>
+	
+	
    <div class="board_wrap">
         <div class="board_title">
             <strong>게시판</strong>
@@ -72,7 +216,7 @@
             <div class="board_view">
                 <div class="title">
                     <dl>
-                        <dt>제목</dt>
+                        <dt></dt>
                         <dd><%=result.getB_title()%></dd>
                     </dl>
                 </div>
@@ -132,8 +276,8 @@
 				<div class="comment">
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<tr>
-						<td style="text-align: left;"><%=cmtList.get(i).getMem_id()%></td>
-						<td style="text-align: right; font-size: 10px;"><%=cmtList.get(i).getCreated_at()%></td>
+						<td style="text-align: left; font-weight: bold;"><%=cmtList.get(i).getMem_id()%></td>
+						<td style="text-align: right; font-size: 10px; color: gray;"><%=cmtList.get(i).getCreated_at()%></td>
 					</tr>
 					<tr>
 						<td><%=cmtList.get(i).getCmt_content() %></td>

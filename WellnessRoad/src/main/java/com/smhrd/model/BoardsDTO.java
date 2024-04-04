@@ -27,6 +27,15 @@ public class BoardsDTO {
 	}
 	
 	
+	public BoardsDTO(String b_title, String b_content, String filename, int b_idx) {
+		super();
+		this.b_title = b_title;
+		this.b_content = b_content;
+		this.filename = filename;
+		this.b_idx = b_idx;
+	}
+
+
 	public BoardsDTO(int b_idx, String b_title, String b_content, String created_at, int b_views, int b_likes,
 			String mem_id, int poi_idx, String filename) {
 		this.b_idx = b_idx;
